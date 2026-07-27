@@ -28,9 +28,8 @@ export function StudioEditorial() {
               data-reveal
               style={{ ["--reveal-delay" as string]: "140ms" }}
             >
-              Luce morbida, materiali naturali e postazioni essenziali. Lo
-              studio lascia spazio alla relazione, al lavoro e al tempo
-              personale.
+              Luce morbida, materiali naturali e postazioni essenziali. Lo studio lascia spazio alla
+              relazione, al lavoro e al tempo personale.
             </p>
           </div>
           <div className="md:col-span-7" data-reveal>

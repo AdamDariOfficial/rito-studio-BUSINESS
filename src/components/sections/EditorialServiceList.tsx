@@ -30,8 +30,8 @@ export function EditorialServiceList() {
               data-reveal
               style={{ ["--reveal-delay" as string]: "120ms" }}
             >
-              Una selezione di servizi per capelli, viso, mani e benessere.
-              Durata e percorso vengono definiti durante la consulenza.
+              Una selezione di servizi per capelli, viso, mani e benessere. Durata e percorso
+              vengono definiti durante la consulenza.
             </p>
           </div>
         </div>
@@ -53,9 +53,7 @@ export function EditorialServiceList() {
                 <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink md:text-base">
                   {cat.items.map((item, i) => (
                     <li key={item} className="flex items-center gap-3">
-                      {i > 0 && (
-                        <span aria-hidden className="h-1 w-1 rounded-full bg-line" />
-                      )}
+                      {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-line" />}
                       <span>{item}</span>
                     </li>
                   ))}
@@ -65,9 +63,7 @@ export function EditorialServiceList() {
           ))}
         </ol>
 
-        <p className="mt-10 max-w-2xl text-xs italic leading-relaxed text-muted">
-          {servicesNote}
-        </p>
+        <p className="mt-10 max-w-2xl text-xs italic leading-relaxed text-muted">{servicesNote}</p>
       </div>
     </section>
   );

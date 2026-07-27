@@ -43,19 +43,19 @@ function CookiePage() {
         </h1>
         <div className="mt-10 space-y-6 text-sm leading-relaxed text-muted md:text-base">
           <p className="border-l-2 border-accent pl-4 italic text-ink">
-            Questa pagina è un placeholder dimostrativo. La versione definitiva
-            richiede una revisione legale specifica in base alle tecnologie
-            effettivamente attivate dal cliente reale.
+            Questa pagina è un placeholder dimostrativo. La versione definitiva richiede una
+            revisione legale specifica in base alle tecnologie effettivamente attivate dal cliente
+            reale.
           </p>
           <p>
-            Il concept dimostrativo di RITO Studio non installa cookie di
-            profilazione, non attiva strumenti di analytics e non integra
-            servizi di terze parti che raccolgono dati personali.
+            Il concept dimostrativo di RITO Studio non installa cookie di profilazione, non attiva
+            strumenti di analytics e non integra servizi di terze parti che raccolgono dati
+            personali.
           </p>
           <p>
-            In un progetto reale, questa sezione elenca le categorie di cookie
-            utilizzate, la loro finalità, la durata, i fornitori coinvolti e le
-            modalità con cui l&apos;utente può prestare o revocare il consenso.
+            In un progetto reale, questa sezione elenca le categorie di cookie utilizzate, la loro
+            finalità, la durata, i fornitori coinvolti e le modalità con cui l&apos;utente può
+            prestare o revocare il consenso.
           </p>
         </div>
       </main>

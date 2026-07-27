@@ -21,8 +21,8 @@ function NotFoundComponent() {
           Pagina non trovata
         </h1>
         <p className="mt-4 text-sm text-muted">
-          La pagina cercata non esiste o è stata spostata. Torna alla home per
-          riprendere la navigazione.
+          La pagina cercata non esiste o è stata spostata. Torna alla home per riprendere la
+          navigazione.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
@@ -54,9 +54,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-canvas px-4">
       <div className="max-w-md text-center">
         <p className="eyebrow">Errore</p>
-        <h1 className="mt-4 font-display text-2xl text-ink">
-          Questa pagina non si è caricata
-        </h1>
+        <h1 className="mt-4 font-display text-2xl text-ink">Questa pagina non si è caricata</h1>
         <p className="mt-3 text-sm text-muted">
           Qualcosa è andato storto. Puoi riprovare o tornare alla home.
         </p>

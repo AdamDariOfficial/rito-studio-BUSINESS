@@ -29,8 +29,8 @@ export function BookingCTA({ onBookClick }: BookingCTAProps) {
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "80ms" }}
               >
-                Raccontaci cosa stai cercando. Ti aiutiamo a scegliere il
-                trattamento e il momento più adatto.
+                Raccontaci cosa stai cercando. Ti aiutiamo a scegliere il trattamento e il momento
+                più adatto.
               </p>
               <button
                 ref={btnRef}
@@ -43,10 +43,7 @@ export function BookingCTA({ onBookClick }: BookingCTAProps) {
             </div>
           </div>
           {/* Accent detail */}
-          <span
-            aria-hidden
-            className="absolute -top-px left-8 h-2 w-16 bg-accent"
-          />
+          <span aria-hidden className="absolute -top-px left-8 h-2 w-16 bg-accent" />
         </div>
       </div>
     </section>

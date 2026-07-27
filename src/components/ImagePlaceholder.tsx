@@ -33,11 +33,7 @@ export function ImagePlaceholder({
       role={label ? "img" : undefined}
       aria-label={label}
       aria-hidden={label ? undefined : true}
-      className={cn(
-        "relative w-full overflow-hidden",
-        toneClass[tone],
-        className,
-      )}
+      className={cn("relative w-full overflow-hidden", toneClass[tone], className)}
       style={{ aspectRatio: ratio }}
     >
       <div
@@ -53,8 +49,7 @@ export function ImagePlaceholder({
         aria-hidden
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(160deg, transparent 55%, rgba(27,26,24,0.06) 100%)",
+          background: "linear-gradient(160deg, transparent 55%, rgba(27,26,24,0.06) 100%)",
         }}
       />
     </div>

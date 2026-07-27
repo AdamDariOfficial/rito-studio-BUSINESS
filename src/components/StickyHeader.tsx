@@ -59,9 +59,7 @@ export function StickyHeader({ onBookClick }: StickyHeaderProps) {
       if (e.key === "Tab") {
         const root = drawerRef.current;
         if (!root) return;
-        const focusables = root.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled])',
-        );
+        const focusables = root.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
         if (focusables.length === 0) return;
         const first = focusables[0];
         const last = focusables[focusables.length - 1];
@@ -151,7 +149,10 @@ export function StickyHeader({ onBookClick }: StickyHeaderProps) {
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       >
-        <nav aria-label="Navigazione mobile" className="container-editorial flex flex-1 flex-col pt-10">
+        <nav
+          aria-label="Navigazione mobile"
+          className="container-editorial flex flex-1 flex-col pt-10"
+        >
           <ul className="flex flex-col gap-1">
             {nav.map((item, idx) => (
               <li key={item.hash} className="border-b border-line">

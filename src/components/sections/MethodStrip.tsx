@@ -2,20 +2,17 @@ const principles = [
   {
     index: "I",
     name: "Ascolto",
-    body:
-      "Una consulenza breve e concreta per capire esigenze, abitudini e aspettative.",
+    body: "Una consulenza breve e concreta per capire esigenze, abitudini e aspettative.",
   },
   {
     index: "II",
     name: "Precisione",
-    body:
-      "Tecniche, prodotti e tempi scelti in base al servizio, non a un protocollo indistinto.",
+    body: "Tecniche, prodotti e tempi scelti in base al servizio, non a un protocollo indistinto.",
   },
   {
     index: "III",
     name: "Continuità",
-    body:
-      "Indicazioni semplici per mantenere il risultato e pianificare il prossimo appuntamento.",
+    body: "Indicazioni semplici per mantenere il risultato e pianificare il prossimo appuntamento.",
   },
 ] as const;
 
@@ -39,9 +36,7 @@ export function MethodStrip() {
               style={{ ["--reveal-delay" as string]: `${i * 80}ms` }}
             >
               <div className="flex items-baseline gap-4">
-                <span className="font-display text-sm italic text-accent">
-                  {p.index}
-                </span>
+                <span className="font-display text-sm italic text-accent">{p.index}</span>
                 <h3 className="font-display text-2xl leading-tight text-ink md:text-3xl">
                   {p.name}
                 </h3>

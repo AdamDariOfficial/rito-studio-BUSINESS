@@ -43,20 +43,18 @@ function PrivacyPage() {
         </h1>
         <div className="mt-10 space-y-6 text-sm leading-relaxed text-muted md:text-base">
           <p className="border-l-2 border-accent pl-4 italic text-ink">
-            Questa pagina è un placeholder dimostrativo. La versione definitiva
-            richiede una revisione legale specifica in base alle finalità di
-            trattamento, ai canali utilizzati dallo studio reale e alla base
-            giuridica applicabile.
+            Questa pagina è un placeholder dimostrativo. La versione definitiva richiede una
+            revisione legale specifica in base alle finalità di trattamento, ai canali utilizzati
+            dallo studio reale e alla base giuridica applicabile.
           </p>
           <p>
-            RITO Studio è un concept dimostrativo creato da Tretnix. Nessun
-            dato personale viene raccolto, trasmesso o conservato durante la
-            navigazione di questo sito demo.
+            RITO Studio è un concept dimostrativo creato da Tretnix. Nessun dato personale viene
+            raccolto, trasmesso o conservato durante la navigazione di questo sito demo.
           </p>
           <p>
-            In un progetto reale, questa sezione descrive titolare del
-            trattamento, tipologie di dati raccolti, finalità, base giuridica,
-            destinatari, tempi di conservazione e diritti dell&apos;interessato.
+            In un progetto reale, questa sezione descrive titolare del trattamento, tipologie di
+            dati raccolti, finalità, base giuridica, destinatari, tempi di conservazione e diritti
+            dell&apos;interessato.
           </p>
         </div>
       </main>

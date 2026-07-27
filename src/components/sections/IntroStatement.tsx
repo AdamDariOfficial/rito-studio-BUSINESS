@@ -22,9 +22,9 @@ export function IntroStatement() {
               data-reveal
               style={{ ["--reveal-delay" as string]: "140ms" }}
             >
-              Ogni appuntamento parte da ciò che cerchi, dal tempo che hai e da
-              come vuoi sentirti. Costruiamo il trattamento insieme, con
-              attenzione alla persona e senza gesti automatici.
+              Ogni appuntamento parte da ciò che cerchi, dal tempo che hai e da come vuoi sentirti.
+              Costruiamo il trattamento insieme, con attenzione alla persona e senza gesti
+              automatici.
             </p>
           </div>
         </div>

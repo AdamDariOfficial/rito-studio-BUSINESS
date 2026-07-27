@@ -20,11 +20,7 @@ export function Hero({ onBookClick }: HeroProps) {
         <div className="grid gap-12 md:grid-cols-12 md:gap-8">
           {/* Left column: text — 7/12 on desktop */}
           <div className="md:col-span-7 md:pr-6">
-            <p
-              className="eyebrow"
-              data-reveal
-              style={{ ["--reveal-delay" as string]: "0ms" }}
-            >
+            <p className="eyebrow" data-reveal style={{ ["--reveal-delay" as string]: "0ms" }}>
               Beauty &amp; Care Atelier · Padova
             </p>
 
@@ -43,9 +39,8 @@ export function Hero({ onBookClick }: HeroProps) {
               data-reveal
               style={{ ["--reveal-delay" as string]: "160ms" }}
             >
-              Un atelier contemporaneo dedicato a capelli, pelle e benessere.
-              Trattamenti su misura, gesti precisi e il tempo necessario per
-              ascoltarti.
+              Un atelier contemporaneo dedicato a capelli, pelle e benessere. Trattamenti su misura,
+              gesti precisi e il tempo necessario per ascoltarti.
             </p>
 
             <div

@@ -7,9 +7,7 @@ export function Footer() {
     <footer className="border-t border-line bg-canvas">
       <div className="container-editorial grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="font-display text-2xl text-ink">
-            {site.brand.name}
-          </p>
+          <p className="font-display text-2xl text-ink">{site.brand.name}</p>
           <p className="mt-1 text-sm text-muted">{site.brand.descriptor}</p>
           <p className="mt-6 max-w-xs text-xs leading-relaxed text-muted">
             Concept dimostrativo Tretnix — nessun servizio reale.
@@ -61,7 +59,9 @@ export function Footer() {
 
       <div className="border-t border-line">
         <div className="container-editorial flex flex-col-reverse items-start justify-between gap-3 py-6 text-xs text-muted md:flex-row md:items-center">
-          <p>© {year} {site.brand.name}. Concept dimostrativo.</p>
+          <p>
+            © {year} {site.brand.name}. Concept dimostrativo.
+          </p>
           <p>
             {site.attribution.text}{" "}
             <a

@@ -55,42 +55,22 @@ export const serviceCategories = [
   {
     index: "01",
     name: "Hair Rituals",
-    items: [
-      "Taglio essenziale",
-      "Colore su misura",
-      "Trattamento texture",
-      "Piega e styling",
-    ],
+    items: ["Taglio essenziale", "Colore su misura", "Trattamento texture", "Piega e styling"],
   },
   {
     index: "02",
     name: "Skin & Brow",
-    items: [
-      "Rituale viso",
-      "Brow design",
-      "Lash lift",
-      "Trattamento illuminante",
-    ],
+    items: ["Rituale viso", "Brow design", "Lash lift", "Trattamento illuminante"],
   },
   {
     index: "03",
     name: "Hands & Nails",
-    items: [
-      "Manicure essenziale",
-      "Semipermanente",
-      "Nail care",
-      "Rituale mani",
-    ],
+    items: ["Manicure essenziale", "Semipermanente", "Nail care", "Rituale mani"],
   },
   {
     index: "04",
     name: "Wellness",
-    items: [
-      "Massaggio distensivo",
-      "Rituale schiena",
-      "Trattamento relax",
-      "Percorso corpo",
-    ],
+    items: ["Massaggio distensivo", "Rituale schiena", "Trattamento relax", "Percorso corpo"],
   },
 ] as const;
 

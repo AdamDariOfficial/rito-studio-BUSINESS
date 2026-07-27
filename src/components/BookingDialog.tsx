@@ -80,15 +80,11 @@ export function BookingDialog({ open, onClose, returnFocusRef }: BookingDialogPr
         className="w-full max-w-md border border-line bg-canvas p-8 shadow-lg"
       >
         <p className="eyebrow">Demo</p>
-        <h2
-          id="booking-dialog-title"
-          className="mt-3 text-2xl leading-tight text-ink"
-        >
+        <h2 id="booking-dialog-title" className="mt-3 text-2xl leading-tight text-ink">
           Richiedi un appuntamento
         </h2>
         <p id="booking-dialog-body" className="mt-4 text-sm leading-relaxed text-muted">
-          {site.booking.demoFeedback}
-          {" "}Nel progetto reale questa azione aprirà il canale scelto dallo
+          {site.booking.demoFeedback} Nel progetto reale questa azione aprirà il canale scelto dallo
           studio: telefono, WhatsApp o portale esterno.
         </p>
         <dl className="mt-6 space-y-2 border-t border-line pt-4 text-sm">
