@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { useRevealController } from "@/hooks/use-reveal-controller";
 import { StickyHeader } from "@/components/StickyHeader";
 import { Footer } from "@/components/Footer";
 import { SkipLink } from "@/components/SkipLink";
@@ -40,9 +41,8 @@ function Index() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const returnFocusRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    document.documentElement.classList.add("js");
-  }, []);
+  useRevealController();
+
 
   function handleBookClick(trigger: HTMLElement) {
     returnFocusRef.current = trigger;
