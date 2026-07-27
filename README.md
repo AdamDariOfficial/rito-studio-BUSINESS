@@ -1,29 +1,35 @@
-# Welcome to your Lovable project
+# RITO Studio START
 
-This project was built with [Lovable](https://lovable.dev).
+RITO Studio START is a fictional Tretnix portfolio concept for the Beauty & Wellness family.
 
-## Build with Lovable
+The authorized product is a premium mobile-first one-page website with `/`, `/privacy`, `/cookie` and a real 404 experience. It uses fictional data and has no backend, authentication or native booking engine.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## Canonical documentation
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+Read `AGENTS.md` first, then:
 
-## Development
+- `docs/PRODUCT.md`
+- `docs/DESIGN.md`
+- `docs/CONTENT.md`
+- `docs/ROUTES.md`
+- `docs/ANIMATIONS.md`
+- `docs/TESTING.md`
+- `docs/DECISIONS.md`
+- `docs/ASSET_PLAN.md`
+- `docs/STATUS.md`
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+The Lovable Project Knowledge source is stored in:
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```text
+compiled/LOVABLE_START_PROJECT_KNOWLEDGE.md
 ```
 
-## Built with
+The authorized START prompt is stored in:
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+```text
+prompts/LOVABLE_START_PROMPT.md
+```
+
+## Status
+
+Implementation is authorized only for START. BUSINESS, BUSINESS PLUS, backend, database, authentication, deployment and production infrastructure remain excluded.
