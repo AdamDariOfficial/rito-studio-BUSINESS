@@ -14,19 +14,28 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-canvas px-5">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <p className="eyebrow">Errore 404</p>
+        <h1 className="mt-4 font-display text-6xl text-ink md:text-7xl">
+          Pagina non trovata.
+        </h1>
+        <p className="mt-4 text-sm text-muted">
+          Il contenuto che cercavi è stato spostato o non esiste più.
         </p>
-        <div className="mt-6">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex h-11 items-center rounded-[3px] bg-ink px-5 text-sm font-medium text-paper transition-colors hover:bg-accent-strong"
           >
-            Go home
+            Torna alla home
+          </Link>
+          <Link
+            to="/"
+            hash="trattamenti"
+            className="inline-flex h-11 items-center rounded-[3px] border border-ink px-5 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper"
+          >
+            Vedi i trattamenti
           </Link>
         </div>
       </div>
