@@ -43,7 +43,6 @@ function Index() {
 
   useRevealController();
 
-
   function handleBookClick(trigger: HTMLElement) {
     returnFocusRef.current = trigger;
     setDialogOpen(true);

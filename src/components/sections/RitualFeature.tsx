@@ -35,7 +35,7 @@ export function RitualFeature() {
           </div>
 
           {/* Image */}
-          <div className="row-start-1 md:col-span-5 md:col-start-1 md:row-start-auto" data-reveal>
+          <div className="md:col-span-5 md:col-start-1 md:row-start-auto" data-reveal>
             <ImagePlaceholder
               ratio="3 / 4"
               tone="ink"
