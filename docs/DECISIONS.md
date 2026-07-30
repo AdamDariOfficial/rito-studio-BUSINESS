@@ -1,8 +1,8 @@
 # RITO Studio — Decision Log
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.0
-**Stato:** decisioni approvate il 25 luglio 2026
+**Versione:** 1.1
+**Stato:** decisioni approvate e aggiornate al 28 luglio 2026
 
 ## BW-DEC-001 — Concept portfolio
 
@@ -87,3 +87,38 @@ collegato a `https://tretnix.com`.
 ## BW-DEC-018 — Prezzo separato dalla specifica prodotto
 
 **Decisione:** la famiglia definisce scope, deliverable, esclusioni e add-on, ma il prezzo viene stabilito dalla politica commerciale Tretnix e dal progetto reale.
+
+
+## BW-DEC-019 — V1 conservata ma rifiutata visivamente
+
+**Decisione:** conservare la prima implementazione Lovable al commit `47658ae52f0e7585dc887226e90014038e9c63ae` come prototipo tecnico recuperabile, ma non usarla come baseline visuale approvata.
+
+**Motivo:** la direzione fotografica, la hero e il ritmo editoriale non raggiungevano il livello richiesto per RITO Studio START.
+
+## BW-DEC-020 — Una sola generazione V2 indipendente
+
+**Decisione:** autorizzare una seconda e ultima generazione Lovable dalla baseline pre-visuale ripristinata, senza riutilizzare la V1 come riferimento.
+
+**Evidenza:** la V2 candidata è registrata al commit `32fa4d534582be6c08c1303c879d17b7f763a4fd`.
+
+**Limite:** nessuna terza generazione Lovable è autorizzata senza una nuova decisione esplicita.
+
+## BW-DEC-021 — V2 candidata, non baseline congelata
+
+**Decisione:** trattare la V2 come candidata tecnica e di art direction, non come START approvato o congelato.
+
+**Motivo:** la struttura è più coerente della V1, ma fotografia definitiva, copy reconciliation, Impeccable, QA browser e audit restano pendenti.
+
+## BW-DEC-022 — Baseline tecnica prima di Impeccable
+
+**Decisione:** prima dell'audit Impeccable stabilizzare line ending, lint, focus return, focusabilità del drawer chiuso e route tree generata tramite una modifica controllata separata.
+
+**Limite:** questo intervento non autorizza redesign, sostituzione degli asset, deploy o modifiche BUSINESS.
+
+## BW-DEC-023 — Redesign Impeccable consentito entro lo scope START
+
+**Decisione:** dopo la stabilizzazione tecnica, Impeccable può proporre e applicare un redesign sostanziale della UI quando supportato da finding approvati.
+
+**Vincoli da preservare:** scope START, route, copy canonico, palette porcellana/inchiostro/borgogna, accent `#6A3F4B`, Newsreader + Manrope, accessibilità, mobile-first, demo integrity, assenza di backend e attribuzione Tretnix.
+
+**Metodo:** detector e critique iniziano in sola lettura; nessun finding viene applicato automaticamente.

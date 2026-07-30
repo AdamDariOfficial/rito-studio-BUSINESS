@@ -28,7 +28,7 @@ export function StickyHeader({ onBookClick }: StickyHeaderProps) {
 
   // Close on breakpoint change to desktop
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 900px)");
+    const mq = window.matchMedia("(min-width: 1024px)");
     function handle(e: MediaQueryListEvent) {
       if (e.matches) setOpen(false);
     }
@@ -39,6 +39,7 @@ export function StickyHeader({ onBookClick }: StickyHeaderProps) {
   // Drawer effects: focus containment, escape, scroll lock
   useEffect(() => {
     if (!open) return;
+    const drawerTrigger = triggerRef.current;
     const previousOverflow = document.body.style.overflow;
     const previousPaddingRight = document.body.style.paddingRight;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -78,7 +79,7 @@ export function StickyHeader({ onBookClick }: StickyHeaderProps) {
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = previousOverflow;
       document.body.style.paddingRight = previousPaddingRight;
-      triggerRef.current?.focus();
+      drawerTrigger?.focus();
     };
   }, [open]);
 
@@ -139,52 +140,53 @@ export function StickyHeader({ onBookClick }: StickyHeaderProps) {
         </button>
       </div>
 
-      {/* Mobile drawer */}
-      <div
-        id={drawerId}
-        ref={drawerRef}
-        aria-hidden={!open}
-        className={cn(
-          "fixed inset-x-0 top-[var(--header-height)] bottom-0 z-40 flex flex-col bg-canvas transition-opacity lg:hidden",
-          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
-        )}
-      >
-        <nav
-          aria-label="Navigazione mobile"
-          className="container-editorial flex flex-1 flex-col pt-10"
+      {/* Mobile drawer: unmounted while closed so hidden links cannot receive focus. */}
+      {open && (
+        <div
+          id={drawerId}
+          ref={drawerRef}
+          className="fixed inset-x-0 top-[var(--header-height)] bottom-0 z-40 flex flex-col bg-canvas lg:hidden"
         >
-          <ul className="flex flex-col gap-1">
-            {nav.map((item, idx) => (
-              <li key={item.hash} className="border-b border-line">
-                <a
-                  href={item.hash}
-                  onClick={handleAnchorClick}
-                  className="flex items-baseline justify-between py-5 font-display text-3xl text-ink"
-                >
-                  <span>{item.label}</span>
-                  <span className="eyebrow text-muted">{String(idx + 1).padStart(2, "0")}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <nav
+            aria-label="Navigazione mobile"
+            className="container-editorial flex flex-1 flex-col pt-10"
+          >
+            <ul className="flex flex-col gap-1">
+              {nav.map((item, idx) => (
+                <li key={item.hash} className="border-b border-line">
+                  <a
+                    href={item.hash}
+                    onClick={handleAnchorClick}
+                    className="flex items-baseline justify-between py-5 font-display text-3xl text-ink"
+                  >
+                    <span>{item.label}</span>
+                    <span className="eyebrow text-muted">{String(idx + 1).padStart(2, "0")}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-          <div className="mt-auto py-8">
-            <button
-              ref={mobileBookRef}
-              type="button"
-              onClick={() => {
-                setOpen(false);
-                // Defer to next frame so drawer's focus-return doesn't fight
-                requestAnimationFrame(() => onBookClick(mobileBookRef.current!));
-              }}
-              className="inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white"
-            >
-              {ctaLabels.bookPrimary}
-            </button>
-            <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
-          </div>
-        </nav>
-      </div>
+            <div className="mt-auto py-8">
+              <button
+                ref={mobileBookRef}
+                type="button"
+                onClick={() => {
+                  const returnTarget = triggerRef.current;
+                  setOpen(false);
+                  // The drawer CTA unmounts when closing; return focus to the persistent menu trigger.
+                  requestAnimationFrame(() => {
+                    if (returnTarget) onBookClick(returnTarget);
+                  });
+                }}
+                className="inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white"
+              >
+                {ctaLabels.bookPrimary}
+              </button>
+              <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

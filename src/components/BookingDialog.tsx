@@ -18,6 +18,7 @@ export function BookingDialog({ open, onClose, returnFocusRef }: BookingDialogPr
   useEffect(() => {
     if (!open) return;
 
+    const returnFocusTarget = returnFocusRef.current;
     const previousOverflow = document.body.style.overflow;
     const previousPaddingRight = document.body.style.paddingRight;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -58,7 +59,7 @@ export function BookingDialog({ open, onClose, returnFocusRef }: BookingDialogPr
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = previousOverflow;
       document.body.style.paddingRight = previousPaddingRight;
-      returnFocusRef.current?.focus();
+      returnFocusTarget?.focus();
     };
   }, [open, onClose, returnFocusRef]);
 
@@ -67,7 +68,7 @@ export function BookingDialog({ open, onClose, returnFocusRef }: BookingDialogPr
   return (
     <div
       className="fixed inset-0 z-[80] flex items-end justify-center bg-ink/40 px-4 py-6 sm:items-center"
-      onMouseDown={(e) => {
+      onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
