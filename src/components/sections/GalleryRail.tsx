@@ -23,7 +23,10 @@ export function GalleryRail() {
                 <ImagePlaceholder
                   ratio={slot.ratio}
                   tone={slot.tone}
-                  label={`Immagine dello studio ${i + 1} — asset in curazione`}
+                  src={slot.src}
+                  alt={slot.alt}
+                  objectPosition={slot.objectPosition}
+                  sizes="(min-width: 768px) 34vw, 72vw"
                 />
               </div>
             );

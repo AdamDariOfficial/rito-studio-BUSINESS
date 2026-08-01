@@ -39,7 +39,9 @@ export function RitualFeature() {
             <ImagePlaceholder
               ratio="3 / 4"
               tone="ink"
-              label="Mani e strumento durante il rituale — asset in curazione"
+              src="/images/rito/rito-ritual-feature.webp"
+              alt="Mani di una professionista durante una manicure di precisione"
+              sizes="(min-width: 768px) 42vw, 100vw"
             />
           </div>
         </div>

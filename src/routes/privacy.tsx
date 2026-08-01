@@ -1,24 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { canonicalUrl } from "@/lib/site-config";
 import { Footer } from "@/components/Footer";
 import { SkipLink } from "@/components/SkipLink";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy — RITO Studio" },
-      {
-        name: "description",
-        content:
-          "Informativa privacy — placeholder dimostrativo. La versione definitiva richiede una revisione legale specifica.",
-      },
-      { name: "robots", content: "noindex, follow" },
-      { property: "og:title", content: "Privacy — RITO Studio" },
-      {
-        property: "og:description",
-        content: "Placeholder privacy per il concept dimostrativo Tretnix.",
-      },
-    ],
-  }),
+  head: () => {
+    const canonical = canonicalUrl("/privacy");
+
+    return {
+      meta: [
+        { title: "Privacy — RITO Studio" },
+        {
+          name: "description",
+          content:
+            "Informativa privacy — placeholder dimostrativo. La versione definitiva richiede una revisione legale specifica.",
+        },
+        { name: "robots", content: "noindex, follow" },
+        { property: "og:title", content: "Privacy — RITO Studio" },
+        {
+          property: "og:description",
+          content: "Placeholder privacy per il concept dimostrativo Tretnix.",
+        },
+        { property: "og:url", content: canonical },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
+  },
   component: PrivacyPage,
 });
 
