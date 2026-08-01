@@ -1,24 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { canonicalUrl } from "@/lib/site-config";
 import { Footer } from "@/components/Footer";
 import { SkipLink } from "@/components/SkipLink";
 
 export const Route = createFileRoute("/cookie")({
-  head: () => ({
-    meta: [
-      { title: "Cookie — RITO Studio" },
-      {
-        name: "description",
-        content:
-          "Cookie policy — placeholder dimostrativo. La versione definitiva richiede una revisione legale specifica.",
-      },
-      { name: "robots", content: "noindex, follow" },
-      { property: "og:title", content: "Cookie — RITO Studio" },
-      {
-        property: "og:description",
-        content: "Placeholder cookie per il concept dimostrativo Tretnix.",
-      },
-    ],
-  }),
+  head: () => {
+    const canonical = canonicalUrl("/cookie");
+
+    return {
+      meta: [
+        { title: "Cookie — RITO Studio" },
+        {
+          name: "description",
+          content:
+            "Cookie policy — placeholder dimostrativo. La versione definitiva richiede una revisione legale specifica.",
+        },
+        { name: "robots", content: "noindex, follow" },
+        { property: "og:title", content: "Cookie — RITO Studio" },
+        {
+          property: "og:description",
+          content: "Placeholder cookie per il concept dimostrativo Tretnix.",
+        },
+        { property: "og:url", content: canonical },
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+    };
+  },
   component: CookiePage,
 });
 

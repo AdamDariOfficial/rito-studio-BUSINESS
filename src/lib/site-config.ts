@@ -34,7 +34,14 @@ export const site = {
     linkLabel: "Tretnix",
     href: "https://tretnix.com",
   },
+  seo: {
+    siteUrl: "https://rito-studio.tretnix.com",
+  },
 } as const;
+
+export function canonicalUrl(pathname: string) {
+  return new URL(pathname, site.seo.siteUrl).toString();
+}
 
 export const nav = [
   { label: "Trattamenti", hash: "#trattamenti" },
@@ -78,13 +85,41 @@ export const servicesNote =
   "Servizi e prezzi presenti nel concept sono dimostrativi e vanno configurati per il cliente reale.";
 
 /**
- * Gallery slots follow docs/ASSET_PLAN.md aspect ratios. Since curated
- * photography is pending review, each slot renders a mineral placeholder
- * with the correct ratio. Do not invent captions or headings.
+ * Gallery slots follow docs/ASSET_PLAN.md aspect ratios and use local curated
+ * demo photography. The image set remains replaceable without changing the
+ * gallery component or its responsive layout.
  */
 export const gallerySlots = [
-  { id: "gallery-01", ratio: "4 / 5", tone: "canvas" },
-  { id: "gallery-02", ratio: "1 / 1", tone: "surface" },
-  { id: "gallery-03", ratio: "3 / 2", tone: "ink" },
-  { id: "gallery-04", ratio: "3 / 4", tone: "canvas" },
+  {
+    id: "gallery-01",
+    ratio: "4 / 5",
+    tone: "canvas",
+    src: "/images/rito/rito-gallery-hair-01.webp",
+    alt: "Dettaglio di capelli biondi mossi durante lo styling",
+    objectPosition: "50% 50%",
+  },
+  {
+    id: "gallery-02",
+    ratio: "1 / 1",
+    tone: "surface",
+    src: "/images/rito/rito-gallery-skin-01.webp",
+    alt: "Trattamento viso eseguito con un gesto delicato",
+    objectPosition: "50% 50%",
+  },
+  {
+    id: "gallery-03",
+    ratio: "3 / 2",
+    tone: "ink",
+    src: "/images/rito/rito-gallery-space-01.webp",
+    alt: "Professionista accanto a una postazione con specchi e strumenti",
+    objectPosition: "50% 50%",
+  },
+  {
+    id: "gallery-04",
+    ratio: "3 / 4",
+    tone: "canvas",
+    src: "/images/rito/rito-gallery-professional-01.webp",
+    alt: "Applicazione professionale del colore sui capelli",
+    objectPosition: "50% 50%",
+  },
 ] as const;

@@ -37,7 +37,9 @@ export function StudioEditorial() {
               ratio="16 / 10"
               tone="canvas"
               className="border border-line"
-              label="Interno dello studio — asset in curazione"
+              src="/images/rito/rito-studio-wide.webp"
+              alt="Interno luminoso di uno studio beauty con postazioni e specchi"
+              sizes="(min-width: 768px) 58vw, 100vw"
             />
           </div>
         </div>

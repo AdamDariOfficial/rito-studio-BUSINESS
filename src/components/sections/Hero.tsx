@@ -76,7 +76,11 @@ export function Hero({ onBookClick }: HeroProps) {
               <ImagePlaceholder
                 ratio="4 / 5"
                 tone="surface"
-                label="Gesto professionale durante un trattamento — asset in curazione"
+                src="/images/rito/rito-hero-main.webp"
+                alt="Professionista durante un trattamento viso in atelier"
+                loading="eager"
+                fetchPriority="high"
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 42vw, 100vw"
               />
               <div className="mt-3 flex items-center justify-between text-xs text-muted">
                 <span>RITO · 2026</span>
