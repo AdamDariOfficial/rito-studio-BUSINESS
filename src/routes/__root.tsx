@@ -14,7 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-canvas px-4">
+    <main className="flex min-h-screen items-center justify-center bg-canvas px-4">
       <div className="max-w-md text-center">
         <p className="eyebrow">Errore 404</p>
         <h1 className="mt-4 font-display text-[clamp(2.5rem,7vw,5rem)] leading-tight text-ink">
@@ -39,7 +39,7 @@ function NotFoundComponent() {
           </a>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -81,34 +81,42 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#F6F4EF" },
-      { title: "RITO Studio — Beauty & Care Atelier · Padova" },
-      {
-        name: "description",
-        content:
-          "Concept dimostrativo Tretnix. Beauty & Care Atelier a Padova: trattamenti su misura per capelli, pelle e benessere.",
-      },
-      { name: "robots", content: "noindex, follow" },
-      { name: "author", content: "Tretnix" },
-      { property: "og:type", content: "website" },
-      { property: "og:locale", content: "it_IT" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Manrope:wght@400;500;600&display=swap",
-      },
-    ],
-  }),
+  head: ({ matches }) => {
+    const isNotFound = matches.some((match) => match.status === "notFound" || match.globalNotFound);
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#F6F4EF" },
+        {
+          title: isNotFound
+            ? "Pagina non trovata — RITO Studio"
+            : "RITO Studio — Beauty & Care Atelier · Padova",
+        },
+        {
+          name: "description",
+          content:
+            "Concept dimostrativo Tretnix. Beauty & Care Atelier a Padova: trattamenti su misura per capelli, pelle e benessere.",
+        },
+        { name: "robots", content: "noindex, follow" },
+        { name: "author", content: "Tretnix" },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "it_IT" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Manrope:wght@400;500;600&display=swap",
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

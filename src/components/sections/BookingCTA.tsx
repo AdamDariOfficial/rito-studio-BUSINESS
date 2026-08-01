@@ -11,13 +11,13 @@ export function BookingCTA({ onBookClick }: BookingCTAProps) {
   return (
     <section aria-labelledby="booking-cta-heading" className="pb-24 md:pb-32">
       <div className="container-editorial">
-        <div className="relative border border-ink bg-canvas p-8 md:p-16">
+        <div className="relative border border-ink bg-ink p-8 md:p-16">
           <div className="grid gap-10 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-7">
-              <p className="eyebrow">Prenota</p>
+              <p className="eyebrow text-surface">Prenota</p>
               <h2
                 id="booking-cta-heading"
-                className="mt-4 font-display text-[clamp(1.9rem,4.4vw,3.25rem)] leading-[1.05] text-ink"
+                className="mt-4 font-display text-[clamp(1.9rem,4.4vw,3.25rem)] leading-[1.05] text-white"
                 data-reveal
               >
                 Dedica tempo a ciò che ti fa <span className="italic">stare bene.</span>
@@ -25,7 +25,7 @@ export function BookingCTA({ onBookClick }: BookingCTAProps) {
             </div>
             <div className="md:col-span-5 md:pt-8">
               <p
-                className="text-base leading-relaxed text-muted md:text-lg"
+                className="text-base leading-relaxed text-surface md:text-lg"
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "80ms" }}
               >
@@ -36,7 +36,7 @@ export function BookingCTA({ onBookClick }: BookingCTAProps) {
                 ref={btnRef}
                 type="button"
                 onClick={() => onBookClick(btnRef.current!)}
-                className="mt-8 inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white transition-colors hover:bg-accent-strong hover:border-accent-strong"
+                className="mt-8 inline-flex min-h-12 items-center justify-center border border-white bg-white px-6 text-sm font-medium text-ink transition-colors hover:border-surface hover:bg-surface focus-visible:outline-white"
               >
                 {ctaLabels.requestAppointment}
               </button>

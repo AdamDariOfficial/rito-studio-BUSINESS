@@ -24,9 +24,9 @@ export function MethodStrip() {
       className="scroll-mt-[calc(var(--header-height)+24px)] border-y border-line bg-canvas py-20 md:py-28"
     >
       <div className="container-editorial">
-        <p id="metodo-heading" className="eyebrow" data-reveal>
+        <h2 id="metodo-heading" className="eyebrow" data-reveal>
           Tre principi
-        </p>
+        </h2>
         <ol className="mt-10 grid gap-10 md:mt-14 md:grid-cols-3 md:gap-12">
           {principles.map((p, i) => (
             <li
