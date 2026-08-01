@@ -6,7 +6,7 @@ export function RitualFeature() {
       <div className="container-editorial">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           {/* Text — mobile first per editorial rule */}
-          <div className="md:col-span-6 md:col-start-7 md:pt-16">
+          <div className="md:col-span-6 md:col-start-7 md:row-start-1 md:pt-16">
             <p className="eyebrow" data-reveal>
               RITO 01
             </p>
@@ -35,7 +35,7 @@ export function RitualFeature() {
           </div>
 
           {/* Image */}
-          <div className="md:col-span-5 md:col-start-1 md:row-start-auto" data-reveal>
+          <div className="md:col-span-5 md:col-start-1 md:row-start-1" data-reveal>
             <ImagePlaceholder
               ratio="3 / 4"
               tone="ink"

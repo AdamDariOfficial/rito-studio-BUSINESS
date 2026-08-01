@@ -49,8 +49,9 @@ Beauty non deve riutilizzare l'identità Hospitality.
 | `--color-canvas` | `#F6F4EF` | sfondo principale |
 | `--color-surface` | `#E8E1D8` | sezioni secondarie |
 | `--color-ink` | `#1B1A18` | testo principale |
-| `--color-muted` | `#746E67` | testo secondario |
-| `--color-accent` | `#6A3F45` | CTA, dettagli selettivi |
+| `--color-muted` | `#746E67` | testo secondario su canvas |
+| `--color-muted-on-surface` | `#625C55` | testo secondario su surface; contrasto AA |
+| `--color-accent` | `#6A3F4B` | CTA, dettagli selettivi |
 | `--color-accent-strong` | `#4E2E33` | hover e contrasto |
 | `--color-line` | `#CEC6BC` | bordi e separatori |
 | `--color-white` | `#FFFEFB` | superfici e testo inverso |

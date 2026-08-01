@@ -26,7 +26,7 @@ export function EditorialServiceList() {
           </div>
           <div className="md:col-span-7 md:col-start-6">
             <p
-              className="max-w-xl text-base leading-relaxed text-muted md:text-lg"
+              className="max-w-xl text-base leading-relaxed text-muted-on-surface md:text-lg"
               data-reveal
               style={{ ["--reveal-delay" as string]: "120ms" }}
             >
@@ -49,21 +49,21 @@ export function EditorialServiceList() {
                   {cat.name}
                 </h3>
               </div>
-              <ul className="md:col-span-8 md:col-start-5">
-                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink md:text-base">
-                  {cat.items.map((item, i) => (
-                    <li key={item} className="flex items-center gap-3">
-                      {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-line" />}
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </div>
+              <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink md:col-span-8 md:col-start-5 md:text-base">
+                {cat.items.map((item, i) => (
+                  <li key={item} className="flex items-center gap-3">
+                    {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-line" />}
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </li>
           ))}
         </ol>
 
-        <p className="mt-10 max-w-2xl text-xs italic leading-relaxed text-muted">{servicesNote}</p>
+        <p className="mt-10 max-w-2xl text-xs italic leading-relaxed text-muted-on-surface">
+          {servicesNote}
+        </p>
       </div>
     </section>
   );

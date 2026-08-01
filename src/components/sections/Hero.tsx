@@ -44,7 +44,7 @@ export function Hero({ onBookClick }: HeroProps) {
             </p>
 
             <div
-              className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4"
+              className="mt-10 flex flex-col items-stretch gap-3 lg:flex-row lg:items-center lg:gap-4"
               data-reveal
               style={{ ["--reveal-delay" as string]: "220ms" }}
             >
