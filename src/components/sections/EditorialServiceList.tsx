@@ -5,17 +5,17 @@ export function EditorialServiceList() {
     <section
       id="trattamenti"
       aria-labelledby="trattamenti-heading"
-      className="scroll-mt-[calc(var(--header-height)+24px)] bg-surface py-24 md:py-36"
+      className="scroll-mt-[calc(var(--header-height)+24px)] bg-surface py-20 md:py-28"
     >
       <div className="container-editorial">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-4">
+        <div className="grid gap-8 md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-5">
             <p className="eyebrow" data-reveal>
               Trattamenti
             </p>
             <h2
               id="trattamenti-heading"
-              className="mt-4 font-display text-[clamp(2rem,4.8vw,3.75rem)] leading-[1.02] text-ink"
+              className="mt-4 font-display text-[clamp(2rem,4vw,3.35rem)] leading-[1.02] text-ink"
               data-reveal
               style={{ ["--reveal-delay" as string]: "80ms" }}
             >
@@ -24,7 +24,7 @@ export function EditorialServiceList() {
               <span className="italic">pensati per te.</span>
             </h2>
           </div>
-          <div className="md:col-span-7 md:col-start-6">
+          <div className="md:col-span-6 md:col-start-7">
             <p
               className="max-w-xl text-base leading-relaxed text-muted-on-surface md:text-lg"
               data-reveal
@@ -36,24 +36,30 @@ export function EditorialServiceList() {
           </div>
         </div>
 
-        <ol className="mt-16 border-t border-line md:mt-24">
-          {serviceCategories.map((cat) => (
+        <ol className="mt-12 border-t border-line md:mt-16">
+          {serviceCategories.map((category) => (
             <li
-              key={cat.name}
-              className="grid gap-6 border-b border-line py-8 md:grid-cols-12 md:gap-8 md:py-10"
-              data-reveal
+              key={category.name}
+              className="grid gap-5 border-b border-line py-7 md:grid-cols-12 md:gap-8 md:py-10"
             >
-              <div className="flex items-baseline gap-4 md:col-span-4">
-                <span className="font-display text-2xl text-accent">{cat.index}</span>
+              <div className="flex items-baseline gap-4 md:col-span-4" data-reveal>
+                <span className="font-display text-2xl text-accent">{category.index}</span>
                 <h3 className="font-display text-2xl leading-tight text-ink md:text-3xl">
-                  {cat.name}
+                  {category.name}
                 </h3>
               </div>
-              <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink md:col-span-8 md:col-start-5 md:text-base">
-                {cat.items.map((item, i) => (
-                  <li key={item} className="flex items-center gap-3">
-                    {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-line" />}
-                    <span>{item}</span>
+              <ul className="grid text-sm text-ink md:col-span-8 md:col-start-5 md:grid-cols-2 md:gap-x-8 md:text-base">
+                {category.items.map((item, index) => (
+                  <li
+                    key={item.name}
+                    className="flex items-baseline justify-between gap-4 border-t border-line/70 py-3 first:border-t-0 md:[&:nth-child(2)]:border-t-0"
+                    data-reveal
+                    style={{ ["--reveal-delay" as string]: `${index * 45}ms` }}
+                  >
+                    <span className="min-w-0">{item.name}</span>
+                    <span className="shrink-0 whitespace-nowrap font-medium tabular-nums text-accent-strong">
+                      {item.price}
+                    </span>
                   </li>
                 ))}
               </ul>

@@ -122,3 +122,93 @@ collegato a `https://tretnix.com`.
 **Vincoli da preservare:** scope START, route, copy canonico, palette porcellana/inchiostro/borgogna, accent `#6A3F4B`, Newsreader + Manrope, accessibilità, mobile-first, demo integrity, assenza di backend e attribuzione Tretnix.
 
 **Metodo:** detector e critique iniziano in sola lettura; nessun finding viene applicato automaticamente.
+
+## BW-DEC-024 — Candidato START pre-freeze approvato per la chiusura controllata
+
+**Decisione:** il candidato presente su `fix/rito-start-pre-freeze-polish`, derivato da
+`main@cfc3edd965b5fa3d59fe64a0c04259d75c5c4cb1`, è la baseline funzionale e visuale
+approvata per il gate di staging dopo la riconciliazione documentale.
+
+**Evidenza:** applicazione e validazione automatica `RitoStartPreFreezePolish v1.9.0`,
+revisione completa del diff e browser QA finale confermato il 3 agosto 2026.
+
+**Limite:** questa decisione non equivale a commit, merge, deploy, approvazione definitiva
+o freeze. Tali gate restano separati.
+
+## BW-DEC-025 — Prenotazione START tramite contatto telefonico diretto
+
+**Decisione:** RITO Studio START usa CTA `tel:` dirette. Il precedente dialog dimostrativo
+e la proprietà `site.booking.demoFeedback` sono rimossi.
+
+**Limite:** è una configurazione del concept START e non riduce le modalità supportate
+dalla famiglia per progetti successivi.
+
+## BW-DEC-026 — Integrità demo con presentazione pubblica client-like
+
+**Decisione:** la home può presentarsi come un sito commerciale curato e non deve mostrare
+un avviso demo prominente nel footer, purché restino contemporaneamente:
+
+- email `.example` e numero telefonico non operativo;
+- `noindex, follow`;
+- nessun backend, form, account, pagamento o invio dati;
+- nessun dato strutturato `LocalBusiness` o altra rappresentazione commerciale pubblica;
+- disclosure esplicita nelle route Privacy e Cookie;
+- obbligo di sostituzione e revisione prima dell'uso per un cliente reale.
+
+**Chiarimento:** BW-DEC-010 resta valido per l'assenza di invio dati; cambia soltanto il
+posizionamento della disclosure.
+
+## BW-DEC-027 — Listino premium specifico del concept START
+
+**Decisione:** RITO Studio START mostra un listino dimostrativo configurato con prezzi fissi
+e prezzi “da”, inclusa una nota che richiede di concordare eventuali variazioni durante la
+consulenza.
+
+**Limite:** questi importi sono fixture editoriali del solo concept RITO Studio START. Non
+sono prezzi di mercato verificati, non sono default della famiglia Beauty & Wellness e non
+autorizzano listini inventati nei progetti cliente.
+
+**Precedenza:** questa eccezione sostituisce, per il solo candidato START, il divieto di
+mostrare prezzi fissi del template espresso in BW-DEC-018 e nella definizione prodotto.
+
+## BW-DEC-028 — Mappa di area attivabile su scelta esplicita
+
+**Decisione:** la sezione contatti può offrire una mappa Google della sola area generale
+“Prato della Valle, Padova”, caricata esclusivamente dopo azione esplicita dell'utente, con
+link esterno disponibile anche senza JavaScript.
+
+**Vincoli:** nessun indirizzo commerciale esatto, nessun marker attribuito a RITO Studio,
+nessuna richiesta Google prima dell'attivazione e nessuna affermazione che il concept sia
+un'attività reale.
+
+## BW-DEC-029 — Architettura one-page semplificata
+
+**Decisione:** rimuovere `IntroStatement` e `MethodStrip`; integrare l'anchor `#metodo` e il
+messaggio metodologico in `RitualFeature`.
+
+**Ordine finale:** `StickyHeader`, `Hero`, `EditorialServiceList`, `RitualFeature`,
+`StudioEditorial`, `GalleryRail`, `BookingCTA`, `PracticalInfo`, `Footer`.
+
+**Motivo:** ridurre ridondanza e migliorare ritmo, densità e continuità editoriale senza
+ridurre le informazioni essenziali.
+
+## BW-DEC-030 — Indicatore animato della gallery mobile
+
+**Decisione:** usare una sola pill con freccia animata al centro-destra della gallery mobile
+come affordance di scroll orizzontale. La pill scompare a fine rail e ricompare tornando
+indietro.
+
+**Vincoli:** nessun autoplay, nessun controllo carousel, nessuna intercettazione degli input,
+animazione disabilitata con `prefers-reduced-motion` e fallback comprensibile senza
+JavaScript.
+
+**Precedenza:** è un'eccezione stretta al divieto generale di loop decorativi; l'animazione
+ha una funzione di orientamento e resta visibile soltanto mentre esiste contenuto ulteriore.
+
+## BW-DEC-031 — Navigazione delle policy e skip link
+
+**Decisione:** Privacy e Cookie riutilizzano la navbar START ma non mostrano skip link. La
+home conserva invece lo skip link “Vai ai trattamenti” verso `#trattamenti`.
+
+**Vincoli:** route dirette, refresh, Back/Forward, apertura in alto e focus visibile restano
+obbligatori.

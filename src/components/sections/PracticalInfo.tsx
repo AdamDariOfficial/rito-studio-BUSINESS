@@ -1,43 +1,128 @@
+import { useState } from "react";
+import { ExternalLink, MapPin } from "lucide-react";
 import { site } from "@/lib/site-config";
 
 export function PracticalInfo() {
+  const [mapActive, setMapActive] = useState(false);
+
   return (
     <section
       id="contatti"
       aria-labelledby="contatti-heading"
-      className="scroll-mt-[calc(var(--header-height)+24px)] border-t border-line py-20 md:py-28"
+      className="scroll-mt-[calc(var(--header-height)+24px)] border-t border-line bg-canvas py-20 md:py-28"
     >
       <div className="container-editorial">
         <p id="contatti-heading" className="eyebrow">
           Informazioni pratiche
         </p>
-        <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
-          <div>
-            <p className="font-display text-3xl text-ink">{site.contact.city}</p>
+
+        <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-5">
+            <p className="font-display text-3xl text-ink md:text-4xl">{site.contact.city}</p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
+              {site.contact.locationDetail}
+            </p>
+
+            <div className="mt-10 grid gap-9 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <dl className="space-y-2 text-sm text-ink">
+                {site.hours.map((h) => (
+                  <div
+                    key={h.label}
+                    className="flex justify-between gap-6 border-b border-line pb-2"
+                  >
+                    <dt className="text-muted">{h.label}</dt>
+                    <dd>{h.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <ul className="space-y-3 text-sm text-ink">
+                <li>
+                  <a
+                    href={site.contact.phoneHref}
+                    className="text-ink underline-offset-4 hover:underline"
+                  >
+                    {site.contact.phone}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={site.contact.emailHref}
+                    className="text-ink underline-offset-4 hover:underline"
+                  >
+                    {site.contact.email}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <dl className="space-y-2 text-sm text-ink">
-              {site.hours.map((h) => (
-                <div key={h.label} className="flex justify-between gap-6 border-b border-line pb-2">
-                  <dt className="text-muted">{h.label}</dt>
-                  <dd>{h.value}</dd>
+
+          <div className="lg:col-span-7">
+            <div className="relative min-h-[19rem] overflow-hidden border border-line bg-surface sm:min-h-[22rem] lg:aspect-[5/3] lg:min-h-0">
+              {mapActive ? (
+                <iframe
+                  title={`Mappa interattiva di ${site.contact.mapQuery}`}
+                  src={site.contact.mapEmbedUrl}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 h-full w-full border-0"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center px-7 py-10 text-center sm:px-12 sm:py-12">
+                  <MapPin aria-hidden size={30} strokeWidth={1.4} className="mb-4 text-accent" />
+                  <p className="font-display text-[1.75rem] leading-tight text-ink sm:text-3xl">
+                    {site.contact.area}
+                  </p>
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-on-surface">
+                    La mappa di Google viene caricata soltanto dopo una tua scelta esplicita.
+                  </p>
+                  <button
+                    data-js-only
+                    type="button"
+                    onClick={() => setMapActive(true)}
+                    className="mt-7 inline-flex min-h-12 w-full max-w-xs items-center justify-center border border-ink bg-ink px-5 text-sm font-medium text-white transition-colors hover:border-accent-strong hover:bg-accent-strong sm:w-auto"
+                  >
+                    Attiva la mappa interattiva
+                  </button>
+                  <noscript>
+                    <a
+                      href={site.contact.mapExternalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-7 inline-flex min-h-12 w-full max-w-xs items-center justify-center gap-2 border border-ink bg-ink px-5 text-sm font-medium text-white sm:w-auto"
+                    >
+                      Apri la mappa su Google Maps
+                      <ExternalLink aria-hidden size={14} />
+                    </a>
+                  </noscript>
                 </div>
-              ))}
-            </dl>
-          </div>
-          <div>
-            <ul className="space-y-3 text-sm text-ink">
-              <li>
-                <a href={site.contact.phoneHref} className="text-ink">
-                  {site.contact.phone}
+              )}
+            </div>
+
+            <div className="mt-3 flex flex-col gap-3 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+              <span>{site.contact.locationLabel}</span>
+              <div className="flex items-center gap-4">
+                {mapActive && (
+                  <button
+                    type="button"
+                    onClick={() => setMapActive(false)}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    Disattiva mappa
+                  </button>
+                )}
+                <a
+                  href={site.contact.mapExternalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-ink underline-offset-4 hover:underline"
+                >
+                  Apri su Google Maps
+                  <ExternalLink aria-hidden size={13} />
                 </a>
-              </li>
-              <li>
-                <a href={site.contact.emailHref} className="text-ink">
-                  {site.contact.email}
-                </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

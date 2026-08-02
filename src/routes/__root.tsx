@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -46,9 +45,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-canvas px-4">
@@ -97,7 +93,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         {
           name: "description",
           content:
-            "Concept dimostrativo Tretnix. Beauty & Care Atelier a Padova: trattamenti su misura per capelli, pelle e benessere.",
+            "Beauty & Care Atelier a Padova: trattamenti su misura per capelli, pelle e benessere.",
         },
         { name: "robots", content: "noindex, follow" },
         { name: "author", content: "Tretnix" },
@@ -107,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       ],
       links: [
         { rel: "stylesheet", href: appCss },
-        { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+        { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
         {
@@ -128,6 +124,9 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="it">
       <head>
         <HeadContent />
+        <noscript>
+          <style>{`[data-js-only] { display: none !important; }`}</style>
+        </noscript>
       </head>
       <body>
         {children}

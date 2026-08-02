@@ -1,31 +1,60 @@
-import { useRef } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import { type MouseEvent } from "react";
 import { ctaLabels, site } from "@/lib/site-config";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { scrollToSection } from "@/lib/scroll-to-anchor";
 import { useReveal } from "@/hooks/use-reveal";
 
-interface HeroProps {
-  onBookClick: (trigger: HTMLElement) => void;
-}
-
-export function Hero({ onBookClick }: HeroProps) {
-  const bookRef = useRef<HTMLButtonElement>(null);
+export function Hero() {
   const imageRef = useReveal<HTMLDivElement>();
+  const navigate = useNavigate();
+
+  function handleTreatmentsClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+
+    event.preventDefault();
+    void navigate({
+      to: ".",
+      hash: "trattamenti",
+      resetScroll: false,
+      hashScrollIntoView: false,
+    }).then(() => scrollToSection("trattamenti"));
+  }
 
   return (
     <section
       aria-label="Introduzione"
-      className="relative overflow-hidden pt-[calc(var(--header-height)+40px)] pb-20 md:pt-[calc(var(--header-height)+80px)] md:pb-32"
+      className="relative overflow-hidden pt-[var(--header-height)] md:min-h-[100svh]"
     >
-      <div className="container-editorial">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
-          {/* Left column: text — 7/12 on desktop */}
-          <div className="md:col-span-7 md:pr-6">
+      <div className="container-editorial md:flex md:min-h-[calc(100svh-var(--header-height))] md:items-center md:py-12">
+        <div className="grid w-full md:grid-cols-12 md:items-center md:gap-8">
+          <div className="order-1 -mx-5 md:order-2 md:col-span-5 md:mx-0">
+            <div
+              ref={imageRef}
+              data-reveal
+              className="hero-image relative overflow-hidden bg-surface"
+              style={{ ["--reveal-delay" as string]: "120ms" }}
+            >
+              <img
+                src="/images/rito/rito-hero-main.webp"
+                alt="Professionista durante un trattamento viso in atelier"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 42vw, 100vw"
+                className="h-[58svh] min-h-[460px] w-full object-cover object-[57%_45%] md:h-[calc(100svh-var(--header-height)-6rem)] md:min-h-[32rem] md:max-h-[47rem] md:object-center"
+              />
+            </div>
+          </div>
+
+          <div className="relative z-10 order-2 -mt-20 border-t-2 border-accent bg-canvas px-6 py-7 shadow-[0_20px_50px_rgba(27,26,24,0.12)] md:order-1 md:col-span-7 md:mt-0 md:border-0 md:bg-transparent md:p-0 md:pr-6 md:shadow-none">
             <p className="eyebrow" data-reveal style={{ ["--reveal-delay" as string]: "0ms" }}>
               Beauty &amp; Care Atelier · Padova
             </p>
 
             <h1
-              className="mt-6 font-display text-[clamp(2.75rem,8vw,6.5rem)] leading-[0.98] tracking-[-0.015em] text-ink md:mt-8"
+              className="mt-5 font-display text-[clamp(3.2rem,14vw,4.6rem)] leading-[0.9] tracking-[-0.02em] text-ink md:mt-8 md:text-[clamp(2.75rem,8vw,6.5rem)] md:leading-[0.98] md:tracking-[-0.015em]"
               data-reveal
               style={{ ["--reveal-delay" as string]: "80ms" }}
             >
@@ -35,7 +64,7 @@ export function Hero({ onBookClick }: HeroProps) {
             </h1>
 
             <p
-              className="mt-8 max-w-md text-base leading-relaxed text-muted md:text-lg"
+              className="mt-6 max-w-md text-[0.9375rem] leading-relaxed text-muted md:mt-8 md:text-lg"
               data-reveal
               style={{ ["--reveal-delay" as string]: "160ms" }}
             >
@@ -43,64 +72,27 @@ export function Hero({ onBookClick }: HeroProps) {
               gesti precisi e il tempo necessario per ascoltarti.
             </p>
 
-            <div
-              className="mt-10 flex flex-col items-stretch gap-3 lg:flex-row lg:items-center lg:gap-4"
-              data-reveal
-              style={{ ["--reveal-delay" as string]: "220ms" }}
-            >
-              <button
-                ref={bookRef}
-                type="button"
-                onClick={() => onBookClick(bookRef.current!)}
-                className="inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white transition-colors hover:bg-accent-strong hover:border-accent-strong"
+            <div className="mt-7 flex flex-col items-stretch gap-4 lg:mt-10 lg:flex-row lg:items-center">
+              <a
+                href={site.contact.phoneHref}
+                data-reveal
+                style={{ ["--reveal-delay" as string]: "220ms" }}
+                className="inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white transition-colors hover:border-accent-strong hover:bg-accent-strong"
               >
                 {ctaLabels.bookPrimary}
-              </button>
+              </a>
               <a
                 href="#trattamenti"
-                className="inline-flex min-h-12 items-center justify-center border border-ink px-6 text-sm font-medium tracking-wide text-ink transition-colors hover:bg-ink hover:text-white"
+                onClick={handleTreatmentsClick}
+                data-reveal
+                style={{ ["--reveal-delay" as string]: "300ms" }}
+                className="inline-flex min-h-11 items-center justify-center gap-2 border-b border-ink text-sm font-medium tracking-wide text-ink transition-colors hover:text-accent md:min-h-12 md:border md:px-6 md:hover:bg-ink md:hover:text-white"
               >
                 {ctaLabels.discoverTreatments}
+                <span aria-hidden>↓</span>
               </a>
             </div>
           </div>
-
-          {/* Right column: image — 5/12, offset down */}
-          <div className="md:col-span-5 md:pt-16">
-            <div
-              ref={imageRef}
-              data-reveal
-              className="hero-image relative"
-              style={{ ["--reveal-delay" as string]: "120ms" }}
-            >
-              <ImagePlaceholder
-                ratio="4 / 5"
-                tone="surface"
-                src="/images/rito/rito-hero-main.webp"
-                alt="Professionista durante un trattamento viso in atelier"
-                loading="eager"
-                fetchPriority="high"
-                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 42vw, 100vw"
-              />
-              <div className="mt-3 flex items-center justify-between text-xs text-muted">
-                <span>RITO · 2026</span>
-                <span aria-hidden>—</span>
-                <span>{site.contact.locationLabel.split(" · ")[1]}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Microcopy rail */}
-        <div
-          className="mt-16 flex items-center gap-4 border-t border-line pt-6 md:mt-24"
-          data-reveal
-          style={{ ["--reveal-delay" as string]: "260ms" }}
-        >
-          <span aria-hidden className="h-px w-10 bg-ink" />
-          <p className="text-xs uppercase tracking-[0.22em] text-muted">
-            Padova · Solo su appuntamento
-          </p>
         </div>
       </div>
     </section>

@@ -1,7 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { PolicyLayout } from "@/components/PolicyLayout";
 import { canonicalUrl } from "@/lib/site-config";
-import { Footer } from "@/components/Footer";
-import { SkipLink } from "@/components/SkipLink";
 
 export const Route = createFileRoute("/cookie")({
   head: () => {
@@ -13,13 +12,14 @@ export const Route = createFileRoute("/cookie")({
         {
           name: "description",
           content:
-            "Cookie policy — placeholder dimostrativo. La versione definitiva richiede una revisione legale specifica.",
+            "Informativa cookie di RITO Studio: tecnologie tecniche, risorse esterne e attivazione volontaria della mappa Google.",
         },
         { name: "robots", content: "noindex, follow" },
         { property: "og:title", content: "Cookie — RITO Studio" },
         {
           property: "og:description",
-          content: "Placeholder cookie per il concept dimostrativo Tretnix.",
+          content:
+            "Tecnologie utilizzate dal sito RITO Studio e modalità di attivazione della mappa.",
         },
         { property: "og:url", content: canonical },
       ],
@@ -31,42 +31,61 @@ export const Route = createFileRoute("/cookie")({
 
 function CookiePage() {
   return (
-    <div className="min-h-screen bg-canvas text-ink">
-      <SkipLink />
-      <header className="border-b border-line">
-        <div className="container-editorial flex h-[var(--header-height)] items-center justify-between">
-          <Link to="/" className="font-display text-lg text-ink">
-            RITO<span className="text-accent">.</span>
-          </Link>
-          <Link to="/" className="text-sm text-ink hover:text-accent">
-            Torna alla home
-          </Link>
-        </div>
-      </header>
-      <main id="contenuto" className="container-editorial max-w-2xl py-20">
-        <p className="eyebrow">Informativa</p>
-        <h1 className="mt-4 font-display text-[clamp(2rem,5vw,3.5rem)] leading-tight text-ink">
-          Cookie
-        </h1>
-        <div className="mt-10 space-y-6 text-sm leading-relaxed text-muted md:text-base">
-          <p className="border-l-2 border-accent pl-4 italic text-ink">
-            Questa pagina è un placeholder dimostrativo. La versione definitiva richiede una
-            revisione legale specifica in base alle tecnologie effettivamente attivate dal cliente
-            reale.
-          </p>
-          <p>
-            Il concept dimostrativo di RITO Studio non installa cookie di profilazione, non attiva
-            strumenti di analytics e non integra servizi di terze parti che raccolgono dati
-            personali.
-          </p>
-          <p>
-            In un progetto reale, questa sezione elenca le categorie di cookie utilizzate, la loro
-            finalità, la durata, i fornitori coinvolti e le modalità con cui l&apos;utente può
-            prestare o revocare il consenso.
-          </p>
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <PolicyLayout
+      title="Cookie"
+      intro="Le tecnologie utilizzate dal sito e il funzionamento dei contenuti esterni attivabili dall'utente."
+    >
+      <section>
+        <h2>Configurazione attuale</h2>
+        <p>
+          Il sito non attiva strumenti di analytics, advertising, profilazione o remarketing. Non
+          viene caricato alcun contenuto cartografico di Google durante la normale apertura della
+          pagina.
+        </p>
+      </section>
+
+      <section>
+        <h2>Funzioni tecniche</h2>
+        <p>
+          L&apos;hosting può utilizzare meccanismi tecnici strettamente necessari al caricamento,
+          alla sicurezza e alla distribuzione del sito. La presenza effettiva di cookie o storage
+          tecnico dipende dall&apos;ambiente di pubblicazione e deve essere verificata
+          periodicamente.
+        </p>
+      </section>
+
+      <section>
+        <h2>Google Fonts</h2>
+        <p>
+          I caratteri tipografici vengono richiesti a Google Fonts. Il fornitore può ricevere dati
+          tecnici della connessione, come indirizzo IP, user agent e informazioni necessarie a
+          consegnare la risorsa richiesta.
+        </p>
+      </section>
+
+      <section>
+        <h2>Mappa Google attivabile</h2>
+        <p>
+          La mappa interattiva resta disattivata finché l&apos;utente non seleziona il pulsante
+          dedicato. Solo dopo tale scelta viene creato l&apos;iframe e il browser contatta Google
+          per caricare la mappa. Google può quindi trattare dati tecnici e utilizzare proprie
+          tecnologie secondo le condizioni e informative applicabili al servizio.
+        </p>
+        <p>
+          Il collegamento “Apri su Google Maps” porta invece al servizio esterno in una nuova
+          scheda. La mappa può essere nuovamente disattivata dalla pagina, rimuovendo l&apos;iframe.
+        </p>
+      </section>
+
+      <section>
+        <h2>Banner e modifiche future</h2>
+        <p>
+          Nella configurazione attuale non viene attivato un banner preventivo per la mappa, perché
+          il contenuto Google non viene richiesto prima dell&apos;azione esplicita dell&apos;utente.
+          L&apos;eventuale introduzione di analytics, advertising, widget o altre tecnologie
+          richiede una nuova verifica della policy e della gestione del consenso.
+        </p>
+      </section>
+    </PolicyLayout>
   );
 }

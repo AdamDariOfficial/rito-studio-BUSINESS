@@ -1,15 +1,8 @@
-import { useRef } from "react";
-import { ctaLabels } from "@/lib/site-config";
+import { ctaLabels, site } from "@/lib/site-config";
 
-interface BookingCTAProps {
-  onBookClick: (trigger: HTMLElement) => void;
-}
-
-export function BookingCTA({ onBookClick }: BookingCTAProps) {
-  const btnRef = useRef<HTMLButtonElement>(null);
-
+export function BookingCTA() {
   return (
-    <section aria-labelledby="booking-cta-heading" className="pb-24 md:pb-32">
+    <section aria-labelledby="booking-cta-heading" className="py-24 md:py-32">
       <div className="container-editorial">
         <div className="relative border border-ink bg-ink p-8 md:p-16">
           <div className="grid gap-10 md:grid-cols-12 md:gap-8">
@@ -32,17 +25,16 @@ export function BookingCTA({ onBookClick }: BookingCTAProps) {
                 Raccontaci cosa stai cercando. Ti aiutiamo a scegliere il trattamento e il momento
                 più adatto.
               </p>
-              <button
-                ref={btnRef}
-                type="button"
-                onClick={() => onBookClick(btnRef.current!)}
+              <a
+                href={site.contact.phoneHref}
+                data-reveal
+                style={{ ["--reveal-delay" as string]: "160ms" }}
                 className="mt-8 inline-flex min-h-12 items-center justify-center border border-white bg-white px-6 text-sm font-medium text-ink transition-colors hover:border-surface hover:bg-surface focus-visible:outline-white"
               >
                 {ctaLabels.requestAppointment}
-              </button>
+              </a>
             </div>
           </div>
-          {/* Accent detail */}
           <span aria-hidden className="absolute -top-px left-8 h-2 w-16 bg-accent" />
         </div>
       </div>

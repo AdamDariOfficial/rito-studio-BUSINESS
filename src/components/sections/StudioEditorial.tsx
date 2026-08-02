@@ -5,7 +5,7 @@ export function StudioEditorial() {
     <section
       id="studio"
       aria-labelledby="studio-heading"
-      className="scroll-mt-[calc(var(--header-height)+24px)] py-24 md:py-36"
+      className="scroll-mt-[calc(var(--header-height)+24px)] bg-surface pb-0 pt-24 md:pb-0 md:pt-32"
     >
       <div className="container-editorial">
         <div className="grid gap-10 md:grid-cols-12 md:gap-12">

@@ -1,16 +1,12 @@
-import { useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useRevealController } from "@/hooks/use-reveal-controller";
 import { canonicalUrl } from "@/lib/site-config";
 import { StickyHeader } from "@/components/StickyHeader";
 import { Footer } from "@/components/Footer";
 import { SkipLink } from "@/components/SkipLink";
-import { BookingDialog } from "@/components/BookingDialog";
 import { Hero } from "@/components/sections/Hero";
-import { IntroStatement } from "@/components/sections/IntroStatement";
 import { EditorialServiceList } from "@/components/sections/EditorialServiceList";
 import { RitualFeature } from "@/components/sections/RitualFeature";
-import { MethodStrip } from "@/components/sections/MethodStrip";
 import { StudioEditorial } from "@/components/sections/StudioEditorial";
 import { GalleryRail } from "@/components/sections/GalleryRail";
 import { BookingCTA } from "@/components/sections/BookingCTA";
@@ -32,7 +28,7 @@ export const Route = createFileRoute("/")({
         { property: "og:title", content: "RITO Studio — Beauty & Care Atelier" },
         {
           property: "og:description",
-          content: "La bellezza, nel suo ritmo. Concept dimostrativo Tretnix.",
+          content: "La bellezza, nel suo ritmo. Beauty & Care Atelier a Padova.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: canonical },
@@ -45,37 +41,22 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const returnFocusRef = useRef<HTMLElement | null>(null);
-
   useRevealController();
-
-  function handleBookClick(trigger: HTMLElement) {
-    returnFocusRef.current = trigger;
-    setDialogOpen(true);
-  }
 
   return (
     <div className="min-h-screen bg-canvas text-ink">
       <SkipLink />
-      <StickyHeader onBookClick={handleBookClick} />
+      <StickyHeader />
       <main id="contenuto">
-        <Hero onBookClick={handleBookClick} />
-        <IntroStatement />
+        <Hero />
         <EditorialServiceList />
         <RitualFeature />
-        <MethodStrip />
         <StudioEditorial />
         <GalleryRail />
-        <BookingCTA onBookClick={handleBookClick} />
+        <BookingCTA />
         <PracticalInfo />
       </main>
       <Footer />
-      <BookingDialog
-        open={dialogOpen}
-        onClose={() => setDialogOpen(false)}
-        returnFocusRef={returnFocusRef}
-      />
     </div>
   );
 }

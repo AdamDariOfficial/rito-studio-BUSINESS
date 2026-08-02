@@ -219,3 +219,99 @@ Automated validation and local browser QA do not authorize any later operation.
 
 RITO Studio START is not approved, frozen or ready to become the BUSINESS
 baseline.
+
+## Aggiornamento di chiusura pre-freeze — 3 agosto 2026
+
+> Questa sezione sostituisce le precedenti sezioni “Current phase”, “Current controlled
+> change set” e “Required gates before commit” per lo stato corrente. Le sezioni storiche
+> restano come evidenza delle fasi precedenti.
+
+### Stato corrente
+
+```text
+PRE_FREEZE_POLISH_IMPLEMENTATION_COMPLETE
+PRE_FREEZE_POLISH_AUTOMATED_VALIDATION_PASSED
+PRE_FREEZE_POLISH_LOCAL_BROWSER_QA_PASSED
+PRE_FREEZE_POLISH_MANUAL_DIFF_REVIEW_PASSED
+DOCUMENTATION_RECONCILIATION_IN_PROGRESS
+START_NOT_COMMITTED
+START_NOT_MERGED
+START_NOT_DEPLOYED_FROM_THIS_CANDIDATE
+START_NOT_FROZEN
+```
+
+### Baseline e working branch
+
+```text
+base HEAD: cfc3edd965b5fa3d59fe64a0c04259d75c5c4cb1
+working branch: fix/rito-start-pre-freeze-polish
+controlled implementation package: RitoStartPreFreezePolish v1.9.0
+documentation closure package: RitoStartDocumentationClosure v1.0.0
+```
+
+### Evidenza automatica corrente
+
+La validazione Windows `RitoStartPreFreezePolish v1.9.0` del 3 agosto 2026 ha
+registrato:
+
+```text
+bun install --frozen-lockfile → exit 0
+bun run lint                 → exit 0, sei warning Fast Refresh ereditati
+bun run build                → exit 0, client + SSR + Nitro
+git diff --check             → exit 0
+content and allowlist gates  → passed
+```
+
+Le righe `System.Management.Automation.RemoteException` erano associate al warning Nitro
+su `inlineDynamicImports`; la build ha comunque generato gli output e terminato con exit
+code 0.
+
+### QA manuale corrente
+
+L'utente ha confermato nel browser:
+
+- responsive e assenza di overflow;
+- hero, spacing, colori e ritmo editoriale;
+- prezzi e nota del listino;
+- navbar, drawer, focus containment, Escape e focus return;
+- comportamento Back/Forward, route dirette e anchor;
+- policy senza skip link e home con “Vai ai trattamenti”;
+- mappa on-demand e fallback senza JavaScript;
+- reduced motion;
+- gallery mobile con pill animata, scomparsa a fine rail e ricomparsa;
+- footer, copyright e attribuzione Tretnix;
+- assenza di errori Console osservati nel QA finale.
+
+La revisione completa del diff ha inoltre rilevato e rimosso il componente orfano
+`src/components/BookingDialog.tsx`. Nessun altro blocker di codice è stato confermato.
+
+### Integrità del candidato
+
+Il candidato mantiene:
+
+- START one-page con `/`, `/privacy`, `/cookie` e 404 reale;
+- nessun backend, database, autenticazione, pagamento o booking nativo;
+- contatti non operativi e email `.example`;
+- `noindex, follow`;
+- nessun dato strutturato commerciale;
+- caricamento Google Maps solo dopo scelta esplicita;
+- attribuzione “Progettato e sviluppato da Tretnix”.
+
+### Gate ancora obbligatori
+
+1. applicare e validare la riconciliazione documentale;
+2. eseguire il review del diff documentale e dell'allowlist completa;
+3. ottenere autorizzazione esplicita allo staging;
+4. stage esclusivamente dei path approvati;
+5. eseguire `git diff --cached --check`, stat, name-status e patch staged;
+6. ottenere approvazione esplicita del commit message;
+7. creare il commit locale;
+8. ottenere autorizzazioni separate per push e pull request;
+9. revisionare e unire la PR solo dopo i relativi gate;
+10. verificare il commit distribuito e svolgere QA sull'origine di produzione;
+11. aggiornare lo status con commit, PR, merge e produzione verificati;
+12. dichiarare START approvato e congelato soltanto dopo tutte le evidenze;
+13. aprire BUSINESS esclusivamente con un nuovo gate esplicito.
+
+Nessuna validazione automatica o conferma browser autorizza implicitamente stage, commit,
+push, PR, merge, deploy o freeze.
