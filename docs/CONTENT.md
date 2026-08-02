@@ -544,3 +544,130 @@ Questa è una demo Tretnix. Nessun dato è stato inviato.
 - Non mostrare certificazioni non possedute.
 - Segnalare nel footer che il concept è dimostrativo.
 - Nessun form deve trasmettere dati in demo mode.
+
+## 7. Override START approvati per la baseline pre-freeze — 3 agosto 2026
+
+Questa sezione descrive il candidato RITO Studio START approvato dopo il polish pre-freeze.
+Per il solo START sostituisce gli esempi incompatibili presenti nelle sezioni 2, 3, 4 e 6.
+Le regole di famiglia continuano a valere per i progetti cliente, salvo decisioni specifiche.
+
+### Configurazione pubblica corrente
+
+```yaml
+brand: RITO Studio
+descriptor: Beauty & Care Atelier
+tagline: La bellezza, nel suo ritmo.
+city: Padova centro
+area: Zona Prato della Valle
+locationLabel: Padova centro · zona Prato della Valle
+email: info@ritostudio.example
+phone: +39 049 000 0000
+bookingMode: contact
+robots: noindex, follow
+mapMode: on-demand general-area embed
+```
+
+L'indirizzo esatto non viene dichiarato. La mappa rappresenta soltanto un'area pubblica
+generale e non un'attività RITO Studio reale.
+
+### CTA correnti
+
+```text
+Chiama per prenotare
+Scopri i trattamenti
+Prenota
+Chiama per un appuntamento
+```
+
+Le CTA di prenotazione aprono il canale telefonico configurato. Non esiste un dialog, un
+form o una conferma di invio dati.
+
+### Ordine finale della home
+
+```text
+1. StickyHeader
+2. Hero
+3. EditorialServiceList
+4. RitualFeature con anchor #metodo
+5. StudioEditorial
+6. GalleryRail
+7. BookingCTA
+8. PracticalInfo
+9. Footer
+```
+
+`IntroStatement` e `MethodStrip` non appartengono alla baseline finale.
+
+### Listino trattamenti del concept
+
+```yaml
+Hair Rituals:
+  - Taglio essenziale: €45
+  - Colore su misura: da €80
+  - Trattamento texture: da €65
+  - Piega e styling: da €35
+Skin & Brow:
+  - Rituale viso: €70
+  - Brow design: €25
+  - Lash lift: €55
+  - Trattamento illuminante: €80
+Hands & Nails:
+  - Manicure essenziale: €30
+  - Semipermanente: €40
+  - Nail care: €35
+  - Rituale mani: €45
+Wellness:
+  - Massaggio distensivo: €70
+  - Rituale schiena: €55
+  - Trattamento relax: €85
+  - Percorso corpo: da €95
+```
+
+Nota pubblica:
+
+```text
+I prezzi indicati si intendono a partire da dove specificato. Eventuali variazioni vengono concordate durante la consulenza.
+```
+
+Gli importi sono fixture premium specifiche del concept portfolio e non costituiscono un
+listino standard Tretnix o una stima di mercato.
+
+### Contatti e mappa
+
+```text
+Padova centro
+Zona Prato della Valle
+Una zona centrale e facilmente raggiungibile. L'indirizzo esatto viene confermato al momento della prenotazione.
++39 049 000 0000
+info@ritostudio.example
+```
+
+L'iframe Google viene creato solo dopo “Attiva la mappa interattiva”. Il link “Apri su
+Google Maps” apre il servizio esterno; senza JavaScript resta disponibile il fallback
+esterno.
+
+### Footer e disclosure
+
+Il footer usa una presentazione client-like, copyright e attribuzione Tretnix. Non contiene
+un banner demo prominente. La natura dimostrativa, i dati non operativi e la necessità di
+revisione per un cliente reale sono dichiarati nelle route Privacy e Cookie.
+
+Restano obbligatori:
+
+- email `.example`;
+- numero non operativo;
+- `noindex, follow`;
+- nessun backend o invio dati;
+- nessun dato strutturato commerciale;
+- nessuna recensione, metrica, certificazione o attività reale inventata.
+
+### Gallery mobile
+
+La gallery usa una pill animata centro-destra come unico indicatore visivo di scorrimento.
+La pill scompare quando il rail raggiunge il fondo, ricompare tornando indietro, resta
+statica con reduced motion e non intercetta touch, mouse o tastiera.
+
+### Policy
+
+Privacy e Cookie usano la navbar condivisa e non mostrano skip link. La home conserva
+“Vai ai trattamenti” come primo collegamento da tastiera.

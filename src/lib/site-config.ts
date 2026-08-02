@@ -1,10 +1,13 @@
 /**
  * Centralized configuration for RITO Studio START.
- * All copy is transcribed verbatim from docs/CONTENT.md. Do not edit here to
- * change wording — update the doc and mirror it.
+ * Public-facing copy stays polished while fictional contact details remain
+ * explicit in the discreet demo disclosure and legal routes.
  */
 
-export type BookingMode = "demo" | "external" | "contact";
+export type BookingMode = "external" | "contact";
+
+const mapQuery = "Prato della Valle, Padova";
+const encodedMapQuery = encodeURIComponent(mapQuery);
 
 export const site = {
   brand: {
@@ -13,12 +16,18 @@ export const site = {
     tagline: "La bellezza, nel suo ritmo.",
   },
   contact: {
-    city: "Padova",
-    locationLabel: "Padova · su appuntamento",
-    email: "ciao@ritostudio.example",
+    city: "Padova centro",
+    area: "Zona Prato della Valle",
+    locationLabel: "Padova centro · zona Prato della Valle",
+    locationDetail:
+      "Una zona centrale e facilmente raggiungibile. L'indirizzo esatto viene confermato al momento della prenotazione.",
+    email: "info@ritostudio.example",
     phone: "+39 049 000 0000",
     phoneHref: "tel:+390490000000",
-    emailHref: "mailto:ciao@ritostudio.example",
+    emailHref: "mailto:info@ritostudio.example",
+    mapQuery,
+    mapEmbedUrl: `https://www.google.com/maps?q=${encodedMapQuery}&z=15&output=embed`,
+    mapExternalUrl: `https://www.google.com/maps/search/?api=1&query=${encodedMapQuery}`,
   },
   hours: [
     { label: "Martedì–venerdì", value: "09:00–19:00" },
@@ -26,8 +35,10 @@ export const site = {
     { label: "Domenica e lunedì", value: "chiuso" },
   ],
   booking: {
-    mode: "demo" as BookingMode,
-    demoFeedback: "Questa è una demo Tretnix. Nessun dato è stato inviato.",
+    mode: "contact" as BookingMode,
+  },
+  legal: {
+    lastUpdated: "2 agosto 2026",
   },
   attribution: {
     text: "Progettato e sviluppato da",
@@ -51,10 +62,9 @@ export const nav = [
 ] as const;
 
 export const ctaLabels = {
-  bookPrimary: "Prenota il tuo rituale",
+  bookPrimary: "Chiama per prenotare",
   discoverTreatments: "Scopri i trattamenti",
-  discoverMethod: "Scopri il metodo",
-  requestAppointment: "Richiedi un appuntamento",
+  requestAppointment: "Chiama per un appuntamento",
   book: "Prenota",
 } as const;
 
@@ -62,33 +72,48 @@ export const serviceCategories = [
   {
     index: "01",
     name: "Hair Rituals",
-    items: ["Taglio essenziale", "Colore su misura", "Trattamento texture", "Piega e styling"],
+    items: [
+      { name: "Taglio essenziale", price: "€45" },
+      { name: "Colore su misura", price: "da €80" },
+      { name: "Trattamento texture", price: "da €65" },
+      { name: "Piega e styling", price: "da €35" },
+    ],
   },
   {
     index: "02",
     name: "Skin & Brow",
-    items: ["Rituale viso", "Brow design", "Lash lift", "Trattamento illuminante"],
+    items: [
+      { name: "Rituale viso", price: "€70" },
+      { name: "Brow design", price: "€25" },
+      { name: "Lash lift", price: "€55" },
+      { name: "Trattamento illuminante", price: "€80" },
+    ],
   },
   {
     index: "03",
     name: "Hands & Nails",
-    items: ["Manicure essenziale", "Semipermanente", "Nail care", "Rituale mani"],
+    items: [
+      { name: "Manicure essenziale", price: "€30" },
+      { name: "Semipermanente", price: "€40" },
+      { name: "Nail care", price: "€35" },
+      { name: "Rituale mani", price: "€45" },
+    ],
   },
   {
     index: "04",
     name: "Wellness",
-    items: ["Massaggio distensivo", "Rituale schiena", "Trattamento relax", "Percorso corpo"],
+    items: [
+      { name: "Massaggio distensivo", price: "€70" },
+      { name: "Rituale schiena", price: "€55" },
+      { name: "Trattamento relax", price: "€85" },
+      { name: "Percorso corpo", price: "da €95" },
+    ],
   },
 ] as const;
 
 export const servicesNote =
-  "Servizi e prezzi presenti nel concept sono dimostrativi e vanno configurati per il cliente reale.";
+  "I prezzi indicati si intendono a partire da dove specificato. Eventuali variazioni vengono concordate durante la consulenza.";
 
-/**
- * Gallery slots follow docs/ASSET_PLAN.md aspect ratios and use local curated
- * demo photography. The image set remains replaceable without changing the
- * gallery component or its responsive layout.
- */
 export const gallerySlots = [
   {
     id: "gallery-01",
