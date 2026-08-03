@@ -315,3 +315,169 @@ Il candidato mantiene:
 
 Nessuna validazione automatica o conferma browser autorizza implicitamente stage, commit,
 push, PR, merge, deploy o freeze.
+
+## Chiusura post-deploy e preparazione del freeze — 3 agosto 2026
+
+> Questa sezione sostituisce gli stati operativi precedenti per la fase
+> corrente. Le sezioni storiche restano come evidenza del percorso.
+
+### Stato consolidato
+
+```text
+PRE_FREEZE_POLISH_MERGED_VIA_PR_5
+IMPLEMENTATION_MERGE_COMMIT_FB0AEE1
+DEPLOY_CONFIRMED_BY_USER
+PRODUCTION_ORIGIN_AUTOMATED_QA_V1_0_3_PASSED
+PRODUCTION_BROWSER_QA_PASSED_BY_USER
+POST_DEPLOY_DOCUMENTATION_CLOSURE_AUTHORIZED
+DOCUMENTATION_PACKAGE_APPLIED_AND_VALIDATED
+DOCUMENTATION_DIFF_REVIEW_PASSED
+DOCUMENTATION_EXACT_STAGING_VERIFIED
+DOCUMENTATION_LOCAL_COMMIT_AMENDED_AND_VERIFIED
+FREEZE_REQUIRES_POST_MERGE_APPROVAL_AND_ANNOTATED_TAG
+START_NOT_APPROVED
+START_NOT_FROZEN
+START_NOT_TAGGED
+BUSINESS_NOT_AUTHORIZED
+```
+
+### Baseline e cronologia di rilascio
+
+```text
+pre-freeze base:
+cfc3edd965b5fa3d59fe64a0c04259d75c5c4cb1
+
+approved application candidate:
+003fa9ea9322e82cb2d79f78baf5bb29a798e6ae
+
+pull request:
+#5 — feat(rito-start): finalize pre-freeze polish
+
+implementation merge commit:
+fb0aee1773c6331d1c4dc8e4b702fabf7196a1d2
+
+documentation branch:
+docs/rito-start-post-deploy-freeze-prep
+
+documentation commit subject:
+docs(rito-start): prepare post-deploy freeze record
+```
+
+La PR #5 è stata unita il `2026-08-02T23:17:06Z`. Il branch remoto di lavoro è
+stato eliminato. Il clone locale è stato riallineato con fast-forward e
+`main...origin/main` risultava pulito sul merge commit.
+
+La chiusura documentale è stata applicata e validata su una branch separata.
+Il diff è limitato a sei path documentali, lo staging è stato autorizzato e
+`git diff --cached --check` è terminato senza errori. Nessun file applicativo è
+stato modificato.
+
+Il commit locale documentale è stato creato con parent applicativo verificato,
+subject approvato e working tree pulita. Prima del push è stata autorizzata e
+applicata una correzione strettamente documentale dello stato post-commit; il
+commit è stato quindi amendato senza cambiare subject, parent o perimetro dei
+sei path. Lo SHA locale risultante resta metadata Git esterno al documento.
+
+### Evidenza automatica sull'origine pubblica
+
+Il runner read-only `RITO_START_PRODUCTION_ORIGIN_QA v1.0.3`, eseguito il
+3 agosto 2026, ha registrato:
+
+```text
+origin / branch / HEAD                       → passed
+working tree prima e dopo                    → clean
+origin/main                                  → merge commit atteso
+bun install --frozen-lockfile                → exit 0
+bun run lint                                 → exit 0
+ESLint                                       → 0 errori, 6 warning ereditati
+bun run build                                → exit 0
+client + SSR + Nitro                         → passed
+/                                            → 200
+/privacy                                     → 200
+/cookie                                      → 200
+/route-inesistente                           → 404
+title / robots / canonical / og:url          → passed
+CTA, prezzi, mappa on-demand e disclosure    → passed
+favicon SHA-256                              → passed
+topologia logica dei 7 chunk                 → passed
+asset pubblici 200, zero redirect, non vuoti → passed
+```
+
+Log dichiarato dall'esecuzione utente:
+
+```text
+C:\Users\adamd\Downloads\RITO_START_PRODUCTION_ORIGIN_QA_v1.0.3\
+RITO_START_PRODUCTION_ORIGIN_QA_v1.0.3\production-qa-logs\20260803-013554
+```
+
+### QA browser di produzione
+
+Dopo la checklist richiesta, l'utente ha risposto “confermo tutto”. Sono quindi
+registrati come confermati dall'utente:
+
+- route dirette, refresh, Back/Forward e anchor;
+- responsive e assenza di overflow sui viewport richiesti;
+- drawer, Escape, focus containment, focus return e body scroll;
+- CTA telefoniche, listino e assenza di invii simulati;
+- gallery mobile, fine rail e reduced motion;
+- mappa non caricata prima dell'attivazione e fallback esterno;
+- focus visibile, ordine tastiera, skip link e reflow;
+- fallback senza JavaScript;
+- assenza di errori Console o richieste asset fallite osservate.
+
+Browser, sistema operativo e orario esatto della sessione manuale non sono
+stati specificati e restano metadati mancanti, non finding funzionali.
+
+### Limiti e non-blocker noti
+
+- sei warning Fast Refresh ereditati, con zero errori ESLint;
+- warning Nitro `inlineDynamicImports` non bloccante, con build exit `0`;
+- bundle ricostruiti dal provider con hash differenti dal build Windows locale;
+- nessuna attestazione crittografica diretta dello SHA distribuito da parte del
+  provider;
+- screen-reader speech output non registrato come sessione separata.
+
+Nessuno di questi punti è stato classificato come blocker o major nelle
+verifiche eseguite.
+
+### Regola di identificazione del freeze
+
+Il futuro merge commit della PR documentale non può auto-registrare il proprio
+SHA in un file contenuto nello stesso commit. Dopo il merge:
+
+1. `main` deve essere sincronizzato e lo SHA verificato;
+2. approvazione e freeze richiedono autorizzazioni esplicite;
+3. un tag annotato approvato deve puntare a quello SHA;
+4. il messaggio del tag e i metadata GitHub costituiscono il record autorevole;
+5. non deve essere creato un commit successivo soltanto per ripetere lo SHA,
+   perché sposterebbe `main` oltre il target congelato.
+
+### Perimetro della chiusura documentale
+
+```text
+README.md
+CHECKSUMS.sha256
+docs/APPROVAL.md
+docs/DECISIONS.md
+docs/START_BUSINESS_CONTRACT.md
+docs/STATUS.md
+```
+
+Non modifica codice, asset, dipendenze, configurazione, infrastruttura o
+produzione.
+
+### Sequenza controllata successiva al commit locale
+
+1. autorizzare e pubblicare la branch documentale;
+2. autorizzare e aprire la pull request;
+3. revisionare e unire la PR documentale;
+4. sincronizzare `main` e verificare lo SHA del merge;
+5. approvare esplicitamente RITO Studio START;
+6. autorizzare esplicitamente il freeze;
+7. scegliere e autorizzare il nome del tag annotato;
+8. creare e verificare il tag sullo SHA approvato;
+9. autorizzare separatamente il push del tag;
+10. aprire BUSINESS esclusivamente con un nuovo gate esplicito.
+
+Fino al completamento di questi gate RITO Studio START resta un candidato di
+freeze, non una baseline congelata.
