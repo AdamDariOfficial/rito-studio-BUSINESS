@@ -212,3 +212,51 @@ home conserva invece lo skip link “Vai ai trattamenti” verso `#trattamenti`.
 
 **Vincoli:** route dirette, refresh, Back/Forward, apertura in alto e focus visibile restano
 obbligatori.
+
+## BW-DEC-032 — Merge e QA di produzione qualificano il candidato finale START
+
+**Decisione:** il merge commit
+`fb0aee1773c6331d1c4dc8e4b702fabf7196a1d2`, creato dalla PR #5 a partire dal
+candidato `003fa9ea9322e82cb2d79f78baf5bb29a798e6ae`, è la baseline applicativa
+corrente da portare al gate finale di approvazione e freeze.
+
+**Evidenza:** `main` e `origin/main` sono stati sincronizzati sul merge commit; il
+production-origin QA automatico `RITO_START_PRODUCTION_ORIGIN_QA v1.0.3` ha
+superato installazione frozen, lint, build client/SSR/Nitro, route, metadata,
+robots, 404, favicon e disponibilità degli asset; l'utente ha inoltre confermato
+la checklist browser sul dominio pubblico senza blocker o major.
+
+**Limite:** il provider non espone in questa evidenza un'attestazione
+crittografica dello SHA distribuito. L'allineamento è supportato da contenuti,
+metadata, favicon, topologia dei chunk e comportamento pubblico. Questa
+decisione non equivale ancora ad approvazione, freeze o tag.
+
+## BW-DEC-033 — Identificazione non auto-referenziale del freeze finale
+
+**Decisione:** il target definitivo del freeze sarà il merge commit della PR di
+chiusura documentale, purché discenda da
+`fb0aee1773c6331d1c4dc8e4b702fabf7196a1d2` e il diff resti limitato ai file
+documentali approvati.
+
+Un file versionato non può contenere lo SHA del commit che contiene quel
+medesimo file. Lo SHA finale non deve quindi essere incorporato tramite un
+ulteriore commit che sposterebbe `main` oltre il target scelto.
+
+**Fonte autorevole:** dopo il merge, un tag annotato approvato deve puntare al
+merge commit verificato. Il messaggio del tag e i metadata GitHub registrano
+SHA, approvazione e freeze.
+
+**Gate:** sincronizzare `main`, verificare lo SHA risultante, ottenere
+approvazione e autorizzazione al freeze, scegliere il nome del tag, creare e
+verificare il tag, quindi autorizzarne separatamente il push.
+
+## BW-DEC-034 — Contratto START → BUSINESS preparato ma inattivo
+
+**Decisione:** introdurre `docs/START_BUSINESS_CONTRACT.md` come contratto di
+eredità preparatorio. Il documento diventa operativo soltanto dopo il merge
+della chiusura documentale, l'approvazione e il freeze dello START, la creazione
+e verifica del tag annotato e una nuova autorizzazione esplicita per BUSINESS.
+
+**Limite:** la presenza del contratto non autorizza la creazione della
+repository BUSINESS, l'implementazione multipagina, backend, database,
+autenticazione, booking nativo, deploy o consumo di crediti.
