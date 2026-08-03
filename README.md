@@ -1,8 +1,49 @@
-# RITO Studio START
+# RITO Studio BUSINESS
 
-RITO Studio START is a fictional Tretnix portfolio concept for the Beauty & Wellness family.
+RITO Studio BUSINESS is the multipage evolution of the approved Tretnix Beauty &
+Wellness START concept.
 
-The authorized product is a premium mobile-first one-page website with `/`, `/privacy`, `/cookie` and a real 404 experience. It uses fictional data and has no backend, authentication or native booking engine.
+## Canonical derivation
+
+```text
+source repository: AdamDariOfficial/rito-studio-START
+source commit: 439efff0f14315310b9149cde0283633696a0eb0
+source status: approved and frozen by explicit user authorization
+annotated tag: deliberately waived by the user
+BUSINESS repository: AdamDariOfficial/rito-studio-BUSINESS
+Lovable remix baseline: 222c331db44b1775aa2f877634f3a0f3dfdfbe69
+```
+
+The full START commit SHA is the authoritative family baseline. The Lovable remix
+preserves that history and adds two tool-managed commits whose net delta is limited to
+`package.json` and `bun.lock`, updating the Lovable TanStack configuration to `2.8.5`.
+
+## Product role
+
+BUSINESS adds a coherent multipage treatment-discovery and booking journey while
+preserving START's identity, responsive behavior, accessibility, motion and demo
+integrity.
+
+Planned public routes:
+
+```text
+/
+/trattamenti
+/trattamenti/:slug
+/studio
+/team
+/galleria
+/prenota
+/faq
+/contatti
+/privacy
+/cookie
+/*
+```
+
+BUSINESS v1 excludes `/journal`, `/journal/:slug`, `/gift-card`, `/account`, `/admin`,
+live availability, payments, client accounts, CRM, fidelity, database,
+authentication and BUSINESS PLUS.
 
 ## Canonical documentation
 
@@ -20,20 +61,41 @@ Read `AGENTS.md` first, then:
 - `docs/APPROVAL.md`
 - `docs/START_BUSINESS_CONTRACT.md`
 
-The Lovable Project Knowledge source is stored in:
+The versioned BUSINESS Project Knowledge source is:
 
 ```text
-compiled/LOVABLE_START_PROJECT_KNOWLEDGE.md
+compiled/LOVABLE_BUSINESS_PROJECT_KNOWLEDGE.md
 ```
 
-The authorized START prompt is stored in:
+The versioned BUSINESS implementation prompt is:
 
 ```text
-prompts/LOVABLE_START_PROMPT.md
+prompts/LOVABLE_BUSINESS_PROMPT.md
 ```
 
-## Status
+## Implementation gate
 
-The application baseline was merged through PR #5 and verified on the public production origin. RITO Studio START is a freeze candidate, but it is not yet approved, frozen or tagged.
+The multipage implementation may begin only after the identity/documentation change is
+reviewed and merged into `main`, local and remote `main` are synchronized, the connected
+Lovable project reflects the merge and Project Knowledge is updated from the versioned
+source.
 
-BUSINESS and BUSINESS PLUS remain unauthorized. Backend, database, authentication and native booking remain outside the START baseline.
+Before implementation, Lovable must switch to the dedicated branch
+`feat/rito-business-multipage`, created from the merged documentation baseline. The
+user must explicitly authorize the implementation pass and intentional credit use.
+That pass includes Lovable's automatic commits and synchronization only on the approved
+branch; it does not authorize direct work on `main`, PR, merge, publication or deploy.
+
+The presence of Project Knowledge or a prompt does not authorize execution.
+
+## SEO and measurement boundary
+
+BUSINESS includes a centralized route SEO inventory, social-image configuration,
+appropriate structured-data capability and consent-aware tracking configuration. The
+portfolio demo remains `noindex, follow`, keeps sitemap generation and analytics
+disabled by default and performs no tracking request or cookie write before consent.
+
+## Public authorship
+
+The public-facing product is designed and developed by Tretnix. Internal production
+tools are not presented as authors.

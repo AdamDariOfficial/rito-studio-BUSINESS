@@ -1,8 +1,8 @@
 # RITO Studio — Decision Log
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.1
-**Stato:** decisioni approvate e aggiornate al 28 luglio 2026
+**Versione:** 1.6
+**Stato:** decisioni approvate e aggiornate al 4 agosto 2026
 
 ## BW-DEC-001 — Concept portfolio
 
@@ -87,7 +87,6 @@ collegato a `https://tretnix.com`.
 ## BW-DEC-018 — Prezzo separato dalla specifica prodotto
 
 **Decisione:** la famiglia definisce scope, deliverable, esclusioni e add-on, ma il prezzo viene stabilito dalla politica commerciale Tretnix e dal progetto reale.
-
 
 ## BW-DEC-019 — V1 conservata ma rifiutata visivamente
 
@@ -260,3 +259,190 @@ e verifica del tag annotato e una nuova autorizzazione esplicita per BUSINESS.
 **Limite:** la presenza del contratto non autorizza la creazione della
 repository BUSINESS, l'implementazione multipagina, backend, database,
 autenticazione, booking nativo, deploy o consumo di crediti.
+
+## BW-DEC-035 — START approvato e congelato tramite SHA completo
+
+**Data:** 3 agosto 2026
+
+**Decisione:** RITO Studio START è approvato e congelato sulla baseline:
+
+```text
+439efff0f14315310b9149cde0283633696a0eb0
+```
+
+L'utente ha esplicitamente rinunciato al tag annotato per ridurre il lavoro operativo.
+Lo SHA Git completo resta l'identificatore immutabile e autorevole.
+
+**Conseguenza:** per RITO Studio questa decisione sostituisce il requisito del tag in
+BW-DEC-033 e nella versione preparatoria del contratto START → BUSINESS.
+
+## BW-DEC-036 — Avvio di RITO Studio BUSINESS autorizzato
+
+**Data:** 3 agosto 2026
+
+**Decisione:** autorizzare RITO Studio BUSINESS come evoluzione multipagina della
+baseline START `439efff0f14315310b9149cde0283633696a0eb0`.
+
+**Vincoli:** BUSINESS preserva identità, componenti, responsive, accessibilità, motion,
+demo integrity e attribuzione Tretnix. BUSINESS PLUS resta escluso.
+
+**Limite:** l'autorizzazione del prodotto non autorizza automaticamente prompt Lovable,
+crediti, stage, commit, push, deploy, backend o infrastruttura.
+
+## BW-DEC-037 — Derivazione BUSINESS tramite remix Lovable
+
+**Data:** 3 agosto 2026
+
+**Decisione:** creare BUSINESS mediante remix del progetto Lovable START, collegare la
+copia a una nuova repository GitHub e clonare quella repository in locale prima di
+applicare modifiche controllate.
+
+**Motivo:** il remix preserva il legame operativo Lovable e la cronologia START senza
+creare manualmente una repository locale o remota scollegata dal progetto effettivo.
+
+**Repository:** `AdamDariOfficial/rito-studio-BUSINESS`.
+
+## BW-DEC-038 — Baseline remix verificata
+
+**Data:** 3 agosto 2026
+
+**Decisione:** usare come baseline operativa BUSINESS il commit:
+
+```text
+222c331db44b1775aa2f877634f3a0f3dfdfbe69
+```
+
+Il commit è due revisioni avanti rispetto allo START canonico e zero indietro. Il delta
+complessivo è limitato a `package.json` e `bun.lock`, dove Lovable aggiorna e fissa
+`@lovable.dev/vite-tanstack-config` a `2.8.5` con le corrispondenti dipendenze lockfile.
+
+**Conseguenza:** questa variazione tecnica viene preservata. Non costituisce
+implementazione multipagina né autorizza ulteriori dependency update.
+
+## BW-DEC-039 — Bootstrap identità e documentazione prima dell'implementazione
+
+**Data:** 3 agosto 2026
+
+**Decisione:** prima di modificare l'applicazione, aggiornare esclusivamente:
+
+- identità repository;
+- stato e record di autorizzazione;
+- contratto START → BUSINESS;
+- decision log;
+- Project Knowledge BUSINESS;
+- prompt BUSINESS;
+- manifest checksum.
+
+Rimuovere i file Project Knowledge e prompt specifici di START dopo aver creato le
+corrispondenti versioni BUSINESS.
+
+**Esclusione:** nessuna route, componente, stile, asset, dipendenza, lockfile o file di
+configurazione applicativa viene modificato in questa fase.
+
+**Gate successivi:** validazione e review, staging, commit, push/PR e implementazione
+multipagina restano autorizzazioni separate.
+
+## BW-DEC-040 — Correzione post-review del bootstrap BUSINESS
+
+**Data:** 3 agosto 2026
+
+**Decisione:** registrare come completati Apply e Validate del package
+`RITO_STUDIO_BUSINESS_IDENTITY_DOCS_BOOTSTRAP_CCP v1.1.2`, senza autorizzare lo
+staging, e applicare una correzione documentale controllata prima del gate successivo.
+
+La prima review manuale ha confermato baseline, branch, zero staged path e perimetro
+generale, ma ha rilevato quattro problemi di evidenza e durabilità:
+
+1. il report basato su `git diff` non includeva il contenuto dei due file BUSINESS
+   untracked;
+2. `AGENTS.md` e `README.md` contenevano stato transitorio della singola modifica;
+3. il prompt Lovable non richiedeva merge documentale, sincronizzazione locale/remota e
+   sincronizzazione Lovable prima dell'esecuzione;
+4. il report esterno aveva encoding misto e non era adatto come evidenza finale.
+
+**Correzione approvata:** usare il package `v1.2.0` su otto path documentali, mantenendo
+l'intero working-tree limitato agli undici path già autorizzati. Il validator deve
+produrre un report UTF-8 con patch tracked completa e contenuto integrale dei due file
+untracked.
+
+**Gate durevole per l'implementazione:** il prompt BUSINESS può essere eseguito soltanto
+dopo merge della documentazione in `main`, sincronizzazione di `main` locale/remoto,
+conferma della sincronizzazione Lovable, aggiornamento del Project Knowledge e nuova
+autorizzazione esplicita per implementazione e crediti.
+
+**Identità package:** `package.json.name` resta intenzionalmente
+`tanstack_start_ts` in questa fase. `package.json` e `bun.lock` sono parte dello stato
+tecnico gestito dal remix e una loro modifica richiede un task separato con motivazione
+concreta.
+
+**Esclusione:** la correzione non modifica codice applicativo, route, componenti, stili,
+asset, dipendenze, lockfile o configurazione runtime e non autorizza staging, commit,
+push, PR, merge, implementazione, pubblicazione o deploy.
+
+## BW-DEC-041 — Workflow Lovable su branch e completamento SEO/tracking
+
+**Data:** 4 agosto 2026
+
+**Decisione:** la seconda review manuale del bootstrap BUSINESS non autorizza lo
+staging e richiede il package correttivo `v1.2.2` sugli stessi otto path documentali.
+
+**Workflow Lovable approvato:** dopo il merge della documentazione in `main`, la
+sincronizzazione locale/remota e l'aggiornamento del Project Knowledge, Lovable deve
+creare o selezionare `feat/rito-business-multipage` a partire dall'esatto `main`
+unito. Una futura autorizzazione esplicita al pass di implementazione comprende i
+commit automatici e la sincronizzazione GitHub prodotti da Lovable esclusivamente su
+quel branch. Non comprende lavoro diretto su `main`, PR, merge, pubblicazione o deploy.
+
+**SEO e misurazione BUSINESS:** la versione BUSINESS deve preparare:
+
+- inventario SEO tipizzato per route;
+- title, description, canonical, Open Graph e social image;
+- indexability esplicita;
+- capacità di sitemap attivabile soltanto per un lancio reale approvato;
+- structured data appropriati e revisionati;
+- tracking configurabile e subordinato al consenso.
+
+Per il concept portfolio restano i default `noindex, follow`, sitemap disabilitata,
+structured data commerciali disabilitati, tracking `enabled: false`, nessun provider e
+nessuna richiesta, cookie o identificatore prima del consenso.
+
+**Structured data consentiti:** soltanto dati accurati e non commerciali come
+`WebSite`, `WebPage` o `BreadcrumbList` dopo review esplicita. Restano vietati dati
+fittizi `LocalBusiness`, `Service`, `Offer`, indirizzi, orari commerciali, credenziali,
+recensioni, rating e prenotazioni.
+
+**Uniformità route escluse:** `/journal/:slug` è esclusa esplicitamente insieme a
+`/journal`, `/gift-card`, `/account` e `/admin` dalla prima versione BUSINESS.
+
+**Esclusione:** `v1.2.2` non modifica codice applicativo, route, componenti, stili,
+asset, dipendenze, lockfile o configurazione runtime e non autorizza staging, commit
+manuali, push manuale, PR, merge, implementazione, pubblicazione o deploy.
+
+## BW-DEC-042 — Chiusura del bootstrap documentale BUSINESS
+
+**Data:** 4 agosto 2026
+
+**Decisione:** registrare come completati Apply e Validate del package `v1.2.2` e
+considerare superata la review finale del contenuto identità/documentazione.
+
+La review ha confermato:
+
+- baseline START e BUSINESS corrette;
+- esatto perimetro di undici path e zero staged path;
+- frozen install, lint, build e `git diff --check` superati;
+- workflow Lovable su branch dedicato coerente con i gate approvati;
+- scope BUSINESS SEO, social image, structured data e tracking completo e sicuro per la
+  demo;
+- esclusioni route complete, incluso `/journal/:slug`;
+- nessuna modifica applicativa, dipendenza o configurazione runtime.
+
+**Chiusura autorizzata:** applicare `v1.2.3` esclusivamente a `CHECKSUMS.sha256`,
+`docs/APPROVAL.md`, `docs/DECISIONS.md` e `docs/STATUS.md` per eliminare metadata
+transitori e rendere il record durevole.
+
+**Conseguenza:** dopo la validazione automatica di `v1.2.3`, il candidato completo di
+undici path può entrare nel gate di staging, che richiede comunque una nuova
+autorizzazione esplicita.
+
+**Esclusione:** questa decisione non autorizza stage, commit, push, PR, merge, prompt
+Lovable, consumo crediti, implementazione, pubblicazione o deploy.

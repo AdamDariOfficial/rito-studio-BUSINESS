@@ -1,39 +1,60 @@
 # RITO Studio — START → BUSINESS Inheritance Contract
 
-**Prepared:** 3 August 2026
-**Status:** `PREPARED_NOT_ACTIVE`
-**Applies to:** future RITO Studio BUSINESS only
+**Updated:** 3 August 2026
+**Status:** `ACTIVE_BY_CANONICAL_START_SHA`
+**Applies to:** RITO Studio BUSINESS
+**Canonical START:** `439efff0f14315310b9149cde0283633696a0eb0`
+**BUSINESS remix baseline:** `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
 
-## Activation gate
+## Activation evidence
 
-This contract becomes active only after all of the following exist:
+The contract is active because:
 
-1. the documentation closure PR is merged;
-2. RITO Studio START is explicitly approved;
-3. the verified documentation-closure merge commit is frozen;
-4. an approved annotated tag identifies that exact commit;
-5. the local and remote tag targets are verified;
-6. the user separately authorizes RITO Studio BUSINESS.
+1. the START implementation and documentation closure PRs were merged;
+2. the canonical START merge commit was synchronized and verified;
+3. RITO Studio START was explicitly approved by the user;
+4. the user explicitly authorized the START freeze;
+5. the user explicitly waived the annotated-tag requirement;
+6. the user explicitly authorized RITO Studio BUSINESS;
+7. START was remixed in Lovable into a separate BUSINESS project;
+8. the BUSINESS project was connected to its own GitHub repository;
+9. the local BUSINESS clone and remix delta were verified;
+10. the user authorized the identity and documentation bootstrap before implementation.
 
-Until then, this document is preparation only. It does not authorize a new
-repository, implementation, Lovable work, credits, backend, deployment or
-migration.
+The original tag precondition is replaced by the exact full START SHA. This is a
+user-approved process exception, not an inference.
 
-## Canonical source
+## Canonical sources
 
-The canonical BUSINESS source will be the approved annotated START tag, not an
-earlier chat, branch, untagged commit or reconstructed design.
+The authoritative family source is:
 
-The annotated tag message and GitHub tag metadata are the authoritative record
-of the frozen commit SHA and approval. A repository file is not required to
-self-record the SHA of the commit that contains it.
+```text
+repository: AdamDariOfficial/rito-studio-START
+commit: 439efff0f14315310b9149cde0283633696a0eb0
+```
+
+The authorized BUSINESS working baseline is:
+
+```text
+repository: AdamDariOfficial/rito-studio-BUSINESS
+commit: 222c331db44b1775aa2f877634f3a0f3dfdfbe69
+```
+
+The BUSINESS baseline contains the full START history plus two Lovable-managed commits
+whose net diff is limited to `package.json` and `bun.lock` for the Lovable config
+update. It does not contain multipage implementation changes.
+
+Do not derive BUSINESS from an earlier START candidate, a chat reconstruction, an
+unverified archive, the rejected V1 visual prototype or Hospitality code as a visual
+default.
 
 ## Inherited identity
 
-BUSINESS must preserve the frozen START identity unless a later approved
-decision explicitly changes it:
+BUSINESS must preserve the approved START identity unless a later approved decision
+explicitly changes it:
 
 - RITO Studio concept and Beauty & Care Atelier positioning;
+- tagline `La bellezza, nel suo ritmo.`;
 - porcelain, ink and burgundy palette;
 - canonical accent `#6A3F4B`;
 - Newsreader and Manrope typography;
@@ -43,7 +64,7 @@ decision explicitly changes it:
 - client-like demo presentation with honest non-operational data.
 
 The detailed source remains `docs/DESIGN.md`, `docs/CONTENT.md`,
-`docs/ANIMATIONS.md` and the frozen implementation.
+`docs/ANIMATIONS.md` and the canonical START implementation.
 
 ## Inherited technical behavior
 
@@ -57,50 +78,69 @@ BUSINESS must retain or improve:
 - visible focus, semantic landmarks and correct heading structure;
 - drawer Escape handling, focus containment/return and body-scroll restoration;
 - `prefers-reduced-motion`;
-- no fictional reviews, metrics, credentials or real commercial claims;
-- no weakened authentication, authorization or RLS in any future backend scope.
+- no fictional reviews, metrics, credentials or commercial claims;
+- no weakened authentication, authorization or RLS in any later backend scope.
 
-The detailed source remains `AGENTS.md`, `docs/TESTING.md`,
-`docs/ROUTES.md`, `docs/DECISIONS.md` and the frozen implementation.
+The detailed source remains `AGENTS.md`, `docs/TESTING.md`, `docs/ROUTES.md`,
+`docs/DECISIONS.md` and the canonical START implementation.
 
 ## Allowed BUSINESS expansion
 
-After explicit authorization, BUSINESS may evolve the frozen START into the
-approved multipage product described by BW-DEC-004, including:
+After a separate implementation authorization, BUSINESS may add:
 
-- treatment catalog and detail routes;
-- studio and team content;
-- expanded gallery;
-- FAQ and richer contact routes;
-- configurable booking behavior;
-- route-specific metadata and content depth.
+- `/trattamenti` and treatment detail routes;
+- `/studio`;
+- `/team`;
+- `/galleria` with an accessible lightbox;
+- `/prenota`;
+- `/faq`;
+- `/contatti`;
+- route-specific metadata and deeper content;
+- a configured `external`, `whatsapp`, `request` or `demo` booking adapter;
+- comparative START ↔ BUSINESS QA.
 
-These are intentional product differences. They must not become an unrelated
-visual redesign.
+These are intentional product differences. They must not become an unrelated visual
+redesign.
 
 ## Changes requiring a new decision
 
 The following require explicit scope and approval:
 
 - changing palette, typography or core visual personality;
-- replacing the frozen navigation, footer or CTA language globally;
+- replacing the approved navigation, footer or CTA language globally;
 - removing accessibility behavior;
 - introducing backend, authentication, database, payments or native booking;
 - introducing CRM, admin or management functionality;
 - copying Hospitality identity or components as visual defaults;
 - beginning BUSINESS PLUS.
 
+## Current controlled phase
+
+The current phase is strictly:
+
+```text
+REPOSITORY_IDENTITY_UPDATE
+PROJECT_DOCUMENTATION_UPDATE
+PROJECT_KNOWLEDGE_PREPARATION
+BUSINESS_PROMPT_PREPARATION
+```
+
+No multipage source implementation, stage, commit, push, publication or deployment is
+part of this package.
+
 ## Parity review before BUSINESS freeze
 
-A future BUSINESS review must compare against the frozen START tag and
-separate:
+A future BUSINESS review must verify at minimum:
 
-- inherited invariants;
-- intentional multipage differences;
-- regressions;
-- new product requirements.
+- palette and typography parity;
+- navbar, drawer, CTA and footer parity;
+- spacing and editorial rhythm;
+- image treatment;
+- motion and reduced-motion parity;
+- mobile ordering and overflow;
+- route, refresh, Back and Forward behavior;
+- honest booking-adapter behavior;
+- absence of BUSINESS PLUS scope.
 
-The review must include responsive, accessibility, motion, route behavior,
-content integrity, security and production validation. Intentional BUSINESS
-differences must not be “fixed” back into START behavior merely for visual
-uniformity.
+With brand name and logo hidden, START and BUSINESS must still be recognizable as the
+same family.
