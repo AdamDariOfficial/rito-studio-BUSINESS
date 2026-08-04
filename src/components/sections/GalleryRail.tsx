@@ -1,10 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { gallerySlots } from "@/lib/site-config";
+import { Link } from "@tanstack/react-router";
+import { galleryItems } from "@/data/content";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 const scrollDescriptionId = "gallery-scroll-description";
 const scrollEndThreshold = 8;
+const gallerySlots = galleryItems.slice(0, 4).map((item, index) => ({
+  ...item,
+  ratio: `${item.width} / ${item.height}`,
+  tone: (["canvas", "surface", "ink", "canvas"] as const)[index] ?? "surface",
+}));
 
 export function GalleryRail() {
   const railRef = useRef<HTMLDivElement>(null);
@@ -40,6 +46,18 @@ export function GalleryRail() {
       className="bg-surface pb-20 pt-4 md:pb-24 md:pt-5 lg:pt-6"
     >
       <div className="container-editorial">
+        <div className="mb-8 flex items-end justify-between gap-5">
+          <div>
+            <p className="eyebrow">Galleria</p>
+            <h2 className="mt-3 font-display text-3xl text-ink md:text-4xl">Gesti e materia.</h2>
+          </div>
+          <Link
+            to="/galleria"
+            className="hidden min-h-11 items-center border-b border-ink text-sm font-medium text-ink hover:text-accent sm:inline-flex"
+          >
+            Apri la galleria
+          </Link>
+        </div>
         <p id={scrollDescriptionId} className="sr-only">
           Su schermi piccoli, scorri orizzontalmente per visualizzare tutte le immagini.
         </p>
@@ -94,6 +112,12 @@ export function GalleryRail() {
             </span>
           </div>
         </div>
+        <Link
+          to="/galleria"
+          className="mt-7 inline-flex min-h-11 items-center border-b border-ink text-sm font-medium text-ink hover:text-accent sm:hidden"
+        >
+          Apri la galleria
+        </Link>
       </div>
 
       <style>{`

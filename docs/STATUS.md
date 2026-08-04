@@ -5,7 +5,7 @@
 **Family:** Tretnix Beauty & Wellness `v1.1`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
-**Remix baseline:** `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
+**Implementation baseline:** `9b7ff807f945f679216671577963fd713badb507`
 **Canonical START baseline:** `439efff0f14315310b9149cde0283633696a0eb0`
 
 ## Approved baseline state
@@ -23,7 +23,11 @@ IDENTITY_DOCS_CONTENT_REVIEW_PASSED
 IDENTITY_DOCS_EXACT_11_PATH_SCOPE_APPROVED
 IDENTITY_DOCS_EXACT_STAGING_VERIFIED
 IDENTITY_DOCS_APPLICATION_SCOPE_UNCHANGED
-MULTIPAGE_IMPLEMENTATION_NOT_STARTED
+MULTIPAGE_IMPLEMENTATION_AUTHORIZED_LOCAL
+IMPLEMENTATION_WRITER_CURSOR_CODEX
+IMPLEMENTATION_BRANCH_FEAT_RITO_BUSINESS_MULTIPAGE
+LOVABLE_PASSIVE_ONLY
+LOVABLE_AGENT_PROMPT_CREDITS_NOT_AUTHORIZED
 BUSINESS_PLUS_NOT_AUTHORIZED
 ```
 
@@ -204,30 +208,17 @@ Transient index state is deliberately kept out of the durable repository status.
 remaining operations are external Git release gates and do not change the approved
 BUSINESS product scope.
 
-## Implementation activation gate
+## Current implementation authorization
 
-Multipage implementation remains blocked until:
+The user authorized Cursor + Codex as the sole local writer for the complete BUSINESS
+multipage pass on `feat/rito-business-multipage`, based on
+`9b7ff807f945f679216671577963fd713badb507`.
 
-1. the identity/documentation patch is staged, committed, pushed, reviewed and merged;
-2. local `main` is synchronized with `origin/main` and clean;
-3. the merged documents are visible in Lovable;
-4. Lovable Project Knowledge is updated from the merged versioned source;
-5. Lovable creates or selects `feat/rito-business-multipage` from that merged `main`;
-6. the branch base is verified and no overlapping writer is active;
-7. the user explicitly authorizes the implementation pass, intentional credit use and
-   Lovable's automatic commits on that dedicated branch.
+Lovable remains passive for repository synchronization or optional preview only.
+Project Knowledge is not required or updated, the Lovable Agent and prompt are not
+authorized, and intentional Lovable credit use is prohibited. Concurrent writers are
+forbidden.
 
-PR, merge, publication and deploy remain separate gates.
-
-## Controlled release sequence
-
-Before the local documentation commit:
-
-1. validate any final status-only correction against the exact 11-path allowlist;
-2. stage exactly the approved composition above;
-3. confirm zero unstaged and untracked paths;
-4. verify the repository checksum manifest and `git diff --cached --check`;
-5. obtain explicit approval for the commit message and local commit.
-
-Push, pull request, merge, Lovable implementation, publication and deployment remain
-separate explicit gates.
+The pass includes local documentation/source changes, validation, remediation and final
+reporting. Stage, commit, push, pull request, merge, publication, deployment, domains and
+infrastructure remain separate explicit gates.

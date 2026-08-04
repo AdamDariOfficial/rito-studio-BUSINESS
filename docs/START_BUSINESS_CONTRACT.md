@@ -37,7 +37,7 @@ The authorized BUSINESS working baseline is:
 
 ```text
 repository: AdamDariOfficial/rito-studio-BUSINESS
-commit: 222c331db44b1775aa2f877634f3a0f3dfdfbe69
+commit: 9b7ff807f945f679216671577963fd713badb507
 ```
 
 The BUSINESS baseline contains the full START history plus two Lovable-managed commits
@@ -114,19 +114,17 @@ The following require explicit scope and approval:
 - copying Hospitality identity or components as visual defaults;
 - beginning BUSINESS PLUS.
 
-## Current controlled phase
+## Current authorized phase
 
-The current phase is strictly:
+The current phase is a complete local BUSINESS multipage implementation pass by
+Cursor + Codex, as the sole writer, on `feat/rito-business-multipage` from
+`9b7ff807f945f679216671577963fd713badb507`.
 
-```text
-REPOSITORY_IDENTITY_UPDATE
-PROJECT_DOCUMENTATION_UPDATE
-PROJECT_KNOWLEDGE_PREPARATION
-BUSINESS_PROMPT_PREPARATION
-```
-
-No multipage source implementation, stage, commit, push, publication or deployment is
-part of this package.
+Lovable is passive repository synchronization or optional preview only. Its Project
+Knowledge is not required or updated, its Agent and prompt are not authorized, and no
+intentional Lovable credits may be used. Concurrent writers are forbidden. Stage,
+commit, push, pull request, merge, publication, deployment, domains and infrastructure
+remain separate explicit gates.
 
 ## Parity review before BUSINESS freeze
 

@@ -58,6 +58,36 @@ export function Footer() {
           <p className="eyebrow text-surface">Info</p>
           <ul className="mt-4 space-y-2 text-sm text-white">
             <li>
+              <Link to="/trattamenti" className={footerLinkClass}>
+                Trattamenti
+              </Link>
+            </li>
+            <li>
+              <Link to="/studio" className={footerLinkClass}>
+                Studio
+              </Link>
+            </li>
+            <li>
+              <Link to="/team" className={footerLinkClass}>
+                Team
+              </Link>
+            </li>
+            <li>
+              <Link to="/galleria" className={footerLinkClass}>
+                Galleria
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className={footerLinkClass}>
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link to="/contatti" className={footerLinkClass}>
+                Contatti
+              </Link>
+            </li>
+            <li>
               <Link to="/privacy" className={footerLinkClass}>
                 Privacy
               </Link>
@@ -65,6 +95,11 @@ export function Footer() {
             <li>
               <Link to="/cookie" className={footerLinkClass}>
                 Cookie
+              </Link>
+            </li>
+            <li>
+              <Link to="/prenota" className={footerLinkClass}>
+                Prenota
               </Link>
             </li>
           </ul>

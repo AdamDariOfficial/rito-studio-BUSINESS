@@ -446,3 +446,27 @@ autorizzazione esplicita.
 
 **Esclusione:** questa decisione non autorizza stage, commit, push, PR, merge, prompt
 Lovable, consumo crediti, implementazione, pubblicazione o deploy.
+
+## BW-DEC-043 — Implementazione BUSINESS locale con Cursor + Codex
+
+**Data:** 4 agosto 2026
+
+**Decisione:** sostituire, per il pass corrente, il gate di implementazione specifico
+per Lovable con un unico pass locale completo eseguito da Cursor + Codex come solo
+writer sul working tree BUSINESS canonico.
+
+```text
+branch: feat/rito-business-multipage
+base: 9b7ff807f945f679216671577963fd713badb507
+Lovable: sincronizzazione passiva del repository / preview opzionale
+Project Knowledge Lovable: non richiesto e non aggiornato
+Lovable Agent e prompt: non autorizzati
+crediti Lovable intenzionali: non autorizzati
+writer concorrenti: vietati
+```
+
+**Perimetro autorizzato:** modifiche locali a documentazione e sorgenti, implementazione
+multipagina BUSINESS, validazione, remediation e report finale sul branch dedicato.
+
+**Gate separati:** staging, commit, push, pull request, merge, pubblicazione, deploy,
+domini e infrastruttura non sono autorizzati da questa decisione.

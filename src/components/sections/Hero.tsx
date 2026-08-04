@@ -1,26 +1,9 @@
-import { useNavigate } from "@tanstack/react-router";
-import { type MouseEvent } from "react";
-import { ctaLabels, site } from "@/lib/site-config";
-import { scrollToSection } from "@/lib/scroll-to-anchor";
+import { Link } from "@tanstack/react-router";
+import { ctaLabels } from "@/lib/site-config";
 import { useReveal } from "@/hooks/use-reveal";
 
 export function Hero() {
   const imageRef = useReveal<HTMLDivElement>();
-  const navigate = useNavigate();
-
-  function handleTreatmentsClick(event: MouseEvent<HTMLAnchorElement>) {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
-      return;
-    }
-
-    event.preventDefault();
-    void navigate({
-      to: ".",
-      hash: "trattamenti",
-      resetScroll: false,
-      hashScrollIntoView: false,
-    }).then(() => scrollToSection("trattamenti"));
-  }
 
   return (
     <section
@@ -73,24 +56,23 @@ export function Hero() {
             </p>
 
             <div className="mt-7 flex flex-col items-stretch gap-4 lg:mt-10 lg:flex-row lg:items-center">
-              <a
-                href={site.contact.phoneHref}
+              <Link
+                to="/prenota"
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "220ms" }}
                 className="inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white transition-colors hover:border-accent-strong hover:bg-accent-strong"
               >
                 {ctaLabels.bookPrimary}
-              </a>
-              <a
-                href="#trattamenti"
-                onClick={handleTreatmentsClick}
+              </Link>
+              <Link
+                to="/trattamenti"
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "300ms" }}
                 className="inline-flex min-h-11 items-center justify-center gap-2 border-b border-ink text-sm font-medium tracking-wide text-ink transition-colors hover:text-accent md:min-h-12 md:border md:px-6 md:hover:bg-ink md:hover:text-white"
               >
                 {ctaLabels.discoverTreatments}
-                <span aria-hidden>↓</span>
-              </a>
+                <span aria-hidden>↗</span>
+              </Link>
             </div>
           </div>
         </div>

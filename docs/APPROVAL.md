@@ -1,7 +1,7 @@
 # RITO Studio BUSINESS — Authorization and Baseline Record
 
 **Updated:** 4 August 2026
-**Status:** `BUSINESS_AUTHORIZED / IDENTITY_DOCS_BASELINE_APPROVED`
+**Status:** `BUSINESS_LOCAL_IMPLEMENTATION_AUTHORIZED`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
 **Remix baseline:** `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
@@ -242,3 +242,24 @@ publication, deployment, domains or infrastructure changes.
 8. explicitly authorize the multipage implementation pass, automatic Lovable commits
    on that branch and intentional credit use;
 9. run implementation, QA and release gates separately.
+
+## Cursor + Codex implementation authorization
+
+On 4 August 2026 the user replaced the Lovable-specific implementation gate for the
+current pass with this approved local-writer decision:
+
+```text
+implementation writer: Cursor + Codex
+writer mode: one local writer on the canonical BUSINESS working tree
+implementation branch: feat/rito-business-multipage
+branch base: 9b7ff807f945f679216671577963fd713badb507
+Lovable role: passive repository synchronization / optional preview only
+Lovable Project Knowledge: not required and not updated for this pass
+Lovable Agent and prompt: not authorized
+Lovable credits: not authorized
+concurrent writers: forbidden
+```
+
+The authorization covers local documentation and source implementation, validation,
+remediation and final reporting in one pass. It does not authorize stage, commit, push,
+pull request, merge, publication, deployment, domains or infrastructure changes.

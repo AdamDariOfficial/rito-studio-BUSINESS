@@ -61,32 +61,29 @@ Read `AGENTS.md` first, then:
 - `docs/APPROVAL.md`
 - `docs/START_BUSINESS_CONTRACT.md`
 
-The versioned BUSINESS Project Knowledge source is:
+The optional versioned BUSINESS Project Knowledge source for a future Lovable pass is:
 
 ```text
 compiled/LOVABLE_BUSINESS_PROJECT_KNOWLEDGE.md
 ```
 
-The versioned BUSINESS implementation prompt is:
+The optional versioned BUSINESS implementation prompt for a future Lovable pass is:
 
 ```text
 prompts/LOVABLE_BUSINESS_PROMPT.md
 ```
 
-## Implementation gate
+## Current implementation decision
 
-The multipage implementation may begin only after the identity/documentation change is
-reviewed and merged into `main`, local and remote `main` are synchronized, the connected
-Lovable project reflects the merge and Project Knowledge is updated from the versioned
-source.
+The user authorized Cursor + Codex as the sole local writer for the complete BUSINESS
+multipage pass on `feat/rito-business-multipage`, based on
+`9b7ff807f945f679216671577963fd713badb507`.
 
-Before implementation, Lovable must switch to the dedicated branch
-`feat/rito-business-multipage`, created from the merged documentation baseline. The
-user must explicitly authorize the implementation pass and intentional credit use.
-That pass includes Lovable's automatic commits and synchronization only on the approved
-branch; it does not authorize direct work on `main`, PR, merge, publication or deploy.
-
-The presence of Project Knowledge or a prompt does not authorize execution.
+Lovable remains passive for repository synchronization or optional preview only.
+Project Knowledge is not required or updated, the Lovable Agent and prompt are not
+authorized, and intentional Lovable credit use is prohibited for this pass. Concurrent
+writers are forbidden. Stage, commit, push, pull request, merge, publication, deployment,
+domains and infrastructure remain separate explicit gates.
 
 ## SEO and measurement boundary
 

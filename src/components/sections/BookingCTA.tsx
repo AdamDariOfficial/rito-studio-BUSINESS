@@ -1,4 +1,5 @@
-import { ctaLabels, site } from "@/lib/site-config";
+import { Link } from "@tanstack/react-router";
+import { ctaLabels } from "@/lib/site-config";
 
 export function BookingCTA() {
   return (
@@ -25,14 +26,14 @@ export function BookingCTA() {
                 Raccontaci cosa stai cercando. Ti aiutiamo a scegliere il trattamento e il momento
                 più adatto.
               </p>
-              <a
-                href={site.contact.phoneHref}
+              <Link
+                to="/prenota"
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "160ms" }}
                 className="mt-8 inline-flex min-h-12 items-center justify-center border border-white bg-white px-6 text-sm font-medium text-ink transition-colors hover:border-surface hover:bg-surface focus-visible:outline-white"
               >
                 {ctaLabels.requestAppointment}
-              </a>
+              </Link>
             </div>
           </div>
           <span aria-hidden className="absolute -top-px left-8 h-2 w-16 bg-accent" />

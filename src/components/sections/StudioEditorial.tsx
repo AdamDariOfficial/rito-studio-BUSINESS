@@ -1,4 +1,5 @@
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { Link } from "@tanstack/react-router";
 
 export function StudioEditorial() {
   return (
@@ -31,6 +32,12 @@ export function StudioEditorial() {
               Luce morbida, materiali naturali e postazioni essenziali. Lo studio lascia spazio alla
               relazione, al lavoro e al tempo personale.
             </p>
+            <Link
+              to="/studio"
+              className="mt-7 inline-flex min-h-11 items-center border-b border-ink text-sm font-medium text-ink transition-colors hover:text-accent"
+            >
+              Conosci lo studio
+            </Link>
           </div>
           <div className="md:col-span-7" data-reveal>
             <ImagePlaceholder
