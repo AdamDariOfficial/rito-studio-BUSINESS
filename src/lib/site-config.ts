@@ -1,5 +1,3 @@
-export type BookingMode = "external" | "whatsapp" | "request" | "demo";
-
 const mapQuery = "Prato della Valle, Padova";
 const encodedMapQuery = encodeURIComponent(mapQuery);
 
@@ -23,21 +21,17 @@ export const site = {
     mapEmbedUrl: `https://www.google.com/maps?q=${encodedMapQuery}&z=15&output=embed`,
     mapExternalUrl: `https://www.google.com/maps/search/?api=1&query=${encodedMapQuery}`,
     accessibility:
-      "Le informazioni definitive sull'accessibilità dello spazio devono essere confermate dal cliente reale prima della pubblicazione.",
+      "Per esigenze di accesso specifiche, contatta lo studio prima della visita: potremo condividere le indicazioni più utili.",
     directions:
       "La zona è servita dal trasporto pubblico. L'indirizzo esatto e le indicazioni di accesso vengono condivisi alla conferma.",
     appointmentPolicy:
-      "Gli appuntamenti e le eventuali variazioni sono confermati direttamente dallo studio. Questa demo non registra richieste.",
+      "Gli appuntamenti e le eventuali variazioni vengono concordati direttamente al telefono con lo studio.",
   },
   hours: [
     { label: "Martedì–venerdì", value: "09:00–19:00" },
     { label: "Sabato", value: "09:00–17:00" },
     { label: "Domenica e lunedì", value: "chiuso" },
   ],
-  booking: {
-    mode: "demo" as BookingMode,
-    demoFeedback: "Questa è una demo Tretnix. Nessun dato è stato inviato.",
-  },
   legal: {
     lastUpdated: "4 agosto 2026",
   },
@@ -66,19 +60,18 @@ export const site = {
 } as const;
 
 export const nav = [
+  { label: "Home", to: "/" },
   { label: "Trattamenti", to: "/trattamenti" },
   { label: "Studio", to: "/studio" },
-  { label: "Team", to: "/team" },
   { label: "Galleria", to: "/galleria" },
   { label: "FAQ", to: "/faq" },
   { label: "Contatti", to: "/contatti" },
 ] as const;
 
 export const ctaLabels = {
-  bookPrimary: "Prenota il tuo rituale",
+  callToBook: "Chiama per prenotare",
+  callStudio: "Chiama lo studio",
   discoverTreatments: "Scopri i trattamenti",
-  requestAppointment: "Richiedi un appuntamento",
-  book: "Prenota",
 } as const;
 
 export function canonicalUrl(pathname: string) {

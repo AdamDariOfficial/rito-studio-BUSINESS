@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { EditorialArrow } from "@/components/EditorialArrow";
 import { PageIntro } from "@/components/PageIntro";
 import { SiteShell } from "@/components/SiteShell";
 import { buildHead, routeSeo } from "@/lib/seo";
@@ -13,19 +14,19 @@ export const Route = createFileRoute("/studio")({
 const studioSections = [
   {
     title: "Filosofia",
-    body: "Ogni appuntamento parte da ciò che cerchi, dal tempo che hai e da come vuoi sentirti. Il percorso viene costruito insieme, senza gesti automatici.",
+    body: "Ogni appuntamento parte dall’ascolto: ciò che cerchi, il tempo che hai e il modo in cui vuoi sentirti.",
   },
   {
     title: "Metodo",
-    body: "Ascolto, precisione e continuità orientano la consulenza, la scelta del servizio e le indicazioni successive.",
+    body: "Consulenza, precisione e continuità guidano ogni scelta, dall’inizio alle indicazioni successive.",
   },
   {
     title: "Prodotti e materiali",
-    body: "La selezione definitiva di prodotti e materiali deve essere documentata dal cliente reale. Il concept non attribuisce marchi o qualità non verificate.",
+    body: "Ogni elemento accompagna il servizio con misura, coerenza e attenzione al risultato desiderato.",
   },
   {
     title: "Igiene e cura",
-    body: "Procedure, frequenze e responsabilità devono essere confermate per lo spazio reale. La demo comunica attenzione senza inventare protocolli o certificazioni.",
+    body: "Ordine, preparazione e attenzione allo spazio fanno parte dell’esperienza, prima ancora del gesto.",
   },
 ] as const;
 
@@ -36,8 +37,7 @@ function StudioPage() {
         eyebrow="Lo studio"
         title={
           <>
-            Uno spazio pensato per lavorare bene e farti sentire{" "}
-            <span className="italic text-accent">a tuo agio.</span>
+            Uno spazio <span className="italic text-accent">per te.</span>
           </>
         }
         intro="Luce morbida, materiali naturali e postazioni essenziali. Lo spazio lascia posto alla relazione, al lavoro e al tempo personale."
@@ -63,23 +63,47 @@ function StudioPage() {
         </div>
       </section>
       <section
-        className="border-y border-line bg-surface py-16 md:py-24"
+        className="relative overflow-hidden bg-ink py-20 md:py-32"
         aria-labelledby="studio-details-heading"
       >
-        <div className="container-editorial">
-          <h2 id="studio-details-heading" className="sr-only">
-            Filosofia e metodo dello studio
-          </h2>
-          <ol className="border-t border-line">
+        <span aria-hidden className="absolute left-0 top-0 h-px w-1/3 bg-accent" />
+        <div className="container-editorial grid gap-14 md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-4">
+            <div className="md:sticky md:top-[calc(var(--header-height)+3rem)]">
+              <p className="eyebrow text-surface" data-reveal>
+                La nostra direzione
+              </p>
+              <h2
+                id="studio-details-heading"
+                className="mt-5 max-w-sm font-display text-[clamp(3rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.02em] text-white"
+                data-reveal
+                style={{ ["--reveal-delay" as string]: "60ms" }}
+              >
+                Il modo <span className="italic">RITO.</span>
+              </h2>
+              <p
+                className="mt-7 max-w-sm text-base leading-relaxed text-surface md:text-lg"
+                data-reveal
+                style={{ ["--reveal-delay" as string]: "120ms" }}
+              >
+                La cura prende forma nell’incontro tra ascolto, precisione e un tempo scelto con
+                intenzione.
+              </p>
+            </div>
+          </div>
+
+          <ol className="border-t border-white/20 md:col-span-7 md:col-start-6">
             {studioSections.map((item, index) => (
               <li
                 key={item.title}
-                className="grid gap-5 border-b border-line py-8 md:grid-cols-12 md:gap-8"
+                className="grid gap-4 border-b border-white/20 py-8 md:grid-cols-[4rem_1fr] md:gap-x-8 md:py-10"
                 data-reveal
               >
-                <span className="font-display text-xl text-accent md:col-span-1">0{index + 1}</span>
-                <h3 className="font-display text-3xl text-ink md:col-span-4">{item.title}</h3>
-                <p className="max-w-2xl text-sm leading-relaxed text-muted md:col-span-6 md:col-start-7">
+                <span className="font-display text-xl text-surface">0{index + 1}</span>
+                <h3 className="font-display text-3xl leading-tight text-white md:text-4xl">
+                  {item.title}
+                </h3>
+                <p className="max-w-xl text-sm leading-relaxed text-surface md:col-start-2 md:mt-2 md:text-base">
                   {item.body}
                 </p>
               </li>
@@ -95,17 +119,15 @@ function StudioPage() {
               id="studio-access-heading"
               className="mt-4 font-display text-3xl text-ink md:text-4xl"
             >
-              Informazioni da confermare, prima della visita.
+              Prima della visita.
             </h2>
           </div>
           <div className="md:col-span-6 md:col-start-7">
             <p className="leading-relaxed text-muted">{site.contact.accessibility}</p>
             <p className="mt-4 leading-relaxed text-muted">{site.contact.directions}</p>
-            <Link
-              to="/contatti"
-              className="mt-7 inline-flex min-h-11 items-center border-b border-ink text-sm font-medium text-ink"
-            >
+            <Link to="/contatti" className="editorial-link group mt-7 min-h-11 text-sm font-medium">
               Vedi le informazioni pratiche
+              <EditorialArrow />
             </Link>
           </div>
         </div>

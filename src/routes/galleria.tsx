@@ -19,7 +19,7 @@ function GalleryPage() {
             Gesti, materia, <span className="italic text-accent">presenza.</span>
           </>
         }
-        intro="Una sequenza editoriale categorizzata. Nessun prima e dopo, nessuna promessa incorporata nelle immagini."
+        intro="Una sequenza editoriale di ambienti, gesti e dettagli che raccontano l’atmosfera dello studio."
       />
       <section className="py-14 md:py-20" aria-label="Esplora la galleria">
         <div className="container-editorial">

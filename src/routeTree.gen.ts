@@ -9,23 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TeamRouteImport } from './routes/team'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as PrenotaRouteImport } from './routes/prenota'
 import { Route as GalleriaRouteImport } from './routes/galleria'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CookieRouteImport } from './routes/cookie'
 import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TrattamentiIndexRouteImport } from './routes/trattamenti/index'
-import { Route as TrattamentiSlugRouteImport } from './routes/trattamenti/$slug'
 
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const StudioRoute = StudioRouteImport.update({
   id: '/studio',
   path: '/studio',
@@ -34,11 +26,6 @@ const StudioRoute = StudioRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrenotaRoute = PrenotaRouteImport.update({
-  id: '/prenota',
-  path: '/prenota',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleriaRoute = GalleriaRouteImport.update({
@@ -71,11 +58,6 @@ const TrattamentiIndexRoute = TrattamentiIndexRouteImport.update({
   path: '/trattamenti/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TrattamentiSlugRoute = TrattamentiSlugRouteImport.update({
-  id: '/trattamenti/$slug',
-  path: '/trattamenti/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -83,11 +65,8 @@ export interface FileRoutesByFullPath {
   '/cookie': typeof CookieRoute
   '/faq': typeof FaqRoute
   '/galleria': typeof GalleriaRoute
-  '/prenota': typeof PrenotaRoute
   '/privacy': typeof PrivacyRoute
   '/studio': typeof StudioRoute
-  '/team': typeof TeamRoute
-  '/trattamenti/$slug': typeof TrattamentiSlugRoute
   '/trattamenti/': typeof TrattamentiIndexRoute
 }
 export interface FileRoutesByTo {
@@ -96,11 +75,8 @@ export interface FileRoutesByTo {
   '/cookie': typeof CookieRoute
   '/faq': typeof FaqRoute
   '/galleria': typeof GalleriaRoute
-  '/prenota': typeof PrenotaRoute
   '/privacy': typeof PrivacyRoute
   '/studio': typeof StudioRoute
-  '/team': typeof TeamRoute
-  '/trattamenti/$slug': typeof TrattamentiSlugRoute
   '/trattamenti': typeof TrattamentiIndexRoute
 }
 export interface FileRoutesById {
@@ -110,11 +86,8 @@ export interface FileRoutesById {
   '/cookie': typeof CookieRoute
   '/faq': typeof FaqRoute
   '/galleria': typeof GalleriaRoute
-  '/prenota': typeof PrenotaRoute
   '/privacy': typeof PrivacyRoute
   '/studio': typeof StudioRoute
-  '/team': typeof TeamRoute
-  '/trattamenti/$slug': typeof TrattamentiSlugRoute
   '/trattamenti/': typeof TrattamentiIndexRoute
 }
 export interface FileRouteTypes {
@@ -125,11 +98,8 @@ export interface FileRouteTypes {
     | '/cookie'
     | '/faq'
     | '/galleria'
-    | '/prenota'
     | '/privacy'
     | '/studio'
-    | '/team'
-    | '/trattamenti/$slug'
     | '/trattamenti/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -138,11 +108,8 @@ export interface FileRouteTypes {
     | '/cookie'
     | '/faq'
     | '/galleria'
-    | '/prenota'
     | '/privacy'
     | '/studio'
-    | '/team'
-    | '/trattamenti/$slug'
     | '/trattamenti'
   id:
     | '__root__'
@@ -151,11 +118,8 @@ export interface FileRouteTypes {
     | '/cookie'
     | '/faq'
     | '/galleria'
-    | '/prenota'
     | '/privacy'
     | '/studio'
-    | '/team'
-    | '/trattamenti/$slug'
     | '/trattamenti/'
   fileRoutesById: FileRoutesById
 }
@@ -165,23 +129,13 @@ export interface RootRouteChildren {
   CookieRoute: typeof CookieRoute
   FaqRoute: typeof FaqRoute
   GalleriaRoute: typeof GalleriaRoute
-  PrenotaRoute: typeof PrenotaRoute
   PrivacyRoute: typeof PrivacyRoute
   StudioRoute: typeof StudioRoute
-  TeamRoute: typeof TeamRoute
-  TrattamentiSlugRoute: typeof TrattamentiSlugRoute
   TrattamentiIndexRoute: typeof TrattamentiIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/studio': {
       id: '/studio'
       path: '/studio'
@@ -194,13 +148,6 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/prenota': {
-      id: '/prenota'
-      path: '/prenota'
-      fullPath: '/prenota'
-      preLoaderRoute: typeof PrenotaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/galleria': {
@@ -245,13 +192,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrattamentiIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/trattamenti/$slug': {
-      id: '/trattamenti/$slug'
-      path: '/trattamenti/$slug'
-      fullPath: '/trattamenti/$slug'
-      preLoaderRoute: typeof TrattamentiSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -261,11 +201,8 @@ const rootRouteChildren: RootRouteChildren = {
   CookieRoute: CookieRoute,
   FaqRoute: FaqRoute,
   GalleriaRoute: GalleriaRoute,
-  PrenotaRoute: PrenotaRoute,
   PrivacyRoute: PrivacyRoute,
   StudioRoute: StudioRoute,
-  TeamRoute: TeamRoute,
-  TrattamentiSlugRoute: TrattamentiSlugRoute,
   TrattamentiIndexRoute: TrattamentiIndexRoute,
 }
 export const routeTree = rootRouteImport

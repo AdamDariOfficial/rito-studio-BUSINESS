@@ -1,8 +1,8 @@
 # RITO Studio — Testing and Verification
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.0
-**Stato:** approvato; nessun controllo ancora eseguito
+**Versione:** 1.1
+**Stato:** matrice approvata; gli esiti dei pass sono registrati in `docs/STATUS.md`
 
 ## 1. Regola di evidenza
 
@@ -107,59 +107,42 @@ Non inventarlo.
 - back;
 - forward;
 - route inesistente;
-- slug trattamento inesistente;
+- query trattamento valida, non valida e fuori categoria;
 - reset scroll immediato.
 
 ### Catalogo trattamenti
 
-- filtri;
+- filtri ripetuti per almeno 20 cambi, inclusi Back e Forward;
 - categorie;
-- link;
+- righe interattive compatte;
 - dati mancanti;
 - prezzi opzionali;
-- durata;
-- servizi correlati.
+- durata opzionale;
+- dettaglio minimo senza sezioni vuote;
+- dettaglio arricchito;
+- dialog/sheet con Escape, focus trap/return e scroll interno;
+- filtri su una sola riga a 360, 390 e 430 px, con scroll nativo e fade start/middle/end;
+- posizione verticale invariata entro 2 px su open, close, Back e Forward;
+- step precedente/successivo, ArrowLeft/ArrowRight e swipe di un solo trattamento;
+- apertura iniziale push, navigazione interna e raccomandazioni con replace;
+- raccomandazioni derivate dalla stessa categoria, escluso il corrente, massimo tre;
+- apertura diretta tramite `categoria` e `trattamento`;
+- `/trattamenti/:slug` risolve nella 404.
 
-### Team
+### Prenotazione telefonica
 
-- profilo completo;
-- immagine mancante;
-- specializzazioni;
-- CTA filtrata.
+- tutte le CTA usano `site.contact.phoneHref`;
+- desktop header, drawer mobile e fallback no-JS;
+- hero, booking CTA, dettaglio trattamento, contatti e footer;
+- label visibile e nome accessibile chiari;
+- `/prenota` risolve nella 404.
 
-### Booking adapter
+### Moduli rimossi
 
-#### `external`
-
-- URL valido;
-- apertura prevedibile;
-- label che dichiara il passaggio al provider.
-
-#### `whatsapp`
-
-- numero validato;
-- messaggio codificato;
-- fallback desktop;
-- nessun dato sensibile nell'URL oltre a quanto approvato.
-
-#### `request`
-
-- label;
-- validazione;
-- errori;
-- loading;
-- double submit;
-- consenso;
-- endpoint indisponibile;
-- successo;
-- privacy;
-- rate limiting lato backend, se reale.
-
-#### `demo`
-
-- nessun dato trasmesso;
-- conferma chiara;
-- network verificata.
+- Team assente da home, navigazione, footer e route tree;
+- `/team` risolve nella 404;
+- nessun form o search parameter di prenotazione;
+- nessuna richiesta di rete generata dalle CTA telefoniche.
 
 ### Gallery/lightbox
 
@@ -171,6 +154,11 @@ Non inventarlo.
 - focus return;
 - `100dvh`;
 - orientamento mobile.
+- reveal individuale degli item e refresh sicuro dopo filtro;
+- progresso drag proporzionale, soglia armata, reset sotto soglia e su cancel;
+- gesto verticale senza progresso e rilascio armato di un solo step;
+- rail home senza overflow verticale e con hint circolare 44 × 44 px;
+- normale scroll rail senza redirect e gesto finale deliberato verso `/galleria`.
 
 ### FAQ
 
@@ -180,6 +168,7 @@ Non inventarlo.
 - apertura/chiusura;
 - reduced motion;
 - nessun auto-scroll.
+- reveal individuale con stagger massimo 240 ms, indipendente dall’accordion.
 
 ## 6. Accessibilità
 

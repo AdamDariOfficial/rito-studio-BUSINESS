@@ -1,6 +1,6 @@
 # RITO Studio BUSINESS — Authorization and Baseline Record
 
-**Updated:** 4 August 2026
+**Updated:** 6 August 2026
 **Status:** `BUSINESS_LOCAL_IMPLEMENTATION_AUTHORIZED`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
@@ -263,3 +263,50 @@ concurrent writers: forbidden
 The authorization covers local documentation and source implementation, validation,
 remediation and final reporting in one pass. It does not authorize stage, commit, push,
 pull request, merge, publication, deployment, domains or infrastructure changes.
+
+## Targeted BUSINESS simplification authorization
+
+On 4 August 2026 the user approved `BW-DEC-044` as a focused remediation of the local
+implementation candidate at:
+
+```text
+branch: feat/rito-business-multipage
+HEAD before remediation: 49c7ced6118ecd8e719754f1f0ff5b3738031d47
+parent/main baseline: 9b7ff807f945f679216671577963fd713badb507
+```
+
+The authorization covers removal of Team and `/prenota`, direct telephone booking,
+compact home treatment discovery, a minimal/optional treatment model, the Studio
+manifesto redesign, copy hygiene, documentation alignment, checksum refresh, automated
+validation and browser QA. It does not authorize stage, commit, amend, push, pull
+request, merge, Lovable execution, publication or deployment.
+
+## Final UX refinement authorization
+
+On 5 August 2026 the user approved `BW-DEC-045` as one complete local refinement pass
+on the existing unstaged remediation at committed HEAD
+`49c7ced6118ecd8e719754f1f0ff5b3738031d47`.
+
+The authorized scope covers home spacing/color rhythm, treatment CTA placement, shared
+editorial arrows, a query-driven accessible treatment dialog/sheet, compact mobile
+rows, the reveal-controller root-cause fix, concise headings, coherent interaction
+feedback, step-based gallery swipe/drag polish, documentation, checksum refresh,
+automated validation and browser evidence at 390, 768 and 1440 px.
+
+The authorization does not permit stage, amend, commit, push, pull request, merge,
+Lovable execution, publication or deployment.
+
+## Navigation, sliders and treatment interaction authorization
+
+On 6 August 2026 the user authorized `BW-DEC-046` as one complete local technical pass
+on the preserved 46-path remediation at committed HEAD
+`49c7ced6118ecd8e719754f1f0ff5b3738031d47`.
+
+The scope covers Home navigation, horizontal rail/filter affordances, quiet treatment-row
+feedback, scroll-preserving query dialog step navigation, derived recommendations,
+individual gallery/FAQ reveal, drag progress indicators and the deliberate end-of-rail
+route gesture. It also covers source remediation, documentation, checksum refresh,
+repository-defined validation and DOM/runtime assertions without screenshots.
+
+Stage, commit, amend, push, pull request, merge, Lovable execution or credits,
+publication and deployment remain unauthorized.

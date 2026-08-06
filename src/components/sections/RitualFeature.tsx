@@ -5,7 +5,7 @@ export function RitualFeature() {
     <section
       id="metodo"
       aria-labelledby="metodo-heading"
-      className="scroll-mt-[calc(var(--header-height)+24px)] bg-canvas py-24 md:py-32"
+      className="scroll-mt-[calc(var(--header-height)+24px)] bg-canvas py-16 md:py-24"
     >
       <div className="container-editorial">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
@@ -19,7 +19,7 @@ export function RitualFeature() {
               data-reveal
               style={{ ["--reveal-delay" as string]: "80ms" }}
             >
-              Un trattamento non dovrebbe iniziare <span className="italic">dalla fretta.</span>
+              Prima viene <span className="italic">l’ascolto.</span>
             </h2>
             <p
               className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg"

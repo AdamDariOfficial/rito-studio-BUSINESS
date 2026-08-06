@@ -29,27 +29,17 @@ export const routeSeo = {
   treatments: defineSeo(
     "/trattamenti",
     "Trattamenti — RITO Studio",
-    "Esplora i rituali RITO Studio per area, prezzo dimostrativo ed esigenza.",
+    "Esplora i rituali RITO Studio per area, prezzo indicativo ed esigenza.",
   ),
   studio: defineSeo(
     "/studio",
     "Studio — RITO Studio",
-    "Filosofia, metodo, ambiente e informazioni sullo spazio dimostrativo RITO Studio.",
-  ),
-  team: defineSeo(
-    "/team",
-    "Team — RITO Studio",
-    "Profili professionali dimostrativi e aree di competenza del concept RITO Studio.",
+    "Filosofia, metodo, ambiente e informazioni sullo spazio RITO Studio.",
   ),
   gallery: defineSeo(
     "/galleria",
     "Galleria — RITO Studio",
-    "Una selezione editoriale di gesti, dettagli e spazi del concept RITO Studio.",
-  ),
-  booking: defineSeo(
-    "/prenota",
-    "Prenota — RITO Studio",
-    "Prova il percorso di prenotazione dimostrativo RITO Studio. Nessun dato viene inviato.",
+    "Una selezione editoriale di gesti, dettagli e spazi RITO Studio.",
   ),
   faq: defineSeo(
     "/faq",
@@ -59,7 +49,7 @@ export const routeSeo = {
   contacts: defineSeo(
     "/contatti",
     "Contatti — RITO Studio",
-    "Informazioni pratiche dimostrative, orari, accessibilità e policy appuntamenti.",
+    "Informazioni pratiche, orari, accessibilità e indicazioni per gli appuntamenti.",
   ),
   privacy: defineSeo(
     "/privacy",
@@ -102,8 +92,4 @@ export function buildHead(seo: RouteSeo) {
     ],
     links: [{ rel: "canonical", href: canonical }],
   };
-}
-
-export function treatmentSeo(path: string, title: string, description: string) {
-  return defineSeo(path, title, description);
 }

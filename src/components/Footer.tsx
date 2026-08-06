@@ -68,11 +68,6 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/team" className={footerLinkClass}>
-                Team
-              </Link>
-            </li>
-            <li>
               <Link to="/galleria" className={footerLinkClass}>
                 Galleria
               </Link>
@@ -98,9 +93,13 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/prenota" className={footerLinkClass}>
-                Prenota
-              </Link>
+              <a
+                href={site.contact.phoneHref}
+                aria-label={`Chiama per prenotare: ${site.contact.phone}`}
+                className={footerLinkClass}
+              >
+                Chiama per prenotare
+              </a>
             </li>
           </ul>
         </div>

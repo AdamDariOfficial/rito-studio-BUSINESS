@@ -1,7 +1,7 @@
 # RITO Studio — Routes and Information Architecture
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.0
+**Versione:** 1.1
 **Stato:** approvato
 
 ## 1. Principi
@@ -67,11 +67,8 @@
 ```text
 /
 /trattamenti
-/trattamenti/:slug
 /studio
-/team
 /galleria
-/prenota
 /faq
 /contatti
 /privacy
@@ -96,9 +93,8 @@ Non implementare le route future nella prima versione BUSINESS.
 ### `/`
 
 - posizionamento;
-- servizi principali;
+- teaser compatto delle quattro categorie di trattamento;
 - metodo;
-- team teaser;
 - gallery teaser;
 - CTA;
 - informazioni essenziali.
@@ -109,25 +105,27 @@ Non implementare le route future nella prima versione BUSINESS.
 - filtri per categoria;
 - ricerca opzionale soltanto se il catalogo è ampio;
 - durata e prezzo base;
-- link alle pagine dettaglio.
+- righe compatte e interattive;
+- dettaglio accessibile in dialog/sheet guidato dalla query.
 
-### `/trattamenti/:slug`
+### Query dettaglio trattamento
 
-- dettagli;
-- durata;
+- modello URL: `/trattamenti?categoria=hair&trattamento=taglio-essenziale`;
+- apertura, chiusura, Back, Forward e refresh conservano lo stato route-aware;
+- la query `trattamento` valida apre il dialog/sheet nel catalogo;
+- uno slug non valido lascia il catalogo utilizzabile e mostra un recupero inline;
+- un trattamento fuori dal filtro attivo non apre il dialog;
+- la precedente route `/trattamenti/:slug` non è attiva nel base BUSINESS;
+- durata, quando disponibile;
 - prezzo;
-- ideale per;
-- cosa include;
-- preparazione;
-- aftercare;
-- note;
-- CTA prenotazione;
-- servizi correlati.
+- contenuti editoriali opzionali, senza sezioni vuote;
+- CTA telefonica;
+- focus trap, Escape e ritorno al trigger esatto.
 
-Slug esempio:
+URL esempio:
 
 ```text
-/trattamenti/rituale-viso-essenziale
+/trattamenti?categoria=skin&trattamento=rituale-viso
 ```
 
 ### `/studio`
@@ -140,13 +138,6 @@ Slug esempio:
 - accessibilità;
 - gallery editoriale.
 
-### `/team`
-
-- profili;
-- competenze;
-- servizi;
-- eventuale filtro prenotazione.
-
 ### `/galleria`
 
 - gallery categorizzata;
@@ -154,14 +145,6 @@ Slug esempio:
 - keyboard navigation;
 - focus return;
 - immagini con dimensioni dichiarate.
-
-### `/prenota`
-
-- funnel configurabile;
-- external / whatsapp / request;
-- demo mode;
-- error, loading e success state;
-- privacy e consenso.
 
 ### `/faq`
 
@@ -209,14 +192,18 @@ Prenota
 ### BUSINESS desktop
 
 ```text
+Home
 Trattamenti
 Studio
-Team
 Galleria
 FAQ
 Contatti
-Prenota
+Chiama per prenotare
 ```
+
+`Home` è la prima voce della configurazione condivisa da navbar desktop, drawer mobile e
+fallback senza JavaScript. Il suo stato attivo usa un confronto esatto con `/`; le altre
+route non vengono marcate come Home.
 
 ### Mobile
 
@@ -226,13 +213,19 @@ Prenota
 - il focus ritorna al trigger;
 - click su route chiude il drawer;
 - body scroll lock senza layout shift;
-- CTA prenotazione presente ma non sovrapposta al contenuto.
+- CTA telefonica presente ma non sovrapposta al contenuto.
 
-## 6. Configurazione proposta
+## 6. Prenotazione base BUSINESS
+
+- Nessuna route `/prenota` e nessun form.
+- Header, drawer, hero, CTA editoriali, dialog trattamento, contatti e footer usano
+  ancore reali con `href={site.contact.phoneHref}`.
+- `/team` e `/prenota` risolvono naturalmente nella 404 condivisa.
+- Team può essere rivalutato soltanto come modulo futuro opzionale.
+
+## 7. Configurazione proposta
 
 ```ts
-type BookingMode = "external" | "whatsapp" | "request" | "demo";
-
 interface SiteConfig {
   brand: {
     name: string;
@@ -244,13 +237,7 @@ interface SiteConfig {
     address?: string;
     email: string;
     phone: string;
-    whatsapp?: string;
-  };
-  booking: {
-    mode: BookingMode;
-    externalUrl?: string;
-    requestEndpoint?: string;
-    demoMode: boolean;
+    phoneHref: `tel:${string}`;
   };
   hours: OpeningHours[];
   social: SocialLink[];
@@ -263,9 +250,13 @@ interface SiteConfig {
 }
 ```
 
+`phone` e `phoneHref` sono l'unica configurazione di prenotazione attiva nel BUSINESS
+base. Eventuali adapter esterni, WhatsApp, request flow o form appartengono a estensioni
+future separate e non fanno parte di questa implementazione.
+
 I valori devono essere validati e non duplicati nei componenti.
 
-## 7. Scroll e history
+## 8. Scroll e history
 
 ### Cambio route
 
@@ -289,7 +280,25 @@ Non usare `behavior: "smooth"`.
 
 Non forzare sempre `scrollTo(0, 0)` durante navigazione history se questo distrugge un ripristino previsto. Il comportamento va testato e documentato.
 
-## 8. Metadata
+### Query interne al catalogo
+
+- filtri categoria e apertura/chiusura del dettaglio usano `resetScroll: false` localmente;
+- l’apertura iniziale del dettaglio crea una voce history;
+- step, swipe e raccomandazioni sostituiscono soltanto `trattamento` con `replace: true`;
+- Back chiude il dialog senza attraversare ogni trattamento consultato e Forward lo riapre;
+- la chiusura e il focus return usano `preventScroll`, senza disabilitare il reset globale
+  delle nuove route.
+
+### Affordance orizzontali
+
+- i filtri trattamento sono una sola riga con scroll nativo e fade sinistro/destro basati
+  sulla posizione reale;
+- il rail gallery home nasconde l’overflow verticale e conserva quello orizzontale;
+- al bordo finale, un nuovo gesto deliberato oltre soglia può navigare a `/galleria`;
+- il normale raggiungimento del bordo non naviga e il link `Apri la galleria` resta
+  l’alternativa esplicita.
+
+## 9. Metadata
 
 Ogni route BUSINESS deve definire:
 
@@ -303,7 +312,7 @@ Ogni route BUSINESS deve definire:
 
 Non aggiungere `aggregateRating` senza recensioni reali e verificabili.
 
-## 9. Acceptance criteria routing
+## 10. Acceptance criteria routing
 
 - Nessuna route produce pagina bianca.
 - Direct URL e refresh funzionano.

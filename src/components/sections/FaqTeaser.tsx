@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
+import { EditorialArrow } from "@/components/EditorialArrow";
 import { faqItems } from "@/data/content";
 
 export function FaqTeaser() {
   return (
     <section
-      className="border-y border-line bg-surface py-20 md:py-28"
+      className="border-y border-line bg-surface py-12 md:py-16"
       aria-labelledby="faq-teaser-heading"
     >
       <div className="container-editorial grid gap-10 md:grid-cols-12">
@@ -25,11 +26,9 @@ export function FaqTeaser() {
               </li>
             ))}
           </ul>
-          <Link
-            to="/faq"
-            className="mt-7 inline-flex min-h-11 items-center border-b border-ink text-sm font-medium text-ink hover:text-accent"
-          >
+          <Link to="/faq" className="editorial-link group mt-7 min-h-11 text-sm font-medium">
             Leggi tutte le risposte
+            <EditorialArrow />
           </Link>
         </div>
       </div>

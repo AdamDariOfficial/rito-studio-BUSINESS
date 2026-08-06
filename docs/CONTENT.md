@@ -224,7 +224,7 @@ RITO 01
 **Titolo**
 
 ```text
-Un trattamento non dovrebbe iniziare dalla fretta.
+Prima viene l’ascolto.
 ```
 
 **Testo**
@@ -277,7 +277,7 @@ Lo spazio
 **Titolo**
 
 ```text
-Un ambiente quieto, costruito intorno al gesto.
+Uno spazio per il gesto.
 ```
 
 **Testo**
@@ -292,7 +292,7 @@ Lo studio lascia spazio alla relazione, al lavoro e al tempo personale.
 **Titolo**
 
 ```text
-Dedica tempo a ciò che ti fa stare bene.
+Il tuo tempo di cura.
 ```
 
 **Testo**
@@ -354,7 +354,7 @@ L'attribuzione collega a `https://tretnix.com`.
 **Hero**
 
 ```text
-Trattamenti costruiti intorno alla persona.
+La cura, su misura.
 ```
 
 **Intro**
@@ -377,20 +377,22 @@ Campi obbligatori:
 
 ```yaml
 name:
+slug:
 category:
-shortDescription:
-fullDescription:
-duration:
 priceLabel:
+shortDescription:
+```
+
+Arricchimento opzionale:
+
+```yaml
+duration:
+fullDescription:
 idealFor:
 includes:
 beforeAppointment:
 afterAppointment:
-contraindicationsNote:
-bookingMode:
-relatedServices:
-seoTitle:
-seoDescription:
+notes:
 ```
 
 Esempio titolo:
@@ -412,7 +414,7 @@ Non inserire promesse cliniche o risultati garantiti.
 **Headline**
 
 ```text
-Uno spazio pensato per lavorare bene e farti sentire a tuo agio.
+Uno spazio per te.
 ```
 
 Contenuti:
@@ -663,11 +665,68 @@ Restano obbligatori:
 
 ### Gallery mobile
 
-La gallery usa una pill animata centro-destra come unico indicatore visivo di scorrimento.
-La pill scompare quando il rail raggiunge il fondo, ricompare tornando indietro, resta
+La gallery usa un controllo visivo lineare centro-destra come indicatore di scorrimento.
+Il controllo scompare quando il rail raggiunge il fondo, ricompare tornando indietro, resta
 statica con reduced motion e non intercetta touch, mouse o tastiera.
 
 ### Policy
 
 Privacy e Cookie usano la navbar condivisa e non mostrano skip link. La home conserva
 “Vai ai trattamenti” come primo collegamento da tastiera.
+
+## 8. Override BUSINESS base dopo browser review — 4 agosto 2026
+
+Questa sezione sostituisce per il BUSINESS base le precedenti ipotesi su Team, route di
+prenotazione, booking adapter e dettaglio trattamento obbligatoriamente esteso.
+
+### Home
+
+- Il catalogo completo resta soltanto su `/trattamenti`.
+- La home presenta quattro destinazioni editoriali compatte: Hair Rituals, Skin & Brow,
+  Hands & Nails e Wellness.
+- Ogni categoria apre `/trattamenti?categoria=<id>`.
+- Team non compare nella home.
+
+### Prenotazione
+
+```text
+Chiama per prenotare
+Chiama lo studio
+```
+
+Ogni azione usa un’ancora reale verso il `phoneHref` centralizzato. Non esistono form,
+adattatori, feedback locali, invio dati o route `/prenota` nel prodotto base.
+
+### Catalogo trattamento
+
+Campi obbligatori:
+
+```yaml
+name:
+slug:
+category:
+priceLabel:
+shortDescription:
+```
+
+Arricchimento opzionale:
+
+```yaml
+duration:
+fullDescription:
+idealFor:
+includes:
+beforeAppointment:
+afterAppointment:
+notes:
+```
+
+Il dialog mostra soltanto sezioni con contenuto significativo. Il catalogo usa metadata
+SEO route-level e non richiede campi SEO o relazioni tra trattamenti inutilizzati.
+L’adattamento base richiede quindi di modificare `site-config.ts` e `treatments.ts`;
+l’arricchimento dettagliato può essere riservato ai soli servizi che ne hanno bisogno.
+
+### Team
+
+Team non è un modulo attivo o richiesto nel BUSINESS base. Un’eventuale reintroduzione
+richiede una decisione futura separata.

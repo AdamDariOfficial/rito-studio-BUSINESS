@@ -17,8 +17,8 @@ function PrivacyPage() {
         <h2>Configurazione del sito</h2>
         <p>
           Il sito non include account, login, pagamenti, disponibilità in tempo reale o moduli che
-          trasmettono dati a un database applicativo. Il percorso di prenotazione è una simulazione
-          locale e non invia né conserva dati personali.
+          trasmettono dati a un database applicativo. Le azioni di prenotazione aprono direttamente
+          il numero telefonico configurato e non inviano né conservano dati personali nel sito.
         </p>
       </section>
 

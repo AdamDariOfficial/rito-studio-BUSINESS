@@ -156,7 +156,8 @@ export function StickyHeader() {
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, [closeDrawer, open]);
 
-  const isActive = (to: string) => pathname === to || pathname.startsWith(`${to}/`);
+  const isActive = (to: string) =>
+    to === "/" ? pathname === "/" : pathname === to || pathname.startsWith(`${to}/`);
 
   return (
     <header
@@ -183,7 +184,7 @@ export function StickyHeader() {
         <nav
           inert={open}
           aria-label="Navigazione principale"
-          className="hidden items-center gap-5 lg:flex xl:gap-7"
+          className="hidden items-center gap-4 lg:flex xl:gap-6"
         >
           {nav.map((item) => (
             <Link
@@ -208,12 +209,13 @@ export function StickyHeader() {
         </nav>
 
         <div inert={open} className="hidden lg:block">
-          <Link
-            to="/prenota"
-            className="inline-flex min-h-11 items-center border border-ink bg-ink px-5 text-sm font-medium text-white transition-colors hover:border-accent-strong hover:bg-accent-strong"
+          <a
+            href={site.contact.phoneHref}
+            aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
+            className="action-primary inline-flex min-h-11 items-center border border-ink bg-ink px-5 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
           >
-            {ctaLabels.book}
-          </Link>
+            {ctaLabels.callToBook}
+          </a>
         </div>
 
         <button
@@ -225,7 +227,7 @@ export function StickyHeader() {
           aria-haspopup="dialog"
           aria-controls={drawerId}
           onClick={() => (open ? closeDrawer() : setOpen(true))}
-          className="relative inline-flex h-11 w-11 items-center justify-center text-ink lg:hidden"
+          className="interactive-control relative inline-flex h-11 w-11 items-center justify-center text-ink hover:bg-surface lg:hidden"
         >
           <Menu
             aria-hidden
@@ -271,10 +273,11 @@ export function StickyHeader() {
                     </ul>
                   </nav>
                   <a
-                    href="/prenota"
+                    href={site.contact.phoneHref}
+                    aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
                     className="mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white"
                   >
-                    {ctaLabels.bookPrimary}
+                    {ctaLabels.callToBook}
                   </a>
                   <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
                 </div>
@@ -325,13 +328,14 @@ export function StickyHeader() {
                   ))}
                 </ul>
               </nav>
-              <Link
-                to="/prenota"
+              <a
+                href={site.contact.phoneHref}
                 onClick={() => closeDrawer(false)}
-                className="mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white transition-colors hover:border-accent-strong hover:bg-accent-strong"
+                aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
+                className="action-primary mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
               >
-                {ctaLabels.bookPrimary}
-              </Link>
+                {ctaLabels.callToBook}
+              </a>
               <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
             </div>
           </div>

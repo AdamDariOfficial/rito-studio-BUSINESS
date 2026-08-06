@@ -20,20 +20,17 @@ preserves that history and adds two tool-managed commits whose net delta is limi
 
 ## Product role
 
-BUSINESS adds a coherent multipage treatment-discovery and booking journey while
-preserving START's identity, responsive behavior, accessibility, motion and demo
-integrity.
+BUSINESS adds a coherent multipage treatment-discovery journey with direct telephone
+booking while preserving START's identity, responsive behavior, accessibility, motion
+and demo integrity.
 
 Planned public routes:
 
 ```text
 /
 /trattamenti
-/trattamenti/:slug
 /studio
-/team
 /galleria
-/prenota
 /faq
 /contatti
 /privacy
@@ -44,6 +41,45 @@ Planned public routes:
 BUSINESS v1 excludes `/journal`, `/journal/:slug`, `/gift-card`, `/account`, `/admin`,
 live availability, payments, client accounts, CRM, fidelity, database,
 authentication and BUSINESS PLUS.
+
+Team and a dedicated booking route are not part of the base BUSINESS product. Every
+booking CTA opens the centralized telephone number with a `tel:` link.
+
+Treatment details open as an accessible route-aware dialog or mobile sheet inside the
+catalogue. Category and detail state use query parameters, for example:
+
+```text
+/trattamenti?categoria=hair&trattamento=taglio-essenziale
+```
+
+The former `/trattamenti/:slug` route is not active in base BUSINESS.
+
+The dialog preserves the catalogue scroll position and supports bounded previous/next,
+keyboard and swipe navigation without adding a history entry for every treatment. Mobile
+category filters remain a single native horizontal row, while the home gallery rail keeps
+native scrolling and offers a deliberate final gesture toward the full gallery.
+
+## Client adaptation
+
+Base adaptation:
+
+```text
+edit site config + treatment catalogue
+```
+
+Only `name`, `slug`, `category`, `priceLabel` and `shortDescription` are required for a
+treatment. The centralized model drives catalogue rows, query-driven details and
+catalogue metadata without requiring a separate page for each treatment.
+
+Optional enrichment:
+
+```text
+add detailed content only for selected treatments
+```
+
+Duration, extended description, suitability, included steps, appointment guidance and
+notes remain optional. Catalogue metadata stays route-level rather than adding unused
+per-treatment SEO or relationship fields.
 
 ## Canonical documentation
 

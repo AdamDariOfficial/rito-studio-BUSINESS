@@ -88,16 +88,21 @@ The detailed source remains `AGENTS.md`, `docs/TESTING.md`, `docs/ROUTES.md`,
 
 After a separate implementation authorization, BUSINESS may add:
 
-- `/trattamenti` and treatment detail routes;
+- `/trattamenti` con filtri e dettaglio query-driven in dialog/sheet accessibile;
 - `/studio`;
-- `/team`;
 - `/galleria` with an accessible lightbox;
-- `/prenota`;
 - `/faq`;
 - `/contatti`;
 - route-specific metadata and deeper content;
-- a configured `external`, `whatsapp`, `request` or `demo` booking adapter;
+- centralized direct-phone booking links;
 - comparative START ↔ BUSINESS QA.
+
+`/team` and `/prenota` are not part of the base BUSINESS route inventory after
+`BW-DEC-044`. Team remains only a possible future optional module.
+
+After `BW-DEC-045`, `/trattamenti/:slug` is also outside the active base BUSINESS route
+inventory. Treatment detail remains available inside the catalogue through the
+validated `categoria` and `trattamento` query state.
 
 These are intentional product differences. They must not become an unrelated visual
 redesign.
@@ -137,7 +142,7 @@ A future BUSINESS review must verify at minimum:
 - motion and reduced-motion parity;
 - mobile ordering and overflow;
 - route, refresh, Back and Forward behavior;
-- honest booking-adapter behavior;
+- honest direct-phone booking behavior;
 - absence of BUSINESS PLUS scope.
 
 With brand name and logo hidden, START and BUSINESS must still be recognizable as the

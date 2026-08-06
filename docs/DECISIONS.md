@@ -1,8 +1,8 @@
 # RITO Studio — Decision Log
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.6
-**Stato:** decisioni approvate e aggiornate al 4 agosto 2026
+**Versione:** 1.7
+**Stato:** decisioni approvate e aggiornate al 6 agosto 2026
 
 ## BW-DEC-001 — Concept portfolio
 
@@ -470,3 +470,94 @@ multipagina BUSINESS, validazione, remediation e report finale sul branch dedica
 
 **Gate separati:** staging, commit, push, pull request, merge, pubblicazione, deploy,
 domini e infrastruttura non sono autorizzati da questa decisione.
+
+## BW-DEC-044 — Semplificazione base BUSINESS dopo browser review
+
+**Data:** 4 agosto 2026
+
+**Decisione:** semplificare il prodotto BUSINESS base sulla base della review browser
+approvata dall’utente:
+
+- rimuovere Team dalla home e dall’intero prodotto attivo;
+- rimuovere `/team` dall’inventario route;
+- rimuovere `/prenota`, il form e l’architettura booking adapter;
+- collegare ogni CTA di prenotazione al numero telefonico centralizzato tramite `tel:`;
+- preservare il catalogo e la route dettaglio trattamento riusabile;
+- limitare i campi trattamento obbligatori a nome, slug, categoria, prezzo e descrizione
+  breve, rendendo opzionale l’arricchimento;
+- sostituire il catalogo completo in home con un teaser compatto delle quattro categorie;
+- trasformare il blocco filosofia/metodo di `/studio` in un manifesto editoriale ad alta
+  rilevanza visiva.
+
+**Conseguenza:** `/team` e `/prenota` usano la 404 condivisa; Team resta soltanto un
+possibile modulo futuro opzionale. L’adattamento base richiede principalmente la modifica
+della configurazione sito e del catalogo trattamenti.
+
+**Gate:** sono autorizzate esclusivamente modifiche locali, validazione e report finale
+nel pass corrente. Stage, commit, amend, push, pull request, merge, uso di Lovable,
+pubblicazione e deploy non sono autorizzati.
+
+## BW-DEC-045 — Refinement finale UX, ritmo colore e interazioni trattamento
+
+**Data:** 5 agosto 2026
+
+**Decisione:** completare un unico pass locale di refinement sul candidato successivo a
+`BW-DEC-044`, preservando identità START, palette, tipografia, dati centralizzati e
+prenotazione telefonica.
+
+Il pass stabilisce che:
+
+- la CTA `Scopri tutti i trattamenti` chiude la griglia categorie ed è centrata nella
+  relativa colonna;
+- il ritmo home usa una scala `compact` / `standard` / `featured` e una sequenza
+  intenzionale canvas, surface caldo e ancora ink, senza nuovi colori o gradienti;
+- hero, categorie e link editoriali condividono la stessa freccia lineare, allineamento
+  e movimento hover/focus;
+- il dettaglio trattamento usa la query di `/trattamenti` e un dialog/sheet Radix
+  accessibile; `/trattamenti/:slug` esce dall’inventario route attivo;
+- le righe trattamento mobile restano editoriali ma compatte, con nome, durata quando
+  disponibile, prezzo e freccia;
+- la sparizione dopo cambi filtro era causata dal controller reveal, che osservava solo
+  il mount iniziale e un frame successivo; un `MutationObserver` collega i nodi dinamici
+  allo stesso `IntersectionObserver`, mentre le righe del catalogo dinamico non
+  riavviano un reveal d’ingresso a ogni filtro;
+- i titoli di sezione privilegiano 2–6 parole e spostano la nuance nel testo di supporto,
+  salvo hero, legali e nomi trattamento;
+- link, pulsanti, filtri, righe e controlli custom condividono pointer feedback, focus
+  visibile e micro-interazioni basate sui token motion esistenti;
+- la lightbox gallery resta step-based, senza autoplay o scroll libero, e aggiunge
+  frecce tastiera, pulsanti, contatore, soglia drag e swipe di un solo step;
+- `prefers-reduced-motion` rimuove trasformazioni e transizioni non essenziali senza
+  nascondere contenuti.
+
+**Gate:** il pass autorizza soltanto modifiche locali, validazione, browser QA e bundle
+di evidenze. Non autorizza stage, amend, commit, push, pull request, merge, Lovable,
+pubblicazione o deploy.
+
+## BW-DEC-046 — Navigation, horizontal affordances and slider interaction refinement
+
+**Data:** 6 agosto 2026
+
+**Decisione:** completare un pass tecnico locale che preserva l’identità START e rifinisce
+navigazione, overflow orizzontali, dialog trattamento e gesture gallery:
+
+- `Home` è la prima destinazione della navigazione centralizzata e risulta attiva soltanto
+  su `/`;
+- il rail gallery home mantiene lo scroll orizzontale nativo, nasconde l’overflow verticale
+  e usa un hint circolare da almeno 44 × 44 px;
+- i filtri trattamento restano su una sola riga scrollabile e mostrano fade laterali derivati
+  da `scrollLeft`, `scrollWidth` e `clientWidth` tramite `ResizeObserver`;
+- le righe trattamento mantengono fondo trasparente e affidano il feedback alla freccia
+  editoriale, al titolo e al focus visibile;
+- il dialog query-driven conserva la posizione pagina, mantiene un solo ingresso history e
+  consente step, tastiera, swipe e raccomandazioni derivate dalla categoria, con navigazioni
+  interne `replace`;
+- gallery e FAQ applicano reveal individuali con stagger massimo di 240 ms e aggiornamento
+  sicuro dei contenuti filtrati;
+- la lightbox espone una progressione drag con stato armato prima del singolo step;
+- un gesto orizzontale aggiuntivo, iniziato al vero bordo finale del rail home, apre
+  `/galleria` soltanto al rilascio oltre soglia; il link esplicito resta disponibile.
+
+**Vincoli:** nessuna dipendenza, route slug trattamento, autoplay, scroll gallery libero,
+campo manuale `relatedServices`, screenshot o artefatto QA viene introdotto. Il pass non
+autorizza stage, commit, amend, push, pull request, merge, Lovable, pubblicazione o deploy.

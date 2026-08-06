@@ -32,13 +32,13 @@ function NotFoundComponent() {
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 to="/"
-                className="inline-flex min-h-11 items-center justify-center border border-ink bg-ink px-5 text-sm font-medium text-white"
+                className="action-primary inline-flex min-h-11 items-center justify-center border border-ink bg-ink px-5 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
               >
                 Torna alla home
               </Link>
               <Link
                 to="/trattamenti"
-                className="inline-flex min-h-11 items-center justify-center border border-ink px-5 text-sm font-medium text-ink"
+                className="interactive-control inline-flex min-h-11 items-center justify-center border border-ink px-5 text-sm font-medium text-ink hover:bg-ink hover:text-white"
               >
                 Scopri i trattamenti
               </Link>
@@ -68,13 +68,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex min-h-11 items-center border border-ink bg-ink px-5 text-sm font-medium text-white"
+            className="action-primary inline-flex min-h-11 items-center border border-ink bg-ink px-5 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
           >
             Riprova
           </button>
           <a
             href="/"
-            className="inline-flex min-h-11 items-center border border-ink px-5 text-sm font-medium text-ink"
+            className="interactive-control inline-flex min-h-11 items-center border border-ink px-5 text-sm font-medium text-ink hover:bg-ink hover:text-white"
           >
             Torna alla home
           </a>

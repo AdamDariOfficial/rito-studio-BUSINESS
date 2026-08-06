@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageIntro } from "@/components/PageIntro";
 import { PracticalInfo } from "@/components/sections/PracticalInfo";
 import { SiteShell } from "@/components/SiteShell";
@@ -20,7 +20,7 @@ function ContactsPage() {
             Informazioni pratiche, <span className="italic text-accent">senza fretta.</span>
           </>
         }
-        intro="Dati dimostrativi non operativi. La posizione indica soltanto un'area generale di Padova e non una sede reale."
+        intro="Orari, telefono e indicazioni essenziali per organizzare la visita con semplicità."
       />
       <PracticalInfo />
       <section
@@ -56,12 +56,13 @@ function ContactsPage() {
             </div>
           </dl>
           <div className="md:col-span-7 md:col-start-6">
-            <Link
-              to="/prenota"
-              className="inline-flex min-h-12 items-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:bg-accent-strong"
+            <a
+              href={site.contact.phoneHref}
+              aria-label={`Chiama lo studio: ${site.contact.phone}`}
+              className="action-primary inline-flex min-h-12 items-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
             >
-              Prenota il tuo rituale
-            </Link>
+              Chiama lo studio
+            </a>
           </div>
         </div>
       </section>

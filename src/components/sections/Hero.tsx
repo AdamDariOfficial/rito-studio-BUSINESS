@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ctaLabels } from "@/lib/site-config";
+import { EditorialArrow } from "@/components/EditorialArrow";
+import { ctaLabels, site } from "@/lib/site-config";
 import { useReveal } from "@/hooks/use-reveal";
 
 export function Hero() {
@@ -56,22 +57,23 @@ export function Hero() {
             </p>
 
             <div className="mt-7 flex flex-col items-stretch gap-4 lg:mt-10 lg:flex-row lg:items-center">
-              <Link
-                to="/prenota"
+              <a
+                href={site.contact.phoneHref}
+                aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "220ms" }}
-                className="inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white transition-colors hover:border-accent-strong hover:bg-accent-strong"
+                className="action-primary inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white hover:border-accent-strong hover:bg-accent-strong"
               >
-                {ctaLabels.bookPrimary}
-              </Link>
+                {ctaLabels.callToBook}
+              </a>
               <Link
                 to="/trattamenti"
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "300ms" }}
-                className="inline-flex min-h-11 items-center justify-center gap-2 border-b border-ink text-sm font-medium tracking-wide text-ink transition-colors hover:text-accent md:min-h-12 md:border md:px-6 md:hover:bg-ink md:hover:text-white"
+                className="editorial-link group min-h-11 justify-center px-1 text-sm font-medium tracking-wide md:min-h-12 md:px-2"
               >
                 {ctaLabels.discoverTreatments}
-                <span aria-hidden>↗</span>
+                <EditorialArrow />
               </Link>
             </div>
           </div>

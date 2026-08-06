@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { EditorialArrow } from "@/components/EditorialArrow";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { PageIntro } from "@/components/PageIntro";
 import { SiteShell } from "@/components/SiteShell";
@@ -16,10 +17,10 @@ function FaqPage() {
         eyebrow="FAQ"
         title={
           <>
-            Prima di iniziare, le risposte <span className="italic text-accent">essenziali.</span>
+            Risposte <span className="italic text-accent">essenziali.</span>
           </>
         }
-        intro="Un pannello alla volta, senza auto-scroll. Le policy definitive devono essere configurate per il cliente reale."
+        intro="Indicazioni essenziali per scegliere, prepararti e gestire l’appuntamento con semplicità."
       />
       <section className="py-16 md:py-24" aria-label="Domande frequenti">
         <div className="container-editorial grid gap-12 md:grid-cols-12">
@@ -30,13 +31,14 @@ function FaqPage() {
             <div className="border border-line bg-surface p-6 md:sticky md:top-[calc(var(--header-height)+2rem)]">
               <p className="font-display text-2xl text-ink">Non trovi la risposta?</p>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                Consulta le informazioni pratiche oppure prova il percorso dimostrativo.
+                Consulta le informazioni pratiche oppure chiama direttamente lo studio.
               </p>
               <Link
                 to="/contatti"
-                className="mt-5 inline-flex min-h-11 items-center text-sm font-medium text-ink underline underline-offset-4"
+                className="editorial-link group mt-5 min-h-11 text-sm font-medium"
               >
                 Vai ai contatti
+                <EditorialArrow />
               </Link>
             </div>
           </aside>

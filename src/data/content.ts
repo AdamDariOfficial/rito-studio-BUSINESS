@@ -1,13 +1,3 @@
-export interface TeamProfile {
-  id: string;
-  name: string;
-  role: string;
-  competencies: readonly string[];
-  approach: string;
-  serviceSlugs: readonly string[];
-  image?: string;
-}
-
 export interface GalleryItem {
   id: string;
   category: "Studio" | "Hair" | "Skin" | "Hands" | "Rituals";
@@ -23,37 +13,6 @@ export interface FaqItem {
   question: string;
   answer: string;
 }
-
-export const teamProfiles: readonly TeamProfile[] = [
-  {
-    id: "hair-profile",
-    name: "Profilo demo — Hair",
-    role: "Hair rituals",
-    competencies: ["Taglio", "Colore", "Texture", "Styling"],
-    approach: "Un profilo editoriale dimostrativo centrato su ascolto, proporzioni e mantenimento.",
-    serviceSlugs: ["taglio-essenziale", "colore-su-misura", "trattamento-texture"],
-    image: "/images/rito/rito-gallery-professional-01.webp",
-  },
-  {
-    id: "skin-profile",
-    name: "Profilo demo — Skin & Brow",
-    role: "Skin, brow & lash rituals",
-    competencies: ["Rituali viso", "Brow", "Lash"],
-    approach:
-      "Un profilo fittizio senza credenziali dichiarate, dedicato a gesti misurati e indicazioni chiare.",
-    serviceSlugs: ["rituale-viso", "brow-design", "lash-lift"],
-    image: "/images/rito/rito-gallery-skin-01.webp",
-  },
-  {
-    id: "hands-profile",
-    name: "Profilo demo — Hands & Rituals",
-    role: "Hands & wellness rituals",
-    competencies: ["Mani", "Unghie", "Rituali di benessere"],
-    approach: "Un profilo dimostrativo orientato a precisione, igiene e ritmo dell'appuntamento.",
-    serviceSlugs: ["manicure-essenziale", "rituale-mani", "massaggio-distensivo"],
-    image: "/images/rito/rito-ritual-feature.webp",
-  },
-] as const;
 
 export const galleryItems: readonly GalleryItem[] = [
   {
@@ -133,7 +92,7 @@ export const faqItems: readonly FaqItem[] = [
     id: "modifica",
     question: "Posso modificare o annullare l'appuntamento?",
     answer:
-      "Sì, usando il canale indicato nella conferma e rispettando la policy configurata dal cliente.",
+      "Sì, chiamando lo studio e rispettando le condizioni concordate al momento della prenotazione.",
   },
   {
     id: "prezzi",
@@ -150,6 +109,6 @@ export const faqItems: readonly FaqItem[] = [
   {
     id: "regalo",
     question: "Posso regalare un trattamento?",
-    answer: "Disponibile soltanto quando gift card o voucher sono attivati dal cliente.",
+    answer: "Chiama lo studio per sapere se sono disponibili gift card o voucher.",
   },
 ] as const;

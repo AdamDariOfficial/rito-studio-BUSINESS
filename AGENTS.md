@@ -48,11 +48,8 @@ baseline. Its planned public routes are:
 ```text
 /
 /trattamenti
-/trattamenti/:slug
 /studio
-/team
 /galleria
-/prenota
 /faq
 /contatti
 /privacy
@@ -60,10 +57,21 @@ baseline. Its planned public routes are:
 /*
 ```
 
-BUSINESS may use centralized typed treatment, team, gallery, FAQ, contact, booking and
-route-metadata data. Supported booking adapters are `external`, `whatsapp`, `request`
-and `demo`; the portfolio default is `demo` unless an approved implementation task
-selects another mode.
+BUSINESS uses centralized typed treatment, gallery, FAQ, contact and route-metadata
+data. In the base product every booking action is a direct `tel:` link built from the
+centralized phone configuration. Team and form-based booking are optional future
+modules and are not active routes.
+
+Treatment detail is an accessible query-driven dialog/sheet inside `/trattamenti`, for
+example `/trattamenti?categoria=hair&trattamento=taglio-essenziale`. The former
+`/trattamenti/:slug` route is not part of the active base BUSINESS inventory.
+
+The approved base adaptation model is:
+
+```text
+base adaptation: edit site config + treatment catalogue
+optional enrichment: add detailed content only for selected treatments
+```
 
 ## Current authorized implementation pass
 
@@ -132,6 +140,7 @@ BUSINESS adds information architecture and depth. It is not an independent redes
 - New routes open at the top immediately, never with smooth route reset.
 - Same-page anchors may use controlled scrolling when documented.
 - Preserve direct URL, refresh, browser Back and Forward behavior.
+- Catalogue category and treatment-detail state must remain encoded in the route query.
 - Below-the-fold reveals begin when content enters the viewport.
 - Respect `prefers-reduced-motion`; content must remain visible without motion.
 - Preserve visible focus, semantic landmarks, correct heading order and adequate

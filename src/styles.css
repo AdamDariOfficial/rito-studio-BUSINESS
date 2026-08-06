@@ -93,6 +93,130 @@
     letter-spacing: -0.01em;
     color: var(--ink);
   }
+
+  a[href],
+  button:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@layer components {
+  .action-primary {
+    transition:
+      color var(--motion-duration-fast) var(--motion-ease-ui),
+      background-color var(--motion-duration-fast) var(--motion-ease-ui),
+      border-color var(--motion-duration-fast) var(--motion-ease-ui),
+      transform var(--motion-duration-fast) var(--motion-ease-ui);
+  }
+
+  .action-primary:hover {
+    transform: translateY(-1px);
+  }
+
+  .action-primary:active {
+    transform: translateY(0);
+  }
+
+  .editorial-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink);
+    transition: color var(--motion-duration-ui) var(--motion-ease-ui);
+  }
+
+  .editorial-link::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: currentColor;
+    transform: scaleX(0.28);
+    transform-origin: left;
+    transition: transform var(--motion-duration-ui) var(--motion-ease-ui);
+  }
+
+  .editorial-link:hover,
+  .editorial-link:focus-visible {
+    color: var(--accent);
+  }
+
+  .editorial-link:hover::after,
+  .editorial-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .editorial-arrow {
+    flex-shrink: 0;
+    transition: transform var(--motion-duration-ui) var(--motion-ease-ui);
+  }
+
+  .group:hover .editorial-arrow,
+  .group:focus-visible .editorial-arrow,
+  .group:active .editorial-arrow,
+  .editorial-link:hover .editorial-arrow,
+  .editorial-link:focus-visible .editorial-arrow {
+    transform: translate(0.22rem, -0.22rem);
+  }
+
+  .interactive-row {
+    transition:
+      color var(--motion-duration-ui) var(--motion-ease-ui),
+      background-color var(--motion-duration-ui) var(--motion-ease-ui);
+  }
+
+  .interactive-row:hover,
+  .interactive-row:focus-visible {
+    background-color: color-mix(in srgb, var(--surface) 55%, transparent);
+  }
+
+  .treatment-row,
+  .treatment-row:hover,
+  .treatment-row:focus-visible,
+  .treatment-row:active {
+    background-color: transparent;
+  }
+
+  .interactive-control {
+    transition:
+      color var(--motion-duration-fast) var(--motion-ease-ui),
+      background-color var(--motion-duration-fast) var(--motion-ease-ui),
+      border-color var(--motion-duration-fast) var(--motion-ease-ui),
+      opacity var(--motion-duration-fast) var(--motion-ease-ui);
+  }
+}
+
+@keyframes rito-gallery-arrow-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.3rem);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rito-gallery-arrow-nudge {
+    animation: rito-gallery-arrow-nudge 1.55s var(--motion-ease-ui) infinite;
+  }
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes rito-accordion-open {
@@ -115,6 +239,124 @@
     height: 0;
     opacity: 0;
   }
+}
+
+@keyframes rito-gallery-step {
+  from {
+    opacity: 0.45;
+    transform: translateX(calc(var(--gallery-direction, 1) * 1.1rem));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rito-treatment-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rito-treatment-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rito-treatment-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rito-treatment-panel-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes rito-treatment-panel-in-desktop {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rito-treatment-panel-out-desktop {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+}
+
+@keyframes rito-treatment-step {
+  from {
+    opacity: 0.55;
+    transform: translateX(calc(var(--treatment-direction, 1) * 0.75rem));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.treatment-dialog-overlay[data-state="open"] {
+  animation: rito-treatment-overlay-in var(--motion-duration-fast) var(--motion-ease-ui) both;
+}
+
+.treatment-dialog-overlay[data-state="closed"] {
+  animation: rito-treatment-overlay-out var(--motion-duration-fast) var(--motion-ease-ui) both;
+}
+
+.treatment-dialog-panel[data-state="open"] {
+  animation: rito-treatment-panel-in var(--motion-duration-ui) var(--motion-ease-ui) both;
+}
+
+.treatment-dialog-panel[data-state="closed"] {
+  animation: rito-treatment-panel-out var(--motion-duration-ui) var(--motion-ease-ui) both;
+}
+
+.treatment-detail-step {
+  animation: rito-treatment-step var(--motion-duration-ui) var(--motion-ease-ui);
+}
+
+@media (min-width: 768px) {
+  .treatment-dialog-panel[data-state="open"] {
+    animation-name: rito-treatment-panel-in-desktop;
+  }
+
+  .treatment-dialog-panel[data-state="closed"] {
+    animation-name: rito-treatment-panel-out-desktop;
+  }
+}
+
+.gallery-step-image {
+  animation: rito-gallery-step var(--motion-duration-ui) var(--motion-ease-ui);
 }
 
 .faq-accordion-content[data-state="open"] {
@@ -202,6 +444,17 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .action-primary:hover,
+  .action-primary:active,
+  .group:hover .editorial-arrow,
+  .group:focus-visible .editorial-arrow,
+  .group:active .editorial-arrow,
+  .editorial-link:hover .editorial-arrow,
+  .editorial-link:focus-visible .editorial-arrow,
+  .gallery-step-image {
+    transform: none !important;
   }
 }
 
