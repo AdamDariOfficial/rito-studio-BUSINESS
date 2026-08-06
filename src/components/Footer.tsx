@@ -58,6 +58,31 @@ export function Footer() {
           <p className="eyebrow text-surface">Info</p>
           <ul className="mt-4 space-y-2 text-sm text-white">
             <li>
+              <Link to="/trattamenti" className={footerLinkClass}>
+                Trattamenti
+              </Link>
+            </li>
+            <li>
+              <Link to="/studio" className={footerLinkClass}>
+                Studio
+              </Link>
+            </li>
+            <li>
+              <Link to="/galleria" className={footerLinkClass}>
+                Galleria
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className={footerLinkClass}>
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link to="/contatti" className={footerLinkClass}>
+                Contatti
+              </Link>
+            </li>
+            <li>
               <Link to="/privacy" className={footerLinkClass}>
                 Privacy
               </Link>
@@ -66,6 +91,15 @@ export function Footer() {
               <Link to="/cookie" className={footerLinkClass}>
                 Cookie
               </Link>
+            </li>
+            <li>
+              <a
+                href={site.contact.phoneHref}
+                aria-label={`Chiama per prenotare: ${site.contact.phone}`}
+                className={footerLinkClass}
+              >
+                Chiama per prenotare
+              </a>
             </li>
           </ul>
         </div>

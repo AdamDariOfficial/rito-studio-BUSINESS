@@ -37,7 +37,7 @@ The authorized BUSINESS working baseline is:
 
 ```text
 repository: AdamDariOfficial/rito-studio-BUSINESS
-commit: 222c331db44b1775aa2f877634f3a0f3dfdfbe69
+commit: 9b7ff807f945f679216671577963fd713badb507
 ```
 
 The BUSINESS baseline contains the full START history plus two Lovable-managed commits
@@ -88,16 +88,21 @@ The detailed source remains `AGENTS.md`, `docs/TESTING.md`, `docs/ROUTES.md`,
 
 After a separate implementation authorization, BUSINESS may add:
 
-- `/trattamenti` and treatment detail routes;
+- `/trattamenti` con filtri e dettaglio query-driven in dialog/sheet accessibile;
 - `/studio`;
-- `/team`;
 - `/galleria` with an accessible lightbox;
-- `/prenota`;
 - `/faq`;
 - `/contatti`;
 - route-specific metadata and deeper content;
-- a configured `external`, `whatsapp`, `request` or `demo` booking adapter;
+- centralized direct-phone booking links;
 - comparative START ↔ BUSINESS QA.
+
+`/team` and `/prenota` are not part of the base BUSINESS route inventory after
+`BW-DEC-044`. Team remains only a possible future optional module.
+
+After `BW-DEC-045`, `/trattamenti/:slug` is also outside the active base BUSINESS route
+inventory. Treatment detail remains available inside the catalogue through the
+validated `categoria` and `trattamento` query state.
 
 These are intentional product differences. They must not become an unrelated visual
 redesign.
@@ -114,19 +119,17 @@ The following require explicit scope and approval:
 - copying Hospitality identity or components as visual defaults;
 - beginning BUSINESS PLUS.
 
-## Current controlled phase
+## Current authorized phase
 
-The current phase is strictly:
+The current phase is a complete local BUSINESS multipage implementation pass by
+Cursor + Codex, as the sole writer, on `feat/rito-business-multipage` from
+`9b7ff807f945f679216671577963fd713badb507`.
 
-```text
-REPOSITORY_IDENTITY_UPDATE
-PROJECT_DOCUMENTATION_UPDATE
-PROJECT_KNOWLEDGE_PREPARATION
-BUSINESS_PROMPT_PREPARATION
-```
-
-No multipage source implementation, stage, commit, push, publication or deployment is
-part of this package.
+Lovable is passive repository synchronization or optional preview only. Its Project
+Knowledge is not required or updated, its Agent and prompt are not authorized, and no
+intentional Lovable credits may be used. Concurrent writers are forbidden. Stage,
+commit, push, pull request, merge, publication, deployment, domains and infrastructure
+remain separate explicit gates.
 
 ## Parity review before BUSINESS freeze
 
@@ -139,7 +142,7 @@ A future BUSINESS review must verify at minimum:
 - motion and reduced-motion parity;
 - mobile ordering and overflow;
 - route, refresh, Back and Forward behavior;
-- honest booking-adapter behavior;
+- honest direct-phone booking behavior;
 - absence of BUSINESS PLUS scope.
 
 With brand name and logo hidden, START and BUSINESS must still be recognizable as the

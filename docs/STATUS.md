@@ -1,11 +1,11 @@
 # RITO Studio BUSINESS — Status
 
-**Updated:** 4 August 2026
+**Updated:** 6 August 2026
 **Project:** RITO Studio BUSINESS
 **Family:** Tretnix Beauty & Wellness `v1.1`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
-**Remix baseline:** `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
+**Implementation baseline:** `9b7ff807f945f679216671577963fd713badb507`
 **Canonical START baseline:** `439efff0f14315310b9149cde0283633696a0eb0`
 
 ## Approved baseline state
@@ -23,7 +23,11 @@ IDENTITY_DOCS_CONTENT_REVIEW_PASSED
 IDENTITY_DOCS_EXACT_11_PATH_SCOPE_APPROVED
 IDENTITY_DOCS_EXACT_STAGING_VERIFIED
 IDENTITY_DOCS_APPLICATION_SCOPE_UNCHANGED
-MULTIPAGE_IMPLEMENTATION_NOT_STARTED
+MULTIPAGE_IMPLEMENTATION_AUTHORIZED_LOCAL
+IMPLEMENTATION_WRITER_CURSOR_CODEX
+IMPLEMENTATION_BRANCH_FEAT_RITO_BUSINESS_MULTIPAGE
+LOVABLE_PASSIVE_ONLY
+LOVABLE_AGENT_PROMPT_CREDITS_NOT_AUTHORIZED
 BUSINESS_PLUS_NOT_AUTHORIZED
 ```
 
@@ -204,30 +208,166 @@ Transient index state is deliberately kept out of the durable repository status.
 remaining operations are external Git release gates and do not change the approved
 BUSINESS product scope.
 
-## Implementation activation gate
+## Current implementation authorization
 
-Multipage implementation remains blocked until:
+The user authorized Cursor + Codex as the sole local writer for the complete BUSINESS
+multipage pass on `feat/rito-business-multipage`, based on
+`9b7ff807f945f679216671577963fd713badb507`.
 
-1. the identity/documentation patch is staged, committed, pushed, reviewed and merged;
-2. local `main` is synchronized with `origin/main` and clean;
-3. the merged documents are visible in Lovable;
-4. Lovable Project Knowledge is updated from the merged versioned source;
-5. Lovable creates or selects `feat/rito-business-multipage` from that merged `main`;
-6. the branch base is verified and no overlapping writer is active;
-7. the user explicitly authorizes the implementation pass, intentional credit use and
-   Lovable's automatic commits on that dedicated branch.
+Lovable remains passive for repository synchronization or optional preview only.
+Project Knowledge is not required or updated, the Lovable Agent and prompt are not
+authorized, and intentional Lovable credit use is prohibited. Concurrent writers are
+forbidden.
 
-PR, merge, publication and deploy remain separate gates.
+The pass includes local documentation/source changes, validation, remediation and final
+reporting. Stage, commit, push, pull request, merge, publication, deployment, domains and
+infrastructure remain separate explicit gates.
 
-## Controlled release sequence
+## Targeted remediation after browser review
 
-Before the local documentation commit:
+On 4 August 2026 the user authorized and Codex completed the local implementation of
+`BW-DEC-044` from this exact preflight state:
 
-1. validate any final status-only correction against the exact 11-path allowlist;
-2. stage exactly the approved composition above;
-3. confirm zero unstaged and untracked paths;
-4. verify the repository checksum manifest and `git diff --cached --check`;
-5. obtain explicit approval for the commit message and local commit.
+```text
+repository: AdamDariOfficial/rito-studio-BUSINESS
+origin: https://github.com/AdamDariOfficial/rito-studio-BUSINESS.git
+branch: feat/rito-business-multipage
+HEAD: 49c7ced6118ecd8e719754f1f0ff5b3738031d47
+origin/main: 9b7ff807f945f679216671577963fd713badb507
+working tree and index: clean
+remote feature branch: absent (live read-only verification)
+concurrent writer evidence: none; no index lock or Git process
+```
 
-Push, pull request, merge, Lovable implementation, publication and deployment remain
-separate explicit gates.
+Implemented locally:
+
+- compact four-category home treatment teaser;
+- balanced lower spacing in the home Studio section;
+- Team module and `/team` removed;
+- booking form, booking adapter state and `/prenota` removed;
+- all booking actions use the centralized telephone link;
+- treatment records require only five base fields and support optional enrichment;
+- treatment details use only meaningful optional editorial fields; catalogue metadata remains
+  route-level;
+- `/studio` philosophy/method content replaced by the high-contrast `Il modo RITO`
+  editorial manifesto;
+- public-facing internal language removed outside legal placeholders;
+- route tree regenerated without Team or booking routes.
+
+Validation evidence:
+
+```text
+bun install --frozen-lockfile: exit 0, no changes
+bun run lint: exit 0, 0 errors, 6 existing Fast Refresh warnings
+bun run build: exit 0
+routeTree.gen.ts SHA-256 before/after final build: identical
+Impeccable detector: 0 findings
+browser QA: 390 px, 768 px and 1440 px completed
+browser console errors: 0
+horizontal overflow at tested widths: none
+/team and /prenota: shared 404 confirmed
+```
+
+Browser evidence also confirmed the centralized `tel:+390490000000` target, mobile
+drawer focus containment/return and scroll restoration, visible keyboard focus,
+catalogue filtering, minimal and enriched detail records, direct URL, refresh,
+Back/Forward and loaded reduced-motion safeguards.
+
+No stage, commit, amend, push, pull request, merge, Lovable execution, publication or
+deployment occurred. The local candidate status is
+`TARGETED_REMEDIATION_READY_FOR_MANUAL_REVIEW`.
+
+## Final UX, rhythm and interaction refinement
+
+On 5 August 2026 the user authorized `BW-DEC-045` from this verified preflight:
+
+```text
+repository: AdamDariOfficial/rito-studio-BUSINESS
+branch: feat/rito-business-multipage
+HEAD: 49c7ced6118ecd8e719754f1f0ff5b3738031d47
+origin/main: 9b7ff807f945f679216671577963fd713badb507
+staged paths: 0
+remote feature branch: absent
+package.json and bun.lock drift: none
+Git lock: none
+```
+
+The pass refines the existing local remediation without resetting or discarding it. It
+adds the deliberate home spacing/color cadence, shared editorial arrow, query-driven
+treatment dialog/sheet, compact rows, dynamic reveal observation, concise headings,
+interaction feedback and step-based gallery gestures. `/trattamenti/:slug` is removed
+from the active route inventory; `/team` and `/prenota` remain shared 404 routes.
+
+Stage, amend, commit, push, pull request, merge, Lovable, publication and deployment
+remain unauthorized.
+
+Final implementation evidence:
+
+```text
+home rhythm: canvas hero → warm compact treatment teaser → canvas editorial → warm
+Studio teaser → canvas gallery → warm FAQ → ink booking anchor → canvas practical info
+treatment filters: 20 consecutive changes, 0 hidden rows at every step
+query detail: valid direct URL, refresh, Back, Forward, Escape and exact focus return passed
+invalid treatment query: inline recovery with usable filtered catalogue
+gallery: ArrowRight, buttons, drag threshold, one-step swipe, vertical-drag tolerance,
+Escape and exact focus return passed
+responsive matrix: 390 px, 768 px and 1440 px; 0 overflow, 0 broken images,
+one h1 per principal route, 0 enabled controls with incorrect pointer cursor
+browser console warnings/errors: 0
+visual evidence: retained outside the repository in the final UX review bundle
+```
+
+Automated final validation is recorded in the final pass report. No dependency or
+lockfile change was introduced, the active route tree contains no treatment slug route,
+and the local candidate status is `FINAL_UX_REFINEMENT_READY_FOR_MANUAL_REVIEW`.
+
+## Navigation, sliders and treatment interaction technical pass
+
+On 6 August 2026 the user authorized and Codex implemented `BW-DEC-046` on the
+preserved local remediation at committed HEAD
+`49c7ced6118ecd8e719754f1f0ff5b3738031d47`.
+
+Implemented locally:
+
+- Home is first in the centralized navigation with exact `/` active matching;
+- treatment filters use one native horizontal row, real edge-state fades and local
+  active-item visibility without vertical page scrolling;
+- treatment rows retain transparent backgrounds and arrow-led feedback;
+- treatment dialog query changes use `resetScroll: false`, one initial history entry,
+  internal replace navigation, bounded controls, keyboard, swipe and derived recommendations;
+- gallery and FAQ items reveal individually with capped stagger and filtered gallery
+  refresh through the centralized reveal controller;
+- gallery lightbox and home rail share a 44 × 44 px progress indicator with armed state;
+- home rail hides vertical overflow and opens `/galleria` only after a deliberate
+  additional end-of-rail gesture.
+
+Direct DOM/runtime evidence without screenshots confirmed:
+
+```text
+navigation: Home first; exact active state; no collision at 1024, 1280 or 1440 px
+mobile home: 360, 390 and 430 px; overflow-x auto, overflow-y hidden, page overflow 0
+rail hint: 44 × 44 px, circular
+filters: one row at 360, 390 and 430 px; real start/end state; 20 changes stable
+dialog scroll delta: 0 px on open, Back and Forward
+dialog history: two internal steps replaced; one Back closed the dialog
+dialog input: compact buttons, ArrowLeft and swipe moved one treatment
+recommendations: same-category derived list, current excluded, count 3
+gallery drag: below threshold unchanged; vertical unchanged; armed release moved one step
+home rail: ordinary end scroll and below-threshold drag stayed on `/`; armed drag opened `/galleria`
+FAQ: individual reveal, capped 240 ms stagger, accordion animation preserved
+console warnings/errors: 0
+broken images: 0
+horizontal page overflow: 0 at tested widths
+```
+
+Repository-defined automated validation passed after the source changes:
+
+```text
+bun install --frozen-lockfile: exit 0, no changes
+bun run lint: exit 0, 0 errors, 6 pre-existing Fast Refresh warnings
+bun run build: exit 0
+```
+
+No screenshot, binary or browser-QA artifact was created. No stage, commit, amend, push,
+pull request, merge, Lovable execution, publication or deployment occurred. Final manifest,
+diff and Git-state evidence is recorded by the final technical report for this pass.

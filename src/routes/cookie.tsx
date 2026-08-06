@@ -1,31 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PolicyLayout } from "@/components/PolicyLayout";
-import { canonicalUrl } from "@/lib/site-config";
+import { buildHead, routeSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/cookie")({
-  head: () => {
-    const canonical = canonicalUrl("/cookie");
-
-    return {
-      meta: [
-        { title: "Cookie — RITO Studio" },
-        {
-          name: "description",
-          content:
-            "Informativa cookie di RITO Studio: tecnologie tecniche, risorse esterne e attivazione volontaria della mappa Google.",
-        },
-        { name: "robots", content: "noindex, follow" },
-        { property: "og:title", content: "Cookie — RITO Studio" },
-        {
-          property: "og:description",
-          content:
-            "Tecnologie utilizzate dal sito RITO Studio e modalità di attivazione della mappa.",
-        },
-        { property: "og:url", content: canonical },
-      ],
-      links: [{ rel: "canonical", href: canonical }],
-    };
-  },
+  head: () => buildHead(routeSeo.cookie),
   component: CookiePage,
 });
 

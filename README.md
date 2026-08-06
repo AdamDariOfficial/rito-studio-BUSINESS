@@ -20,20 +20,17 @@ preserves that history and adds two tool-managed commits whose net delta is limi
 
 ## Product role
 
-BUSINESS adds a coherent multipage treatment-discovery and booking journey while
-preserving START's identity, responsive behavior, accessibility, motion and demo
-integrity.
+BUSINESS adds a coherent multipage treatment-discovery journey with direct telephone
+booking while preserving START's identity, responsive behavior, accessibility, motion
+and demo integrity.
 
 Planned public routes:
 
 ```text
 /
 /trattamenti
-/trattamenti/:slug
 /studio
-/team
 /galleria
-/prenota
 /faq
 /contatti
 /privacy
@@ -44,6 +41,45 @@ Planned public routes:
 BUSINESS v1 excludes `/journal`, `/journal/:slug`, `/gift-card`, `/account`, `/admin`,
 live availability, payments, client accounts, CRM, fidelity, database,
 authentication and BUSINESS PLUS.
+
+Team and a dedicated booking route are not part of the base BUSINESS product. Every
+booking CTA opens the centralized telephone number with a `tel:` link.
+
+Treatment details open as an accessible route-aware dialog or mobile sheet inside the
+catalogue. Category and detail state use query parameters, for example:
+
+```text
+/trattamenti?categoria=hair&trattamento=taglio-essenziale
+```
+
+The former `/trattamenti/:slug` route is not active in base BUSINESS.
+
+The dialog preserves the catalogue scroll position and supports bounded previous/next,
+keyboard and swipe navigation without adding a history entry for every treatment. Mobile
+category filters remain a single native horizontal row, while the home gallery rail keeps
+native scrolling and offers a deliberate final gesture toward the full gallery.
+
+## Client adaptation
+
+Base adaptation:
+
+```text
+edit site config + treatment catalogue
+```
+
+Only `name`, `slug`, `category`, `priceLabel` and `shortDescription` are required for a
+treatment. The centralized model drives catalogue rows, query-driven details and
+catalogue metadata without requiring a separate page for each treatment.
+
+Optional enrichment:
+
+```text
+add detailed content only for selected treatments
+```
+
+Duration, extended description, suitability, included steps, appointment guidance and
+notes remain optional. Catalogue metadata stays route-level rather than adding unused
+per-treatment SEO or relationship fields.
 
 ## Canonical documentation
 
@@ -61,32 +97,29 @@ Read `AGENTS.md` first, then:
 - `docs/APPROVAL.md`
 - `docs/START_BUSINESS_CONTRACT.md`
 
-The versioned BUSINESS Project Knowledge source is:
+The optional versioned BUSINESS Project Knowledge source for a future Lovable pass is:
 
 ```text
 compiled/LOVABLE_BUSINESS_PROJECT_KNOWLEDGE.md
 ```
 
-The versioned BUSINESS implementation prompt is:
+The optional versioned BUSINESS implementation prompt for a future Lovable pass is:
 
 ```text
 prompts/LOVABLE_BUSINESS_PROMPT.md
 ```
 
-## Implementation gate
+## Current implementation decision
 
-The multipage implementation may begin only after the identity/documentation change is
-reviewed and merged into `main`, local and remote `main` are synchronized, the connected
-Lovable project reflects the merge and Project Knowledge is updated from the versioned
-source.
+The user authorized Cursor + Codex as the sole local writer for the complete BUSINESS
+multipage pass on `feat/rito-business-multipage`, based on
+`9b7ff807f945f679216671577963fd713badb507`.
 
-Before implementation, Lovable must switch to the dedicated branch
-`feat/rito-business-multipage`, created from the merged documentation baseline. The
-user must explicitly authorize the implementation pass and intentional credit use.
-That pass includes Lovable's automatic commits and synchronization only on the approved
-branch; it does not authorize direct work on `main`, PR, merge, publication or deploy.
-
-The presence of Project Knowledge or a prompt does not authorize execution.
+Lovable remains passive for repository synchronization or optional preview only.
+Project Knowledge is not required or updated, the Lovable Agent and prompt are not
+authorized, and intentional Lovable credit use is prohibited for this pass. Concurrent
+writers are forbidden. Stage, commit, push, pull request, merge, publication, deployment,
+domains and infrastructure remain separate explicit gates.
 
 ## SEO and measurement boundary
 

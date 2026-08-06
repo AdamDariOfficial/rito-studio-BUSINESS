@@ -1,11 +1,3 @@
-/**
- * Centralized configuration for RITO Studio START.
- * Public-facing copy stays polished while fictional contact details remain
- * explicit in the discreet demo disclosure and legal routes.
- */
-
-export type BookingMode = "external" | "contact";
-
 const mapQuery = "Prato della Valle, Padova";
 const encodedMapQuery = encodeURIComponent(mapQuery);
 
@@ -28,17 +20,20 @@ export const site = {
     mapQuery,
     mapEmbedUrl: `https://www.google.com/maps?q=${encodedMapQuery}&z=15&output=embed`,
     mapExternalUrl: `https://www.google.com/maps/search/?api=1&query=${encodedMapQuery}`,
+    accessibility:
+      "Per esigenze di accesso specifiche, contatta lo studio prima della visita: potremo condividere le indicazioni più utili.",
+    directions:
+      "La zona è servita dal trasporto pubblico. L'indirizzo esatto e le indicazioni di accesso vengono condivisi alla conferma.",
+    appointmentPolicy:
+      "Gli appuntamenti e le eventuali variazioni vengono concordati direttamente al telefono con lo studio.",
   },
   hours: [
     { label: "Martedì–venerdì", value: "09:00–19:00" },
     { label: "Sabato", value: "09:00–17:00" },
     { label: "Domenica e lunedì", value: "chiuso" },
   ],
-  booking: {
-    mode: "contact" as BookingMode,
-  },
   legal: {
-    lastUpdated: "2 agosto 2026",
+    lastUpdated: "4 agosto 2026",
   },
   attribution: {
     text: "Progettato e sviluppato da",
@@ -47,104 +42,38 @@ export const site = {
   },
   seo: {
     siteUrl: "https://rito-studio.tretnix.com",
+    locale: "it_IT",
+    defaultSocialImage: {
+      src: "/images/rito/rito-studio-wide.webp",
+      width: 1600,
+      height: 1000,
+      alt: "Interno luminoso e materico di RITO Studio",
+    },
+    sitemapEnabled: false,
+    structuredDataMode: "disabled" as const,
   },
+  tracking: {
+    enabled: false,
+    consentRequired: true,
+    provider: "none" as const,
+  },
+} as const;
+
+export const nav = [
+  { label: "Home", to: "/" },
+  { label: "Trattamenti", to: "/trattamenti" },
+  { label: "Studio", to: "/studio" },
+  { label: "Galleria", to: "/galleria" },
+  { label: "FAQ", to: "/faq" },
+  { label: "Contatti", to: "/contatti" },
+] as const;
+
+export const ctaLabels = {
+  callToBook: "Chiama per prenotare",
+  callStudio: "Chiama lo studio",
+  discoverTreatments: "Scopri i trattamenti",
 } as const;
 
 export function canonicalUrl(pathname: string) {
   return new URL(pathname, site.seo.siteUrl).toString();
 }
-
-export const nav = [
-  { label: "Trattamenti", hash: "#trattamenti" },
-  { label: "Metodo", hash: "#metodo" },
-  { label: "Studio", hash: "#studio" },
-  { label: "Contatti", hash: "#contatti" },
-] as const;
-
-export const ctaLabels = {
-  bookPrimary: "Chiama per prenotare",
-  discoverTreatments: "Scopri i trattamenti",
-  requestAppointment: "Chiama per un appuntamento",
-  book: "Prenota",
-} as const;
-
-export const serviceCategories = [
-  {
-    index: "01",
-    name: "Hair Rituals",
-    items: [
-      { name: "Taglio essenziale", price: "€45" },
-      { name: "Colore su misura", price: "da €80" },
-      { name: "Trattamento texture", price: "da €65" },
-      { name: "Piega e styling", price: "da €35" },
-    ],
-  },
-  {
-    index: "02",
-    name: "Skin & Brow",
-    items: [
-      { name: "Rituale viso", price: "€70" },
-      { name: "Brow design", price: "€25" },
-      { name: "Lash lift", price: "€55" },
-      { name: "Trattamento illuminante", price: "€80" },
-    ],
-  },
-  {
-    index: "03",
-    name: "Hands & Nails",
-    items: [
-      { name: "Manicure essenziale", price: "€30" },
-      { name: "Semipermanente", price: "€40" },
-      { name: "Nail care", price: "€35" },
-      { name: "Rituale mani", price: "€45" },
-    ],
-  },
-  {
-    index: "04",
-    name: "Wellness",
-    items: [
-      { name: "Massaggio distensivo", price: "€70" },
-      { name: "Rituale schiena", price: "€55" },
-      { name: "Trattamento relax", price: "€85" },
-      { name: "Percorso corpo", price: "da €95" },
-    ],
-  },
-] as const;
-
-export const servicesNote =
-  "I prezzi indicati si intendono a partire da dove specificato. Eventuali variazioni vengono concordate durante la consulenza.";
-
-export const gallerySlots = [
-  {
-    id: "gallery-01",
-    ratio: "4 / 5",
-    tone: "canvas",
-    src: "/images/rito/rito-gallery-hair-01.webp",
-    alt: "Dettaglio di capelli biondi mossi durante lo styling",
-    objectPosition: "50% 50%",
-  },
-  {
-    id: "gallery-02",
-    ratio: "1 / 1",
-    tone: "surface",
-    src: "/images/rito/rito-gallery-skin-01.webp",
-    alt: "Trattamento viso eseguito con un gesto delicato",
-    objectPosition: "50% 50%",
-  },
-  {
-    id: "gallery-03",
-    ratio: "3 / 2",
-    tone: "ink",
-    src: "/images/rito/rito-gallery-space-01.webp",
-    alt: "Professionista accanto a una postazione con specchi e strumenti",
-    objectPosition: "50% 50%",
-  },
-  {
-    id: "gallery-04",
-    ratio: "3 / 4",
-    tone: "canvas",
-    src: "/images/rito/rito-gallery-professional-01.webp",
-    alt: "Applicazione professionale del colore sui capelli",
-    objectPosition: "50% 50%",
-  },
-] as const;

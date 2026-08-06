@@ -1,30 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PolicyLayout } from "@/components/PolicyLayout";
-import { canonicalUrl } from "@/lib/site-config";
+import { buildHead, routeSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => {
-    const canonical = canonicalUrl("/privacy");
-
-    return {
-      meta: [
-        { title: "Privacy — RITO Studio" },
-        {
-          name: "description",
-          content:
-            "Informativa privacy di RITO Studio: navigazione, contatti esterni, Google Fonts e mappa Google attivabile.",
-        },
-        { name: "robots", content: "noindex, follow" },
-        { property: "og:title", content: "Privacy — RITO Studio" },
-        {
-          property: "og:description",
-          content: "Informazioni sul trattamento dei dati tecnici durante la navigazione del sito.",
-        },
-        { property: "og:url", content: canonical },
-      ],
-      links: [{ rel: "canonical", href: canonical }],
-    };
-  },
+  head: () => buildHead(routeSeo.privacy),
   component: PrivacyPage,
 });
 
@@ -38,8 +17,8 @@ function PrivacyPage() {
         <h2>Configurazione del sito</h2>
         <p>
           Il sito non include account, login, pagamenti, disponibilità in tempo reale o moduli che
-          trasmettono dati a un database applicativo. I pulsanti di prenotazione avviano una
-          chiamata telefonica tramite le funzioni del dispositivo dell&apos;utente.
+          trasmettono dati a un database applicativo. Le azioni di prenotazione aprono direttamente
+          il numero telefonico configurato e non inviano né conservano dati personali nel sito.
         </p>
       </section>
 
@@ -74,11 +53,11 @@ function PrivacyPage() {
       <section>
         <h2>Mappa Google su richiesta</h2>
         <p>
-          La home mostra inizialmente un pannello locale, senza iframe e senza richiesta alla mappa
-          di Google. Il contenuto interattivo viene creato soltanto quando l&apos;utente seleziona
-          “Attiva la mappa interattiva”. Da quel momento il browser comunica con Google, che può
-          ricevere indirizzo IP, informazioni sul dispositivo e altri dati tecnici secondo le
-          proprie condizioni e informative.
+          La pagina Contatti mostra inizialmente un pannello locale, senza iframe e senza richiesta
+          alla mappa di Google. Il contenuto interattivo viene creato soltanto quando l&apos;utente
+          seleziona “Attiva la mappa interattiva”. Da quel momento il browser comunica con Google,
+          che può ricevere indirizzo IP, informazioni sul dispositivo e altri dati tecnici secondo
+          le proprie condizioni e informative.
         </p>
         <p>
           La mappa può essere disattivata nuovamente dalla pagina. Il collegamento esterno a Google

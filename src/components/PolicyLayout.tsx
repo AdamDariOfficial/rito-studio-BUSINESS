@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
+import { SkipLink } from "@/components/SkipLink";
 import { StickyHeader } from "@/components/StickyHeader";
 import { site } from "@/lib/site-config";
 
@@ -12,6 +13,7 @@ interface PolicyLayoutProps {
 export function PolicyLayout({ title, intro, children }: PolicyLayoutProps) {
   return (
     <div className="min-h-screen bg-canvas text-ink">
+      <SkipLink href="#contenuto" label="Vai al contenuto" />
       <StickyHeader />
 
       <main

@@ -164,21 +164,20 @@ Una presenza premium, chiara e pronta a trasformare visite in contatti o prenota
 
 ### Promessa
 
-Un ecosistema multipagina che presenta in modo completo servizi, professionisti e studio, migliora la ricerca locale e introduce un funnel strutturato di prenotazione o richiesta.
+Un ecosistema multipagina che presenta in modo completo servizi e studio, migliora la
+scoperta dell’offerta e porta alla prenotazione telefonica senza passaggi intermedi.
 
 ### Include
 
 - derivazione dal commit canonico START;
 - sito multipagina;
 - catalogo trattamenti;
-- pagine dettaglio trattamento;
+- dettagli trattamento accessibili nel catalogo;
 - pagina studio;
-- pagina team;
 - gallery completa;
 - FAQ;
 - contatti;
-- route prenotazione;
-- adattatore di prenotazione;
+- CTA telefoniche centralizzate;
 - SEO locale avanzato;
 - dati strutturati appropriati;
 - tracking configurabile con consenso;
@@ -186,17 +185,10 @@ Un ecosistema multipagina che presenta in modo completo servizi, professionisti 
 - contenuti più profondi;
 - QA comparativa START ↔ BUSINESS.
 
-### Modalità di prenotazione supportate
+### Prenotazione base
 
-```text
-external
-whatsapp
-request
-```
-
-- `external`: collegamento a provider esterno.
-- `whatsapp`: messaggio precompilato.
-- `request`: modulo di richiesta, non agenda in tempo reale.
+Tutte le CTA di prenotazione aprono il numero centralizzato con un collegamento
+`tel:`. Non esistono route o form di prenotazione nella versione base.
 
 ### Non include di default
 
@@ -307,8 +299,10 @@ Le metriche vanno raccolte soltanto con configurazione privacy e consenso approp
 
 ### BUSINESS
 
-- Ogni servizio può essere scoperto dalla lista e dalla propria route.
-- La prenotazione funziona secondo una delle modalità configurate.
+- Ogni servizio può essere scoperto dalla lista e dal dettaglio query-driven.
+- Ogni CTA di prenotazione usa il numero telefonico centralizzato.
+- I record trattamento minimi alimentano catalogo, dettaglio e metadata del catalogo.
+- Le sezioni opzionali del dettaglio compaiono soltanto quando hanno contenuto.
 - START e BUSINESS condividono chiaramente identità, componenti e motion.
 - Le route dirette, refresh, back e forward funzionano.
 - Il progetto resta utilizzabile anche senza animazioni.

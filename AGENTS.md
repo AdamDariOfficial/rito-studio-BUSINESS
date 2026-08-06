@@ -48,11 +48,8 @@ baseline. Its planned public routes are:
 ```text
 /
 /trattamenti
-/trattamenti/:slug
 /studio
-/team
 /galleria
-/prenota
 /faq
 /contatti
 /privacy
@@ -60,34 +57,43 @@ baseline. Its planned public routes are:
 /*
 ```
 
-BUSINESS may use centralized typed treatment, team, gallery, FAQ, contact, booking and
-route-metadata data. Supported booking adapters are `external`, `whatsapp`, `request`
-and `demo`; the portfolio default is `demo` unless an approved implementation task
-selects another mode.
+BUSINESS uses centralized typed treatment, gallery, FAQ, contact and route-metadata
+data. In the base product every booking action is a direct `tel:` link built from the
+centralized phone configuration. Team and form-based booking are optional future
+modules and are not active routes.
 
-## Implementation activation gate
+Treatment detail is an accessible query-driven dialog/sheet inside `/trattamenti`, for
+example `/trattamenti?categoria=hair&trattamento=taglio-essenziale`. The former
+`/trattamenti/:slug` route is not part of the active base BUSINESS inventory.
 
-Do not begin a multipage implementation pass until all of the following are directly
-verified:
+The approved base adaptation model is:
 
-1. the BUSINESS identity/documentation change is committed, reviewed and merged into
-   `main`;
-2. local `main` equals `origin/main` and the working tree is clean;
-3. the merged documentation is visible in the connected Lovable project;
-4. Project Knowledge has been updated from
-   `compiled/LOVABLE_BUSINESS_PROJECT_KNOWLEDGE.md`;
-5. Lovable is switched from synchronized `main` to the dedicated implementation branch
-   `feat/rito-business-multipage`, created from that merged `main` baseline;
-6. the implementation branch base commit is recorded and no other writer is editing
-   overlapping files;
-7. the user explicitly authorizes the implementation pass and intentional credit use.
+```text
+base adaptation: edit site config + treatment catalogue
+optional enrichment: add detailed content only for selected treatments
+```
 
-An authorized Lovable implementation pass includes the automatic commits and GitHub
-synchronization created by Lovable only on the approved dedicated branch. It does not
-authorize work directly on `main`, manual history rewriting, a pull request, merge,
-publication, deployment, domains or infrastructure changes.
+## Current authorized implementation pass
 
-A prepared prompt or Project Knowledge file is not authorization to execute it.
+The user replaced the earlier Lovable-specific activation gate for this implementation
+pass with the following approved decision:
+
+```text
+implementation writer: Cursor + Codex
+writer mode: one local writer on the canonical BUSINESS working tree
+implementation branch: feat/rito-business-multipage
+branch base: 9b7ff807f945f679216671577963fd713badb507
+Lovable role: passive repository synchronization / optional preview only
+Lovable Project Knowledge: not required and not updated for this pass
+Lovable Agent and prompt: not authorized
+Lovable credits: not authorized
+concurrent writers: forbidden
+```
+
+Local source and documentation changes are authorized only on the dedicated branch.
+Stage, commit, push, pull request, merge, publication, deployment, domains and
+infrastructure remain separate explicit gates. The versioned Lovable Project Knowledge
+and prompt remain optional future artifacts; their presence does not authorize execution.
 
 ## Explicit exclusions
 
@@ -134,6 +140,7 @@ BUSINESS adds information architecture and depth. It is not an independent redes
 - New routes open at the top immediately, never with smooth route reset.
 - Same-page anchors may use controlled scrolling when documented.
 - Preserve direct URL, refresh, browser Back and Forward behavior.
+- Catalogue category and treatment-detail state must remain encoded in the route query.
 - Below-the-fold reveals begin when content enters the viewport.
 - Respect `prefers-reduced-motion`; content must remain visible without motion.
 - Preserve visible focus, semantic landmarks, correct heading order and adequate
@@ -184,8 +191,9 @@ use `target="_blank"` with `rel="noopener noreferrer"` when opening a new tab.
 ## Writer coordination
 
 - One writer at a time.
-- Lovable and another editor must not modify overlapping files concurrently.
-- During a Lovable implementation pass, Lovable is the only writer.
+- Cursor + Codex are the sole local implementation writer for the current pass.
+- Lovable remains passive and must not modify files, run its Agent or consume credits.
+- No other editor may modify overlapping files concurrently.
 - Reviewers begin read-only.
 - Do not rewrite commits already synchronized with Lovable.
 
@@ -203,8 +211,6 @@ without direct evidence. Report:
 - browser checks actually performed;
 - remaining risks and missing evidence.
 
-Outside an explicitly authorized Lovable implementation pass, do not stage, commit,
-push, open or merge a PR, publish, deploy, enable a database or change infrastructure
-without the applicable explicit gate. During an authorized Lovable pass, only Lovable's
-automatic commits and synchronization on the approved dedicated branch are permitted;
-PR, merge, publish and deploy remain separate gates.
+The current local implementation authorization does not permit stage, commit, push,
+pull request, merge, publication, deployment, database enablement or infrastructure
+changes. Those actions remain separate explicit gates.

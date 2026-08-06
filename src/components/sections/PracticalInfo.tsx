@@ -9,7 +9,7 @@ export function PracticalInfo() {
     <section
       id="contatti"
       aria-labelledby="contatti-heading"
-      className="scroll-mt-[calc(var(--header-height)+24px)] border-t border-line bg-canvas py-20 md:py-28"
+      className="scroll-mt-[calc(var(--header-height)+24px)] border-t border-line bg-canvas py-16 md:py-20"
     >
       <div className="container-editorial">
         <p id="contatti-heading" className="eyebrow">
@@ -81,7 +81,7 @@ export function PracticalInfo() {
                     data-js-only
                     type="button"
                     onClick={() => setMapActive(true)}
-                    className="mt-7 inline-flex min-h-12 w-full max-w-xs items-center justify-center border border-ink bg-ink px-5 text-sm font-medium text-white transition-colors hover:border-accent-strong hover:bg-accent-strong sm:w-auto"
+                    className="action-primary mt-7 inline-flex min-h-12 w-full max-w-xs items-center justify-center border border-ink bg-ink px-5 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong sm:w-auto"
                   >
                     Attiva la mappa interattiva
                   </button>

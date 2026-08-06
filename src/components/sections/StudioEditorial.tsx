@@ -1,11 +1,13 @@
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { EditorialArrow } from "@/components/EditorialArrow";
+import { Link } from "@tanstack/react-router";
 
 export function StudioEditorial() {
   return (
     <section
       id="studio"
       aria-labelledby="studio-heading"
-      className="scroll-mt-[calc(var(--header-height)+24px)] bg-surface pb-0 pt-24 md:pb-0 md:pt-32"
+      className="scroll-mt-[calc(var(--header-height)+24px)] border-y border-line bg-surface py-16 md:py-24"
     >
       <div className="container-editorial">
         <div className="grid gap-10 md:grid-cols-12 md:gap-12">
@@ -19,9 +21,7 @@ export function StudioEditorial() {
               data-reveal
               style={{ ["--reveal-delay" as string]: "80ms" }}
             >
-              Un ambiente quieto,
-              <br />
-              costruito <span className="italic">intorno al gesto.</span>
+              Uno spazio per <span className="italic">il gesto.</span>
             </h2>
             <p
               className="mt-6 max-w-md text-base leading-relaxed text-muted md:text-lg"
@@ -31,6 +31,10 @@ export function StudioEditorial() {
               Luce morbida, materiali naturali e postazioni essenziali. Lo studio lascia spazio alla
               relazione, al lavoro e al tempo personale.
             </p>
+            <Link to="/studio" className="editorial-link group mt-7 min-h-11 text-sm font-medium">
+              Conosci lo studio
+              <EditorialArrow />
+            </Link>
           </div>
           <div className="md:col-span-7" data-reveal>
             <ImagePlaceholder

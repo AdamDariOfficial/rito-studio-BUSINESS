@@ -9,13 +9,33 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StudioRouteImport } from './routes/studio'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as GalleriaRouteImport } from './routes/galleria'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CookieRouteImport } from './routes/cookie'
+import { Route as ContattiRouteImport } from './routes/contatti'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TrattamentiIndexRouteImport } from './routes/trattamenti/index'
 
+const StudioRoute = StudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleriaRoute = GalleriaRouteImport.update({
+  id: '/galleria',
+  path: '/galleria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookieRoute = CookieRouteImport.update({
@@ -23,49 +43,125 @@ const CookieRoute = CookieRouteImport.update({
   path: '/cookie',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrattamentiIndexRoute = TrattamentiIndexRouteImport.update({
+  id: '/trattamenti/',
+  path: '/trattamenti/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contatti': typeof ContattiRoute
   '/cookie': typeof CookieRoute
+  '/faq': typeof FaqRoute
+  '/galleria': typeof GalleriaRoute
   '/privacy': typeof PrivacyRoute
+  '/studio': typeof StudioRoute
+  '/trattamenti/': typeof TrattamentiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contatti': typeof ContattiRoute
   '/cookie': typeof CookieRoute
+  '/faq': typeof FaqRoute
+  '/galleria': typeof GalleriaRoute
   '/privacy': typeof PrivacyRoute
+  '/studio': typeof StudioRoute
+  '/trattamenti': typeof TrattamentiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contatti': typeof ContattiRoute
   '/cookie': typeof CookieRoute
+  '/faq': typeof FaqRoute
+  '/galleria': typeof GalleriaRoute
   '/privacy': typeof PrivacyRoute
+  '/studio': typeof StudioRoute
+  '/trattamenti/': typeof TrattamentiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cookie' | '/privacy'
+  fullPaths:
+    | '/'
+    | '/contatti'
+    | '/cookie'
+    | '/faq'
+    | '/galleria'
+    | '/privacy'
+    | '/studio'
+    | '/trattamenti/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cookie' | '/privacy'
-  id: '__root__' | '/' | '/cookie' | '/privacy'
+  to:
+    | '/'
+    | '/contatti'
+    | '/cookie'
+    | '/faq'
+    | '/galleria'
+    | '/privacy'
+    | '/studio'
+    | '/trattamenti'
+  id:
+    | '__root__'
+    | '/'
+    | '/contatti'
+    | '/cookie'
+    | '/faq'
+    | '/galleria'
+    | '/privacy'
+    | '/studio'
+    | '/trattamenti/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContattiRoute: typeof ContattiRoute
   CookieRoute: typeof CookieRoute
+  FaqRoute: typeof FaqRoute
+  GalleriaRoute: typeof GalleriaRoute
   PrivacyRoute: typeof PrivacyRoute
+  StudioRoute: typeof StudioRoute
+  TrattamentiIndexRoute: typeof TrattamentiIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/studio': {
+      id: '/studio'
+      path: '/studio'
+      fullPath: '/studio'
+      preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galleria': {
+      id: '/galleria'
+      path: '/galleria'
+      fullPath: '/galleria'
+      preLoaderRoute: typeof GalleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookie': {
@@ -75,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CookieRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -82,13 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trattamenti/': {
+      id: '/trattamenti/'
+      path: '/trattamenti'
+      fullPath: '/trattamenti/'
+      preLoaderRoute: typeof TrattamentiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContattiRoute: ContattiRoute,
   CookieRoute: CookieRoute,
+  FaqRoute: FaqRoute,
+  GalleriaRoute: GalleriaRoute,
   PrivacyRoute: PrivacyRoute,
+  StudioRoute: StudioRoute,
+  TrattamentiIndexRoute: TrattamentiIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
