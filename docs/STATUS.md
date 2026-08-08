@@ -1,6 +1,6 @@
 # RITO Studio BUSINESS — Status
 
-**Updated:** 6 August 2026
+**Updated:** 8 August 2026
 **Project:** RITO Studio BUSINESS
 **Family:** Tretnix Beauty & Wellness `v1.1`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
@@ -371,3 +371,59 @@ bun run build: exit 0
 No screenshot, binary or browser-QA artifact was created. No stage, commit, amend, push,
 pull request, merge, Lovable execution, publication or deployment occurred. Final manifest,
 diff and Git-state evidence is recorded by the final technical report for this pass.
+
+## Aggiornamento premium actions + logo navigation — 8 agosto 2026
+
+> Questa sezione è il riferimento corrente per questo pass e integra le sezioni
+> storiche precedenti.
+
+```text
+SSR_RUNTIME_REMEDIATION_WORKING_CONFIRMED_BY_USER_BEFORE_THIS_PASS
+PREMIUM_DARK_ACTIONS_IMPLEMENTED
+LOGO_TOP_NAVIGATION_IMPLEMENTED
+AUTOMATED_VALIDATION_PASSED
+MANUAL_BUSINESS_REVIEW_APPROVED
+FEATURE_COMMIT_5E0BA1A
+PR_5_MERGED
+CURRENT_MAIN_276FD8E
+POST_MERGE_DEPLOY_NOT_REVERIFIED
+```
+
+Baseline e merge:
+
+```text
+pre-pass main:
+f89198b0783a07e89c392862f9b560fb86db98bb
+
+feature branch:
+feat/rito-business-premium-actions-logo-nav
+
+candidate:
+5e0ba1acd51dfca0274768ed155224820e81b9d9
+
+pull request:
+#5 — feat(rito-business): refine actions and brand navigation
+
+current main:
+276fd8e2d985bc7ea37442546800d14236009705
+```
+
+La PR #5 è stata unita l'8 agosto 2026 alle `13:00:36Z`. Il diff è limitato a
+`src/components/Footer.tsx`, `src/components/StickyHeader.tsx` e `src/styles.css`.
+
+Evidenza automatica sul candidate:
+
+```text
+bun install --frozen-lockfile -> exit 0, no changes
+bun run lint                 -> exit 0, 0 errors, 6 inherited Fast Refresh warnings
+bun run build                -> exit 0, client + SSR + Nitro cloudflare-module
+git diff --check             -> exit 0
+changed paths                -> 3 exact
+dependency drift             -> none
+```
+
+Prima della pubblicazione l'utente ha approvato manualmente la resa BUSINESS delle due
+modifiche. Il sito BUSINESS era tornato funzionante dopo la remediation SSR precedente,
+ma non è registrata una nuova verifica di produzione successiva al merge `276fd8e...`.
+Non va quindi dichiarato che questo specifico merge sia già distribuito o verificato in
+produzione.

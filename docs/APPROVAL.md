@@ -1,7 +1,7 @@
 # RITO Studio BUSINESS — Authorization and Baseline Record
 
-**Updated:** 6 August 2026
-**Status:** `BUSINESS_LOCAL_IMPLEMENTATION_AUTHORIZED`
+**Updated:** 8 August 2026
+**Status:** `BUSINESS_APPLICATION_BASELINE_MERGED`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
 **Remix baseline:** `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
@@ -310,3 +310,33 @@ repository-defined validation and DOM/runtime assertions without screenshots.
 
 Stage, commit, amend, push, pull request, merge, Lovable execution or credits,
 publication and deployment remain unauthorized.
+
+## Baseline applicativa corrente dopo PR #5 — 8 agosto 2026
+
+Il refinement approvato di premium dark actions e brand navigation è stato pubblicato
+come candidate:
+
+```text
+5e0ba1acd51dfca0274768ed155224820e81b9d9
+```
+
+e unito in `main` tramite PR #5:
+
+```text
+276fd8e2d985bc7ea37442546800d14236009705
+```
+
+L'utente aveva già approvato manualmente la resa BUSINESS prima del publish. I gate
+automatici hanno superato frozen install, lint con zero errori e sei warning ereditati,
+build client/SSR/Nitro e `git diff --check`, con tre soli path applicativi.
+
+Questo record qualifica `276fd8e...` come current merged application baseline del
+repository. Non costituisce evidenza che il provider abbia già distribuito questo SHA:
+la verifica di produzione post-merge resta non registrata.
+
+```text
+current merged application baseline: 276fd8e2d985bc7ea37442546800d14236009705
+manual UX approval for this pass: CONFIRMED
+post-merge production verification: NOT RECORDED
+BUSINESS freeze: NOT DECLARED BY THIS PASS
+```
