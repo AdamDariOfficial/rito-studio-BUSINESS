@@ -1,12 +1,23 @@
-import { canonicalUrl, seoConfig } from "@/lib/seo-config";
+const SEO_SITE_URL = "https://rito-studio-business.tretnix.com";
+const SEO_LOCALE = "it_IT";
+const DEFAULT_SOCIAL_IMAGE = {
+  src: "/images/rito/rito-studio-wide.webp",
+  width: 1600,
+  height: 1000,
+  alt: "Interno luminoso e materico di RITO Studio",
+} as const;
 
 export interface RouteSeo {
   title: string;
   description: string;
   path: string;
   indexability: "noindex, follow";
-  socialImage: typeof seoConfig.defaultSocialImage;
+  socialImage: typeof DEFAULT_SOCIAL_IMAGE;
   structuredDataMode: "disabled";
+}
+
+function canonicalUrl(pathname: string) {
+  return new URL(pathname, SEO_SITE_URL).toString();
 }
 
 function defineSeo(path: string, title: string, description: string): RouteSeo {
@@ -15,7 +26,7 @@ function defineSeo(path: string, title: string, description: string): RouteSeo {
     title,
     description,
     indexability: "noindex, follow",
-    socialImage: seoConfig.defaultSocialImage,
+    socialImage: DEFAULT_SOCIAL_IMAGE,
     structuredDataMode: "disabled",
   };
 }
@@ -71,6 +82,7 @@ export const routeSeo = {
 export function buildHead(seo: RouteSeo) {
   const canonical = canonicalUrl(seo.path);
   const imageUrl = canonicalUrl(seo.socialImage.src);
+
   return {
     meta: [
       { title: seo.title },
@@ -79,7 +91,7 @@ export function buildHead(seo: RouteSeo) {
       { property: "og:title", content: seo.title },
       { property: "og:description", content: seo.description },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: seoConfig.locale },
+      { property: "og:locale", content: SEO_LOCALE },
       { property: "og:url", content: canonical },
       { property: "og:image", content: imageUrl },
       { property: "og:image:width", content: String(seo.socialImage.width) },

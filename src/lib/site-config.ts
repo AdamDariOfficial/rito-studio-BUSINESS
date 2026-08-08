@@ -1,5 +1,3 @@
-import { seoConfig } from "@/lib/seo-config";
-
 const mapQuery = "Prato della Valle, Padova";
 const encodedMapQuery = encodeURIComponent(mapQuery);
 
@@ -42,7 +40,18 @@ export const site = {
     linkLabel: "Tretnix",
     href: "https://tretnix.com",
   },
-  seo: seoConfig,
+  seo: {
+    siteUrl: "https://rito-studio-business.tretnix.com",
+    locale: "it_IT",
+    defaultSocialImage: {
+      src: "/images/rito/rito-studio-wide.webp",
+      width: 1600,
+      height: 1000,
+      alt: "Interno luminoso e materico di RITO Studio",
+    },
+    sitemapEnabled: false,
+    structuredDataMode: "disabled" as const,
+  },
   tracking: {
     enabled: false,
     consentRequired: true,
@@ -65,4 +74,6 @@ export const ctaLabels = {
   discoverTreatments: "Scopri i trattamenti",
 } as const;
 
-export { canonicalUrl } from "@/lib/seo-config";
+export function canonicalUrl(pathname: string) {
+  return new URL(pathname, site.seo.siteUrl).toString();
+}
