@@ -1,7 +1,7 @@
 # RITO Studio — Testing and Verification
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.1
+**Versione:** 1.2
 **Stato:** matrice approvata; gli esiti dei pass sono registrati in `docs/STATUS.md`
 
 ## 1. Regola di evidenza
@@ -323,3 +323,50 @@ Nascondendo nome e logo, START e BUSINESS devono sembrare parte della stessa fam
 - Limiti:
 - Test manuali rimanenti:
 ```
+
+## Premium actions + logo navigation — evidenza dell'8 agosto 2026
+
+Candidate verificato:
+
+```text
+5e0ba1acd51dfca0274768ed155224820e81b9d9
+```
+
+Merge verificato su GitHub:
+
+```text
+PR #5
+main: 276fd8e2d985bc7ea37442546800d14236009705
+```
+
+Scope esatto:
+
+```text
+src/components/Footer.tsx
+src/components/StickyHeader.tsx
+src/styles.css
+```
+
+Gate automatici eseguiti nel clone canonico prima del commit e push:
+
+```text
+bun install --frozen-lockfile -> exit 0, no changes
+bun run lint                 -> exit 0, 0 errors, 6 inherited warnings
+bun run build                -> exit 0, client + SSR + Nitro
+git diff --check             -> exit 0
+```
+
+Il validator e il publish gate hanno inoltre confermato scope esatto, nessun drift di
+`package.json`/`bun.lock`, staged set esatto, remote SHA uguale al candidate e working
+tree finale pulito.
+
+Acceptance manuale confermata dall'utente prima della pubblicazione:
+
+- tutte le CTA rettangolari nere condividono un'unica interazione premium;
+- il fondo resta inchiostro durante hover/focus/active;
+- azioni bianche, outlined e controlli circolari restano distinti;
+- logo navbar/footer sulla home porta in cima;
+- logo navbar/footer da una route diversa torna alla home in cima.
+
+Il deploy e il runtime di produzione del merge `276fd8e...` non sono stati verificati
+in questo pass.
