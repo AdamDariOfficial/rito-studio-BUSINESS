@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type MouseEvent } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { ctaLabels, nav, site } from "@/lib/site-config";
-import { prefersReducedMotion } from "@/lib/scroll-to-anchor";
+import { prefersReducedMotion, scrollToTop } from "@/lib/scroll-to-anchor";
 import { cn } from "@/lib/utils";
 
 const FOCUSABLE_SELECTOR = [
@@ -159,6 +159,18 @@ export function StickyHeader() {
   const isActive = (to: string) =>
     to === "/" ? pathname === "/" : pathname === to || pathname.startsWith(`${to}/`);
 
+  function handleBrandClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (pathname !== "/") return;
+
+    event.preventDefault();
+    window.history.replaceState(
+      window.history.state,
+      "",
+      window.location.pathname + window.location.search,
+    );
+    window.requestAnimationFrame(scrollToTop);
+  }
+
   return (
     <header
       ref={modalRef}
@@ -174,6 +186,8 @@ export function StickyHeader() {
       <div className="container-editorial flex h-full items-center justify-between gap-5">
         <Link
           to="/"
+          resetScroll={pathname !== "/"}
+          onClick={handleBrandClick}
           inert={open}
           className="shrink-0 font-display text-lg leading-none tracking-tight text-ink"
           aria-label={`${site.brand.name} — home`}
