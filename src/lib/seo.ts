@@ -1,11 +1,11 @@
-import { canonicalUrl, site } from "@/lib/site-config";
+import { canonicalUrl, seoConfig } from "@/lib/seo-config";
 
 export interface RouteSeo {
   title: string;
   description: string;
   path: string;
   indexability: "noindex, follow";
-  socialImage: typeof site.seo.defaultSocialImage;
+  socialImage: typeof seoConfig.defaultSocialImage;
   structuredDataMode: "disabled";
 }
 
@@ -15,7 +15,7 @@ function defineSeo(path: string, title: string, description: string): RouteSeo {
     title,
     description,
     indexability: "noindex, follow",
-    socialImage: site.seo.defaultSocialImage,
+    socialImage: seoConfig.defaultSocialImage,
     structuredDataMode: "disabled",
   };
 }
@@ -79,7 +79,7 @@ export function buildHead(seo: RouteSeo) {
       { property: "og:title", content: seo.title },
       { property: "og:description", content: seo.description },
       { property: "og:type", content: "website" },
-      { property: "og:locale", content: site.seo.locale },
+      { property: "og:locale", content: seoConfig.locale },
       { property: "og:url", content: canonical },
       { property: "og:image", content: imageUrl },
       { property: "og:image:width", content: String(seo.socialImage.width) },
