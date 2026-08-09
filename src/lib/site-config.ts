@@ -69,6 +69,7 @@ export const nav = [
 ] as const;
 
 export const ctaLabels = {
+  navBook: "Prenota",
   callToBook: "Chiama per prenotare",
   callStudio: "Chiama lo studio",
   discoverTreatments: "Scopri i trattamenti",
