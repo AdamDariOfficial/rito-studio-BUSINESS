@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useRef, useState, type MouseEvent } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { ctaLabels, nav, site } from "@/lib/site-config";
 import { prefersReducedMotion, scrollToTop } from "@/lib/scroll-to-anchor";
@@ -34,6 +34,7 @@ export function StickyHeader() {
   const restoreFocusRef = useRef(false);
   const closeTimerRef = useRef<number | null>(null);
   const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const navigate = useNavigate();
   const drawerActive = open || closing;
 
   const closeDrawer = useCallback((restoreFocus = true) => {
@@ -163,12 +164,11 @@ export function StickyHeader() {
     if (pathname !== "/") return;
 
     event.preventDefault();
-    window.history.replaceState(
-      window.history.state,
-      "",
-      window.location.pathname + window.location.search,
-    );
-    window.requestAnimationFrame(scrollToTop);
+    void navigate({
+      to: "/",
+      replace: true,
+      resetScroll: false,
+    }).then(() => scrollToTop());
   }
 
   return (
@@ -228,7 +228,7 @@ export function StickyHeader() {
             aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
             className="action-primary inline-flex min-h-11 items-center border border-ink bg-ink px-5 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
           >
-            {ctaLabels.callToBook}
+            {ctaLabels.navBook}
           </a>
         </div>
 
@@ -291,7 +291,7 @@ export function StickyHeader() {
                     aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
                     className="mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white"
                   >
-                    {ctaLabels.callToBook}
+                    {ctaLabels.navBook}
                   </a>
                   <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
                 </div>
@@ -348,7 +348,7 @@ export function StickyHeader() {
                 aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
                 className="action-primary mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
               >
-                {ctaLabels.callToBook}
+                {ctaLabels.navBook}
               </a>
               <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
             </div>
