@@ -1,8 +1,8 @@
 # RITO Studio — Decision Log
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.7
-**Stato:** decisioni approvate e aggiornate all'8 agosto 2026
+**Versione:** 1.9
+**Stato:** decisioni approvate e aggiornate al 4 settembre 2026
 
 ## BW-DEC-001 — Concept portfolio
 
@@ -587,3 +587,60 @@ gallery, catalogo trattamenti e architettura one-page START non vengono modifica
 
 **Limite:** questa decisione non prova un nuovo deploy di produzione e non sposta
 automaticamente alcun freeze precedentemente dichiarato.
+
+## BW-DEC-047 — Consolidamento BUSINESS sul freeze finale START
+
+**Data:** 31 agosto 2026
+
+**Decisione:** riconciliare il repository BUSINESS esistente con il freeze finale START
+`f05d8683548623f55ca9d5cf0f051690b039dd27`, senza ricostruire il prodotto e senza annullare le differenze BUSINESS
+approvate.
+
+Il pass sincronizza soltanto pattern condivisi che non confliggono con BW-DEC-044/045/046:
+
+- footer legale compatto con Privacy e Cookie nella fascia utility;
+- location del footer cliccabile verso Google Maps senza underline persistente;
+- PracticalInfo con location nella colonna informativa, icone MapPin/Phone/Mail e barra mappa
+  con `Disattiva mappa` a sinistra quando attiva e link Google Maps a destra;
+- preservazione di palette, tipografia, motion, route multipagina e accessibilita BUSINESS.
+
+Restano intenzionali e invariati:
+
+- prenotazione BUSINESS tramite `tel:` centralizzato;
+- assenza delle route `/team` e `/prenota`;
+- dettaglio trattamento query-driven dentro `/trattamenti`;
+- nessun backend, database, auth o BUSINESS PLUS.
+
+**Baseline BUSINESS verificata:** `main@b95a63c6127d2bc1dd396d74b2dd25f87b952226`.
+**Target branch locale:** `feat/rito-business-final-start-sync`.
+**Gate:** Apply/Validate locali; stage, commit, push, PR, merge e deploy restano separati.
+
+## BW-DEC-048 — Canali conversione BUSINESS e parità UX pubblica con BUSINESS PLUS
+
+**Data:** 2 settembre 2026
+
+**Decisione:** il BUSINESS usa due intenti di conversione centralizzati e distinti:
+
+- `booking`: WhatsApp + telefono;
+- `contact`: email + telefono.
+
+La decisione sostituisce, per il comportamento corrente, le parti di BW-DEC-044/045/047 che
+imponevano la prenotazione esclusivamente telefonica. Restano invariati l'assenza di `/prenota`,
+l'assenza di form/backend di prenotazione e il dettaglio trattamento query-driven dentro
+`/trattamenti`.
+
+Le superfici pubbliche `/trattamenti` e `/galleria` riusano i refinement UX già verificati
+nel BUSINESS PLUS `main@cb8ef71d48177413adfeb5fb4eccc71cb23f2e0f` quando non dipendono da capacità PLUS-specific:
+
+- filtri sticky e rail orizzontali con affordance laterali;
+- mantenimento visibile del filtro attivo;
+- ritorno controllato ai risultati dopo cambio filtro con rispetto di `prefers-reduced-motion`;
+- lightbox gallery con immagine protagonista, close flottante e caption sotto immagine;
+- dettaglio trattamento con navigazione desktop nell'header e navigazione mobile persistente in basso;
+- prezzo indicativo vicino al titolo e transizione leggera del catalogo filtrato.
+
+**Esclusioni:** non vengono importati `/consulenza`, workflow consultation, admin, auth, backend,
+database, realtime, campi prezzo usati per calcoli PLUS o altri moduli BUSINESS PLUS.
+
+**Gate:** applicazione e validazione locali tramite Controlled Change Package; browser QA resta
+obbligatorio prima dello staging manuale. Stage, commit, push, PR, merge e deploy restano gate separati.

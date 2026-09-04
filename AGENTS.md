@@ -21,9 +21,9 @@
 - Repository: `AdamDariOfficial/rito-studio-BUSINESS`
 - Remix baseline commit: `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
 - Canonical START repository: `AdamDariOfficial/rito-studio-START`
-- Canonical START baseline: `439efff0f14315310b9149cde0283633696a0eb0`
-- START tag: explicitly waived by the user; the full START SHA is authoritative
-- BUSINESS PLUS: not authorized
+- Canonical START baseline: `f05d8683548623f55ca9d5cf0f051690b039dd27`
+- START tag: `family-start-v1.0` identifies the final local START freeze; remote publication remains a separate gate
+- BUSINESS PLUS: separate product/repository; not in scope for BUSINESS implementation work
 
 ## Source hierarchy
 
@@ -58,8 +58,8 @@ baseline. Its planned public routes are:
 ```
 
 BUSINESS uses centralized typed treatment, gallery, FAQ, contact and route-metadata
-data. In the base product every booking action is a direct `tel:` link built from the
-centralized phone configuration. Team and form-based booking are optional future
+data. In the base product booking uses the centralized conversion adapter with WhatsApp +
+phone, while general contact uses email + phone. Team and form-based booking are optional future
 modules and are not active routes.
 
 Treatment detail is an accessible query-driven dialog/sheet inside `/trattamenti`, for

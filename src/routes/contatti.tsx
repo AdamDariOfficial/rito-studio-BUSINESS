@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { BookingAction } from "@/components/BookingAction";
 import { PageIntro } from "@/components/PageIntro";
 import { PracticalInfo } from "@/components/sections/PracticalInfo";
 import { SiteShell } from "@/components/SiteShell";
@@ -56,13 +57,13 @@ function ContactsPage() {
             </div>
           </dl>
           <div className="md:col-span-7 md:col-start-6">
-            <a
-              href={site.contact.phoneHref}
-              aria-label={`Chiama lo studio: ${site.contact.phone}`}
+            <BookingAction
+              kind="contact"
+              ariaLabel="Contatti: email o telefono"
               className="action-primary inline-flex min-h-12 items-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
             >
-              Chiama lo studio
-            </a>
+              Contatta lo studio
+            </BookingAction>
           </div>
         </div>
       </section>

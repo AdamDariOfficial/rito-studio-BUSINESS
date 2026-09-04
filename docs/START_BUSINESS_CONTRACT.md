@@ -1,9 +1,9 @@
 # RITO Studio — START → BUSINESS Inheritance Contract
 
-**Updated:** 3 August 2026
+**Updated:** 4 September 2026
 **Status:** `ACTIVE_BY_CANONICAL_START_SHA`
 **Applies to:** RITO Studio BUSINESS
-**Canonical START:** `439efff0f14315310b9149cde0283633696a0eb0`
+**Canonical START:** `f05d8683548623f55ca9d5cf0f051690b039dd27`
 **BUSINESS remix baseline:** `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
 
 ## Activation evidence
@@ -30,7 +30,7 @@ The authoritative family source is:
 
 ```text
 repository: AdamDariOfficial/rito-studio-START
-commit: 439efff0f14315310b9149cde0283633696a0eb0
+commit: f05d8683548623f55ca9d5cf0f051690b039dd27
 ```
 
 The authorized BUSINESS working baseline is:
@@ -147,3 +147,33 @@ A future BUSINESS review must verify at minimum:
 
 With brand name and logo hidden, START and BUSINESS must still be recognizable as the
 same family.
+
+## Final START lineage reconciliation - 31 August 2026
+
+The canonical START source for new BUSINESS parity work is now:
+
+```text
+repository: AdamDariOfficial/rito-studio-START
+commit: f05d8683548623f55ca9d5cf0f051690b039dd27
+tag: family-start-v1.0 (local verified checkpoint; remote publication is a separate gate)
+```
+
+The BUSINESS repository is not recreated. It keeps its approved multipage architecture and
+BUSINESS-specific decisions. This reconciliation imports only shared patterns that remain
+compatible with the active BUSINESS contract. BW-DEC-048 now supersedes the direct-phone-only portion of the earlier BUSINESS decisions: booking uses WhatsApp + phone and contact uses email + phone. Route inventory and query-driven treatment detail remain unchanged.
+
+## Public parity and conversion contract - 4 September 2026
+
+The approved BUSINESS conversion contract is:
+
+```text
+booking = WhatsApp + phone
+contact = email + phone
+```
+
+This remains an external-contact adapter only. BUSINESS does not gain a native booking form,
+`/prenota`, availability, database, authentication or appointment persistence.
+
+Public treatment/gallery UX may match BUSINESS PLUS where the pattern is presentation-only and
+compatible with BUSINESS. PLUS-only consultation, admin, auth, realtime and backend behavior must
+not be imported.

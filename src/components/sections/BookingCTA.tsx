@@ -1,4 +1,6 @@
-import { ctaLabels, site } from "@/lib/site-config";
+import { Mail, MessageCircle } from "lucide-react";
+import { BookingAction } from "@/components/BookingAction";
+import { ctaLabels } from "@/lib/site-config";
 
 export function BookingCTA() {
   return (
@@ -25,15 +27,28 @@ export function BookingCTA() {
                 Raccontaci cosa stai cercando. Ti aiutiamo a scegliere il trattamento e il momento
                 più adatto.
               </p>
-              <a
-                href={site.contact.phoneHref}
-                aria-label={`${ctaLabels.callStudio}: ${site.contact.phone}`}
+              <div
+                className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap"
                 data-reveal
                 style={{ ["--reveal-delay" as string]: "160ms" }}
-                className="action-primary mt-8 inline-flex min-h-12 items-center justify-center border border-white bg-white px-6 text-sm font-medium text-ink hover:border-surface hover:bg-surface focus-visible:outline-white"
               >
-                {ctaLabels.callStudio}
-              </a>
+                <BookingAction
+                  kind="booking"
+                  ariaLabel="Prenota: WhatsApp o telefono"
+                  className="action-primary inline-flex min-h-12 items-center justify-center gap-2 border border-white bg-white px-6 text-sm font-medium text-ink hover:border-surface hover:bg-surface focus-visible:outline-white"
+                >
+                  <MessageCircle aria-hidden size={16} strokeWidth={1.7} />
+                  {ctaLabels.requestAppointment}
+                </BookingAction>
+                <BookingAction
+                  kind="contact"
+                  ariaLabel="Contatti: email o telefono"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 border border-white/35 px-6 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-white"
+                >
+                  <Mail aria-hidden size={16} strokeWidth={1.7} />
+                  {ctaLabels.contact}
+                </BookingAction>
+              </div>
             </div>
           </div>
           <span aria-hidden className="absolute -top-4 left-1 h-px w-16 bg-accent md:left-8" />

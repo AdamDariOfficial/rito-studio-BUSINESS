@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useId, useRef, useState, type MouseEvent } from "react";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
+import { BookingAction } from "@/components/BookingAction";
 import { ctaLabels, nav, site } from "@/lib/site-config";
 import { prefersReducedMotion, scrollToTop } from "@/lib/scroll-to-anchor";
 import { cn } from "@/lib/utils";
@@ -223,13 +224,13 @@ export function StickyHeader() {
         </nav>
 
         <div inert={open} className="hidden lg:block">
-          <a
-            href={site.contact.phoneHref}
-            aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
+          <BookingAction
+            kind="booking"
+            ariaLabel="Prenota: WhatsApp o telefono"
             className="action-primary inline-flex min-h-11 items-center border border-ink bg-ink px-5 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
           >
             {ctaLabels.navBook}
-          </a>
+          </BookingAction>
         </div>
 
         <button
@@ -286,13 +287,22 @@ export function StickyHeader() {
                       ))}
                     </ul>
                   </nav>
-                  <a
-                    href={site.contact.phoneHref}
-                    aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
-                    className="mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white"
-                  >
-                    {ctaLabels.navBook}
-                  </a>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    <a
+                      href={site.contact.whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-5 text-sm font-medium text-white"
+                    >
+                      WhatsApp
+                    </a>
+                    <a
+                      href={site.contact.phoneHref}
+                      className="inline-flex min-h-12 items-center justify-center border border-line px-5 text-sm font-medium text-ink"
+                    >
+                      Telefono
+                    </a>
+                  </div>
                   <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
                 </div>
               </div>
@@ -342,14 +352,15 @@ export function StickyHeader() {
                   ))}
                 </ul>
               </nav>
-              <a
-                href={site.contact.phoneHref}
-                onClick={() => closeDrawer(false)}
-                aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
-                className="action-primary mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
-              >
-                {ctaLabels.navBook}
-              </a>
+              <div onClick={() => closeDrawer(false)}>
+                <BookingAction
+                  kind="booking"
+                  ariaLabel="Prenota: WhatsApp o telefono"
+                  className="action-primary mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
+                >
+                  {ctaLabels.navBook}
+                </BookingAction>
+              </div>
               <p className="mt-4 text-xs text-muted">{site.contact.locationLabel}</p>
             </div>
           </div>
