@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { EditorialArrow } from "@/components/EditorialArrow";
+import { BookingAction } from "@/components/BookingAction";
 import { ctaLabels, site } from "@/lib/site-config";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -57,15 +58,15 @@ export function Hero() {
             </p>
 
             <div className="mt-7 flex flex-col items-stretch gap-4 lg:mt-10 lg:flex-row lg:items-center">
-              <a
-                href={site.contact.phoneHref}
-                aria-label={`${ctaLabels.callToBook}: ${site.contact.phone}`}
-                data-reveal
-                style={{ ["--reveal-delay" as string]: "220ms" }}
-                className="action-primary inline-flex min-h-12 items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white hover:border-accent-strong hover:bg-accent-strong"
-              >
-                {ctaLabels.callToBook}
-              </a>
+              <div data-reveal style={{ ["--reveal-delay" as string]: "220ms" }}>
+                <BookingAction
+                  kind="booking"
+                  ariaLabel="Prenota: WhatsApp o telefono"
+                  className="action-primary inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white hover:border-accent-strong hover:bg-accent-strong lg:w-auto"
+                >
+                  {ctaLabels.bookPrimary}
+                </BookingAction>
+              </div>
               <Link
                 to="/trattamenti"
                 data-reveal

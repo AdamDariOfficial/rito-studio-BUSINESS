@@ -1,12 +1,31 @@
 # RITO Studio BUSINESS — Status
 
-**Updated:** 8 August 2026
+## Current reconciliation - 4 September 2026
+
+```text
+FINAL_START_FREEZE_SHA=f05d8683548623f55ca9d5cf0f051690b039dd27
+BUSINESS_MAIN_BASELINE=b95a63c6127d2bc1dd396d74b2dd25f87b952226
+BUSINESS_FINAL_START_SYNC_AUTHORIZED
+TARGET_BRANCH=feat/rito-business-final-start-sync
+BUSINESS_SPECIFIC_DECISIONS_PRESERVED
+BUSINESS_PLUS_NOT_IN_SCOPE
+BUSINESS_PUBLIC_PARITY_CANDIDATE_PREPARED
+BOOKING_CHANNELS=WHATSAPP+PHONE
+CONTACT_CHANNELS=EMAIL+PHONE
+BUSINESS_PLUS_PUBLIC_UX_PARITY_IMPORTED
+BROWSER_QA_PENDING
+```
+
+This candidate preserves the final START lineage and the approved BUSINESS multipage architecture. Booking now uses WhatsApp + phone and contact uses email + phone. Public treatment/gallery UX is synchronized with the compatible BUSINESS PLUS presentation patterns without importing PLUS-only capabilities.
+
+
+**Updated:** 4 September 2026
 **Project:** RITO Studio BUSINESS
 **Family:** Tretnix Beauty & Wellness `v1.1`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
 **Implementation baseline:** `9b7ff807f945f679216671577963fd713badb507`
-**Canonical START baseline:** `439efff0f14315310b9149cde0283633696a0eb0`
+**Canonical START baseline:** `f05d8683548623f55ca9d5cf0f051690b039dd27`
 
 ## Approved baseline state
 
@@ -37,7 +56,7 @@ BUSINESS_PLUS_NOT_AUTHORIZED
 BUSINESS base HEAD: 222c331db44b1775aa2f877634f3a0f3dfdfbe69
 origin/main:        222c331db44b1775aa2f877634f3a0f3dfdfbe69
 working branch:     docs/rito-business-identity-bootstrap
-canonical START:    439efff0f14315310b9149cde0283633696a0eb0
+canonical START:    f05d8683548623f55ca9d5cf0f051690b039dd27
 remix ahead/behind: 2 / 0
 ```
 
@@ -59,7 +78,7 @@ remix-managed technical state.
 - Tretnix Development Standards `v1.7`;
 - Controlled Change Package `v1.1`;
 - Beauty & Wellness family `v1.1`;
-- canonical START at `439efff0f14315310b9149cde0283633696a0eb0`;
+- canonical START at `f05d8683548623f55ca9d5cf0f051690b039dd27`;
 - verified BUSINESS remix at `222c331db44b1775aa2f877634f3a0f3dfdfbe69`;
 - user approvals and process exception recorded on 3 August 2026;
 - `v1.1.2` apply/validation output and the first manual diff-review evidence;
