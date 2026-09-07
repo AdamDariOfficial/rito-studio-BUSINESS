@@ -1,7 +1,7 @@
 # RITO Studio — Animation Language
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.1
+**Versione:** 1.2
 **Stato:** approvato
 
 ## 1. Obiettivo
@@ -258,3 +258,69 @@ esclusi controlli circolari, azioni bianche e azioni outlined.
 Questa regola prevale sul precedente esempio generico “transizione di sfondo e testo”
 per le CTA nere. Nelle informazioni pratiche i dati statici restano privi di hover
 decorativo; una vera CTA nera mantiene invece questo pattern condiviso.
+
+
+## 16. Divider reveal e primary action chiara — 6 settembre 2026
+
+I divider editoriali che partecipano a un reveal seguono il contratto condiviso `TRX-DEC-038`:
+
+```text
+opacity: 0 → 1
+translate: none
+scale: none
+layout geometry: invariata
+lifecycle: autonomo rispetto al contenuto
+```
+
+Un bordo che contribuiva al box model mantiene una geometria equivalente trasparente mentre la
+linea visuale viene sovrapposta tramite `RevealDivider` o tecnica equivalente. In reduced motion la
+linea è immediatamente visibile. Bordi strutturali di immagini, dialog, controlli o state boundary
+non diventano automaticamente divider reveal.
+
+La CTA primaria bianca del blocco booking usa il corrispondente trattamento premium delle dark
+actions: superficie bianca invariata, sweep interno molto discreto, lift massimo 1 px,
+micro-compressione in active e nessun movimento/sweep con reduced motion. Le CTA booking e contact
+nel blocco vengono rivelate come elementi indipendenti, con stagger contenuto entro 240 ms.
+
+
+## Browser QA corrective — 6 settembre 2026
+
+La presenza di un divider autonomo non deve alterare selettori strutturali come `odd/even` o
+`nth-child`. Quando una griglia dipende dalla parità dei figli, il divider di apertura vive fuori
+dalla lista oppure usa una tecnica che non entra nel conteggio dei figli. `RitualFeature` applica
+reveal separato ai tre step del metodo e ai relativi divider.
+
+
+## End-of-rail gallery gesture — lock monotono
+
+Per la home BUSINESS il drag additivo oltre il vero bordo finale usa uno stato monotono per la
+singola sequenza di input:
+
+- prima dell'engagement il rail conserva lo scroll nativo;
+- dopo un movimento orizzontale valido verso `/galleria`, il massimo extra-drag raggiunto può solo
+  aumentare fino a release/cancel;
+- un reverse move nella stessa pressione non retrae rail o progress e non riattiva lo scroll nativo
+  all'indietro;
+- release sotto soglia ripristina lo stato senza route change;
+- release armato apre `/galleria`;
+- una nuova gesture dopo release/cancel riabilita integralmente il normale scroll del rail.
+
+Il lock è quindi temporaneo e limitato alla gesture intenzionale, non al componente nel suo insieme.
+
+
+## End-of-rail gallery gesture — cancellation clamp
+
+BW-DEC-057 sostituisce il solo comportamento monotono di BW-DEC-056 mantenendone il vincolo sul rail
+reale. Durante una singola pressione già acquisita verso `/galleria`:
+
+- il progresso segue l'extra-drag **corrente**, non il massimo storico della gesture;
+- invertendo direzione il reveal/progress può tornare fino a `0`;
+- tornando sotto soglia lo stato armato viene rimosso e il rilascio resta sulla home;
+- oltre `0` il reverse è clampato: la stessa pressione non può far scorrere il rail reale verso le
+  immagini precedenti;
+- per tornare realmente indietro nel rail l'utente rilascia e avvia una nuova gesture;
+- l'intento outward dal vero bordo finale viene acquisito presto, prima che lo scroll nativo prenda
+  possesso della gesture; `preventDefault()` viene invocato solo su eventi cancellabili.
+
+Il risultato consente quindi sia il commit verso `/galleria` sia l'annullamento naturale dello stesso
+drag, senza superare all'indietro il punto esatto da cui il gesto era partito.

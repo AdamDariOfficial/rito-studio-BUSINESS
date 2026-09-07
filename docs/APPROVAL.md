@@ -1,19 +1,18 @@
 # RITO Studio BUSINESS — Authorization and Baseline Record
 
-**Updated:** 8 August 2026
-**Status:** `BUSINESS_APPLICATION_BASELINE_MERGED`
+**Updated:** 6 September 2026
+**Status:** `BUSINESS_FINAL_FREEZE_RECONCILIATION_AUTHORIZED`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
 **Remix baseline:** `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
 
 ## Purpose
 
-This document records the approved START source, the verified Lovable remix baseline
-and the approved identity/documentation baseline for RITO Studio BUSINESS. This
-record does not itself authorize multipage implementation, commit, push, pull
-request, merge, publication or deployment.
+This document records the historical derivation evidence, the current frozen START source and the
+approved reconciliation boundary for RITO Studio BUSINESS. It does not authorize stage, commit,
+push, pull request, merge, publication or deployment unless a later gate explicitly does so.
 
-## Canonical START baseline
+## Historical START derivation baseline
 
 ```text
 repository: AdamDariOfficial/rito-studio-START
@@ -340,3 +339,197 @@ manual UX approval for this pass: CONFIRMED
 post-merge production verification: NOT RECORDED
 BUSINESS freeze: NOT DECLARED BY THIS PASS
 ```
+
+
+## Final START freeze reconciliation authorization — 6 September 2026
+
+The current canonical family source for new BUSINESS parity work is:
+
+```text
+Tretnix Knowledge: AdamDariOfficial/Tretnix-knowledge@1cf7033b1634ea06d605ed853932c7c25b695d15
+START repository: AdamDariOfficial/rito-studio-START
+START tag: family-start-v1.0
+START frozen commit: 74ee03c4d39a974872f94f53d14ec2873815ccf7
+BUSINESS repository: AdamDariOfficial/rito-studio-BUSINESS
+BUSINESS source main: b6a82f918370f730681e9e0c0572a7a653d2dfeb
+```
+
+The annotated START tag is remotely published and dereferences exactly to the frozen commit. This
+new canonical source does not erase the earlier SHA-only freeze or remix lineage recorded above;
+those sections remain historical evidence.
+
+The user authorized one controlled reconciliation pass that may:
+
+- update current BUSINESS documentation to the final START tag/commit and current BUSINESS main;
+- preserve historical lineage instead of rewriting it;
+- apply `TRX-DEC-038` autonomous opacity-only divider reveals where a divider currently moves with
+  revealed content, keeping box geometry invariant;
+- apply `TRX-DEC-039` so Privacy and Cookie remain a non-separable visual pair;
+- carry the compatible final START white primary-action motion and independent booking/contact CTA
+  reveals into the shared BUSINESS booking section;
+- preserve the final shared persistent-link affordance on footer/practical-info shared surfaces.
+
+The reconciliation MUST preserve:
+
+```text
+multipage BUSINESS architecture
+/trattamenti query-driven treatment detail
+no /team route
+no /prenota route
+booking = WhatsApp + phone
+contact = email + phone
+gallery/lightbox BUSINESS behavior
+@lovable.dev/vite-tanstack-config 2.8.5
+no backend/database/auth/native booking
+BUSINESS PLUS out of scope
+```
+
+Application and documentation changes are prepared through a Controlled Change Package on
+`feat/rito-business-final-freeze-reconciliation`. Frozen install, lint and build are required automated gates. Browser QA remains a
+separate required gate before staging. Stage, commit, push, PR, merge, deployment, migrations and
+repository visibility changes remain separately authorized actions.
+
+No production-origin verification after the final START interaction polish is inferred by this
+record. The BUSINESS source commit `b6a82f918370f730681e9e0c0572a7a653d2dfeb` is a repository baseline, not proof of a current
+production deployment.
+## Browser QA corrective authorization — 6 September 2026
+
+The user explicitly approved correcting the browser-QA findings from the final START freeze
+reconciliation candidate and authorized a compact page-rhythm pass under BW-DEC-050. The pass may
+change only presentation, spacing, CTA consistency and the embedded method-step presentation; it
+must preserve BUSINESS routes, query-driven treatment detail, conversion channels, gallery/lightbox,
+backend exclusions and BUSINESS PLUS boundaries.
+
+The previous automated validation does not carry forward to the corrected candidate. Frozen install,
+lint, build, exact scope, checksums, whitespace and browser QA must be rerun before staging.
+
+## Studio principle-layout follow-up authorization — 7 September 2026
+
+After reviewing the v1.2.0 Studio redesign in the browser, the user explicitly authorized a targeted
+follow-up under BW-DEC-052. The authorized correction is limited to the `Il modo RITO` hierarchy and
+responsive principle presentation:
+
+- move the explanatory sentence below the section title;
+- replace the mobile/tablet 2 × 2 principle grid with the home-style vertical step pattern;
+- preserve the compact four-column presentation on wide desktop;
+- preserve all other v1.2.0 behavior and the existing 38-path cumulative reconciliation scope.
+
+This authorization covers controlled local application, validation, remediation and browser QA. It
+does not itself constitute evidence that the new candidate passed those gates and does not bypass the
+required manual review before staging.
+
+
+## Studio density-reduction follow-up authorization — 7 September 2026
+
+After reviewing the validated v1.2.1 candidate in the browser, the user judged `/studio` too dense
+and explicitly authorized proceeding with the simplified direction recorded in BW-DEC-053, while
+keeping v1.2.1 available as a controlled rollback reference if needed.
+
+The authorized correction may:
+
+- remove duplicated `Filosofia` / `Metodo` explanation from `/studio`;
+- reduce the Studio-specific principle set to `Ambiente`, `Materiali`, `Cura` with shorter copy;
+- replace the titled `Prima della visita` block with a compact utility/conversion strip;
+- preserve the one-image intro, text-first mobile order and all existing BUSINESS route/conversion
+  contracts;
+- fix the Controlled Change Package validator so repository commands run inside the resolved
+  `RepositoryRoot` even when the script is invoked externally.
+
+This authorization covers controlled local application, validation, remediation and browser QA. It
+does not itself prove the candidate passed those gates and does not bypass manual diff review before
+staging.
+
+## Final home-gallery parity and BUSINESS freeze authorization — 7 September 2026
+
+After reviewing the validated v1.3.0 candidate, the project owner explicitly required the BUSINESS
+home gallery to match the frozen START home gallery and authorized proceeding with that final
+correction under BW-DEC-054.
+
+The authorization includes:
+
+- replacing only the home `GalleryRail` presentation/interaction with the frozen START pattern;
+- retaining the BUSINESS `/galleria` route, gallery explorer and lightbox;
+- rerunning automated validation and browser QA;
+- if all final gates pass, completing the controlled Git closure and freezing RITO Studio BUSINESS;
+- progressing to RITO Studio BUSINESS PLUS only after the BUSINESS freeze target is verified.
+
+The statement above is authorization to perform the controlled sequence, not evidence that any
+remaining gate has already passed. BUSINESS is not yet frozen in this document. Deployment,
+migrations, backend changes and PLUS implementation are not performed by this correction.
+
+## Final home-gallery gesture restoration authorization — 7 September 2026
+
+After v1.3.1 Apply + automated Validate passed, the project owner reviewed the restored START-style
+home gallery and identified one remaining regression: the BUSINESS deliberate end-of-rail drag no
+longer opened `/galleria`.
+
+The owner explicitly authorized restoring that interaction while preserving the v1.3.1 visual state:
+
+- no gallery heading/title inside the home rail;
+- no explicit `Apri la galleria` link inside the rail;
+- frozen START image order, dimensions, spacing, fade and arrow hint remain unchanged;
+- normal scrolling to the end must not navigate;
+- only a deliberate additional horizontal drag from the true end may arm and open `/galleria` on
+  thresholded release;
+- the dedicated `/galleria` route and lightbox remain unchanged.
+
+This follow-up is recorded as BW-DEC-055. It authorizes controlled local application, validation and
+browser QA, but does not itself prove those gates passed and does not bypass full diff review or the
+controlled freeze sequence.
+
+
+## Browser finding approval — BW-DEC-056 — 7 settembre 2026
+
+Il project owner ha approvato la correzione del bug osservato sul candidate v1.3.2: una volta
+impegnato il drag finale verso `/galleria`, la stessa pressione non deve poter riportare indietro il
+rail o il progress indicator prima del release/cancel.
+
+L'autorizzazione riguarda esclusivamente il fix locale controllato, la sua validazione automatica e
+il browser QA conseguente. Freeze BUSINESS resta subordinato ai gate finali già definiti; deploy,
+migrazioni e BUSINESS PLUS non vengono eseguiti da questo package.
+
+
+## End-of-rail cancellation-clamp authorization — 7 September 2026
+
+After CCP v1.3.3 Apply + automated Validate passed, the project owner confirmed that the monotonic
+same-press lock prevented the rail regression but made the deliberate gallery gesture impossible to
+cancel naturally once engaged. The owner clarified the intended interaction:
+
+- reverse movement during the same press may return the synthetic extra-drag to the exact origin;
+- it must never move the underlying image rail farther backward than that origin;
+- returning below the arm threshold must disarm navigation so release stays on the home page;
+- once the synthetic offset reaches zero, further reverse movement remains clamped until release;
+- a new gesture after release/cancel may scroll the rail backward normally.
+
+This targeted correction is authorized under BW-DEC-057. It must also remove gallery-gesture-generated
+`touchmove` Intervention spam by avoiding `preventDefault()` on non-cancelable events and by acquiring
+the outward end gesture before native horizontal scrolling takes control. Automated validation and
+browser QA must be rerun; BUSINESS remains unfrozen until all remaining gates pass.
+
+## Final candidate acceptance and non-fragmented Git closure authorization — 7 September 2026
+
+After CCP v1.3.5 returned `APPLY PASSED` and `VALIDATE PASSED`, the project owner confirmed that the
+final browser checks passed and explicitly requested formal project closure without fragmented work.
+
+This records authorization for the single controlled Git sequence defined by BW-DEC-059:
+
+- exact 39-path staging;
+- CCP staged validation;
+- one local reconciliation commit;
+- branch push;
+- one pull request;
+- remote diff verification and merge;
+- synchronization/verification of `main`;
+- annotated tag `family-business-v1.0`;
+- tag push and remote dereference verification.
+
+The approved tag message is:
+
+```text
+RITO Studio BUSINESS final frozen baseline — approved 2026-09-07
+```
+
+This authorization does not authorize deployment, migrations, backend/database/auth changes,
+infrastructure changes or any BUSINESS PLUS implementation before the BUSINESS tag is verified.
+After `family-business-v1.0` is verified against the merged `main` SHA, the BUSINESS freeze is
+complete and BUSINESS PLUS becomes the next authorized product phase.

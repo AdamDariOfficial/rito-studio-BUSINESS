@@ -674,6 +674,44 @@ statica con reduced motion e non intercetta touch, mouse o tastiera.
 Privacy e Cookie usano la navbar condivisa e non mostrano skip link. La home conserva
 “Vai ai trattamenti” come primo collegamento da tastiera.
 
+## 7A. Override BUSINESS corrente — CTA e metodo compatti (6 settembre 2026)
+
+Per il BUSINESS corrente, le CTA di conversione nelle superfici di contenuto usano copy esplicito:
+
+```text
+booking: Prenota un appuntamento
+contact: Contattaci
+```
+
+Le CTA/pulsanti di contenuto mostrano rispettivamente un'icona messaggio e un'icona email. Restano
+due eccezioni intenzionali per evitare di sovraccaricare le superfici di navigazione: la CTA booking
+della navbar usa il copy compatto `Prenota` senza icona; il link booking del footer resta testuale e
+senza icona. Il canale resta quello definito da BW-DEC-048: booking = WhatsApp + telefono, contact
+= email + telefono.
+
+Il blocco `RitualFeature` incorpora direttamente i tre principi `Ascolto`, `Precisione`,
+`Continuità`; non viene reintrodotta una sezione `MethodStrip` separata.
+
+### `/studio` corrente
+
+La route Studio usa una composizione breve che evita di ripetere il metodo già spiegato in home:
+
+1. intro editoriale + unica immagine ambiente;
+2. `Dentro RITO` con tre concetti specifici dello spazio: `Ambiente`, `Materiali`, `Cura`;
+3. fascia utility senza heading dedicato, con location Google Maps, nota di accessibilità, booking e
+   link alle informazioni pratiche.
+
+Copy corrente dei tre concetti:
+
+```text
+Ambiente — Luce, ordine e calma per lasciare spazio alla relazione.
+Materiali — Prodotti e strumenti scelti con criterio, senza eccessi.
+Cura — Igiene, preparazione e attenzione al dettaglio in ogni gesto.
+```
+
+Su mobile il testo precede l'immagine. Non viene introdotta una seconda immagine verticale e non si
+ripetono `Filosofia` o `Metodo`, già coperti dalla home.
+
 ## 8. Override BUSINESS base dopo browser review — 4 agosto 2026
 
 Questa sezione sostituisce per il BUSINESS base le precedenti ipotesi su Team, route di
@@ -730,3 +768,58 @@ l’arricchimento dettagliato può essere riservato ai soli servizi che ne hanno
 
 Team non è un modulo attivo o richiesto nel BUSINESS base. Un’eventuale reintroduzione
 richiede una decisione futura separata.
+
+
+## 9. Override BUSINESS corrente — 6 settembre 2026
+
+Questa sezione integra e, dove confligge, sostituisce l'override BUSINESS del 4 agosto senza
+riscriverne il valore storico.
+
+### Conversione
+
+```text
+booking = WhatsApp + telefono
+contact = email + telefono
+```
+
+Le CTA non inviano o persistono dati nel progetto. Quando sono disponibili più canali,
+`BookingAction` apre un dialog accessibile che lascia all'utente la scelta del link esterno. Non
+esiste `/prenota`, non esiste disponibilità live e non viene confermato alcun appuntamento.
+
+### Testi CTA correnti
+
+```text
+Prenota
+Contatti
+WhatsApp
+Telefono
+Email
+```
+
+Le formulazioni storiche `Chiama per prenotare` e `Chiama lo studio` restano utili come record dei
+pass precedenti, ma non definiscono più l'unico canale disponibile nel BUSINESS corrente.
+
+### Footer e informazioni pratiche
+
+Privacy e Cookie restano due link distinti ma formano una coppia visuale non separabile. I link
+con funzione di contatto o navigazione esterna nelle superfici condivise mantengono un'affordance
+visibile anche senza hover.
+
+## 10. Home gallery parity override — 7 settembre 2026
+
+Per la home BUSINESS, `GalleryRail` non introduce heading o CTA `Apri la galleria`. La composizione
+segue la baseline frozen START
+`family-start-v1.0 -> 74ee03c4d39a974872f94f53d14ec2873815ccf7`:
+
+```text
+hair-texture
+skin-gesture
+studio-detail
+hair-professional
+```
+
+Il rail conserva scroll orizzontale nativo su mobile, fade laterale, hint circolare e la griglia
+responsive START. Come differenza BUSINESS intenzionale documentata da BW-DEC-055, soltanto dopo aver
+raggiunto il vero bordo finale un ulteriore drag orizzontale deliberato può mostrare il progresso e
+aprire `/galleria` al rilascio oltre soglia; lo scroll normale, un drag verticale o un drag sotto
+soglia non cambiano route. `/galleria` mantiene la propria lightbox e i propri filtri.

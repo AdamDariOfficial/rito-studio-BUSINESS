@@ -175,6 +175,52 @@
     transform: translateY(0) scale(0.995);
   }
 
+  /* Light counterpart of the approved premium dark CTA motion. */
+  .action-primary-light {
+    background-color: var(--white) !important;
+    border-color: var(--white) !important;
+    background-image: linear-gradient(
+      108deg,
+      transparent 0%,
+      transparent 34%,
+      rgb(27 26 24 / 0.055) 48%,
+      transparent 62%,
+      transparent 100%
+    );
+    background-position: 100% 50%;
+    background-size: 245% 100%;
+    transition:
+      background-position 640ms var(--motion-ease-reveal),
+      box-shadow 360ms var(--motion-ease-ui),
+      transform 360ms var(--motion-ease-ui);
+  }
+
+  .action-primary-light:focus-visible {
+    background-position: 0 50%;
+    box-shadow:
+      0 12px 28px rgb(27 26 24 / 0.16),
+      inset 0 1px 0 rgb(255 255 255 / 0.88);
+    transform: translateY(-1px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .action-primary-light:hover {
+      background-position: 0 50%;
+      box-shadow:
+        0 12px 28px rgb(27 26 24 / 0.16),
+        inset 0 1px 0 rgb(255 255 255 / 0.88);
+      transform: translateY(-1px);
+    }
+  }
+
+  .action-primary-light:active {
+    background-position: 22% 50%;
+    box-shadow:
+      0 5px 14px rgb(27 26 24 / 0.13),
+      inset 0 1px 0 rgb(255 255 255 / 0.82);
+    transform: translateY(0) scale(0.995);
+  }
+
   .editorial-link {
     position: relative;
     display: inline-flex;
@@ -560,6 +606,20 @@
   transform: none;
 }
 
+[data-divider-reveal] {
+  opacity: 1;
+}
+
+.js [data-divider-reveal] {
+  opacity: 0;
+  transition: opacity var(--motion-duration-reveal) var(--motion-ease-reveal);
+  transition-delay: var(--divider-reveal-delay, 0ms);
+}
+
+.js [data-divider-reveal][data-divider-revealed="true"] {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .treatment-filter-swap {
     animation: none;
@@ -568,6 +628,11 @@
   .js [data-reveal] {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .js [data-divider-reveal] {
+    opacity: 1;
     transition: none;
   }
 
@@ -580,6 +645,10 @@
 
   .action-primary:hover,
   .action-primary:active,
+  .action-primary-light,
+  .action-primary-light:hover,
+  .action-primary-light:focus-visible,
+  .action-primary-light:active,
   :is(a, button).bg-ink:not(.rounded-full),
   :is(a, button).bg-ink:not(.rounded-full):hover,
   :is(a, button).bg-ink:not(.rounded-full):focus-visible,
@@ -593,6 +662,7 @@
     transform: none !important;
   }
 
+  .action-primary-light,
   :is(a, button).bg-ink:not(.rounded-full) {
     background-image: none;
   }

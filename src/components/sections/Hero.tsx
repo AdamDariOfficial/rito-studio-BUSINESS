@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { MessageCircle } from "lucide-react";
 import { EditorialArrow } from "@/components/EditorialArrow";
 import { BookingAction } from "@/components/BookingAction";
 import { ctaLabels, site } from "@/lib/site-config";
@@ -62,8 +63,9 @@ export function Hero() {
                 <BookingAction
                   kind="booking"
                   ariaLabel="Prenota: WhatsApp o telefono"
-                  className="action-primary inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white hover:border-accent-strong hover:bg-accent-strong lg:w-auto"
+                  className="action-primary inline-flex min-h-12 w-full items-center justify-center gap-2 border border-ink bg-ink px-6 text-sm font-medium tracking-wide text-white hover:border-accent-strong hover:bg-accent-strong lg:w-auto"
                 >
+                  <MessageCircle aria-hidden size={16} strokeWidth={1.7} />
                   {ctaLabels.bookPrimary}
                 </BookingAction>
               </div>

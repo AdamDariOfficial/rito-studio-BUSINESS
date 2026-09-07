@@ -342,3 +342,56 @@ Una volta approvato lo START del cliente, il BUSINESS deve ereditarne esattament
 - I servizi non sono presentati come una griglia uniforme di card.
 - Mobile 360 px non presenta tagli o overflow.
 - Il focus è visibile e coerente.
+
+
+## 14. Ritmo BUSINESS compatto
+
+Le route BUSINESS devono privilegiare densità editoriale senza diventare compresse:
+
+- ridurre padding verticale che non aggiunge gerarchia;
+- evitare immagini duplicate nello stesso percorso, soprattutto su mobile;
+- usare griglie orizzontali su desktop per informazioni brevi ripetute;
+- mantenere CTA conversione visibili e coerenti;
+- preservare touch target, leggibilità, focus, allineamento e identità RITO.
+
+La hero home e le superfici visual-first documentate restano eccezioni intenzionali alla sola
+ottimizzazione della lunghezza pagina.
+
+## 16. Studio BUSINESS compatto e gerarchia CTA
+
+La route `/studio` non usa una hero interna separata dal visual né un manifesto verticale sticky.
+La composizione deve privilegiare chiarezza e respiro senza aumentare lo scroll:
+
+- primo blocco split editoriale con testo prima dell'immagine su mobile e una sola immagine ambiente;
+- nessuna ripetizione del metodo home: la seconda superficie comunica soltanto tre aspetti propri
+  dello Studio (`Ambiente`, `Materiali`, `Cura`);
+- mobile/tablet: tre righe editoriali semplici con numero, titolo, copy breve e divider autonomo;
+- desktop: gli stessi tre elementi diventano tre colonne ariose, senza card o testo introduttivo
+  aggiuntivo;
+- la chiusura non usa più una sezione titolata `Prima della visita`: location, accessibilità e
+  conversione convivono in una fascia utility compatta;
+- nessuna immagine duplicata, sezione vuota, titolo oversized o sticky content che aumenti lo scroll
+  senza aggiungere informazione.
+
+La gerarchia CTA distingue contenuto e navigazione:
+
+- CTA booking/contact nel contenuto possono usare icona + label estesa;
+- navbar: booking testuale `Prenota`, senza icona;
+- footer: booking testuale, senza icona.
+
+Queste eccezioni mantengono la conversione visibile senza trasformare ogni superficie in un pulsante
+primario.
+
+## Rail categorie mobile — edge contract finale
+
+Per i filtri orizzontali sticky di `/galleria` e `/trattamenti`, il mobile usa una superficie
+full-bleed fino ai bordi viewport, mentre il primo e l'ultimo controllo mantengono l'inset editoriale
+di 20 px. La linea inferiore e i fade laterali non devono terminare dentro il gutter del
+`container-editorial`. Da `md` in su si preserva la geometria esistente.
+
+Acceptance visiva:
+
+- nessun gutter esterno tra rail/linea e bordo viewport su 360/390/430 px;
+- primo e ultimo label interamente leggibili;
+- fade visibile soltanto quando esiste contenuto ulteriore nella relativa direzione;
+- nessun overflow orizzontale della pagina.

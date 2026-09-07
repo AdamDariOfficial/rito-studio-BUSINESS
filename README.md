@@ -7,22 +7,25 @@ Wellness START concept.
 
 ```text
 source repository: AdamDariOfficial/rito-studio-START
-source commit: 439efff0f14315310b9149cde0283633696a0eb0
-source status: approved and frozen by explicit user authorization
-annotated tag: deliberately waived by the user
+source tag: family-start-v1.0
+source commit: 74ee03c4d39a974872f94f53d14ec2873815ccf7
+source status: approved and formally frozen
 BUSINESS repository: AdamDariOfficial/rito-studio-BUSINESS
+BUSINESS current main before reconciliation: b6a82f918370f730681e9e0c0572a7a653d2dfeb
 Lovable remix baseline: 222c331db44b1775aa2f877634f3a0f3dfdfbe69
 ```
 
-The full START commit SHA is the authoritative family baseline. The Lovable remix
-preserves that history and adds two tool-managed commits whose net delta is limited to
-`package.json` and `bun.lock`, updating the Lovable TanStack configuration to `2.8.5`.
+The remote annotated `family-start-v1.0` tag and its dereferenced full START commit are the
+authoritative family baseline for new parity work. Historical derivation commits remain part of
+the repository lineage. The Lovable remix preserves that history and adds two tool-managed commits
+whose net delta is limited to `package.json` and `bun.lock`, updating the Lovable TanStack
+configuration to `2.8.5`.
 
 ## Product role
 
-BUSINESS adds a coherent multipage treatment-discovery journey with direct telephone
-booking while preserving START's identity, responsive behavior, accessibility, motion
-and demo integrity.
+BUSINESS adds a coherent multipage treatment-discovery journey with external booking and contact
+channels while preserving START's identity, responsive behavior, accessibility, motion and demo
+integrity.
 
 Planned public routes:
 
@@ -42,8 +45,9 @@ BUSINESS v1 excludes `/journal`, `/journal/:slug`, `/gift-card`, `/account`, `/a
 live availability, payments, client accounts, CRM, fidelity, database,
 authentication and BUSINESS PLUS.
 
-Team and a dedicated booking route are not part of the base BUSINESS product. Every
-booking CTA opens the centralized telephone number with a `tel:` link.
+Team and a dedicated booking route are not part of the base BUSINESS product. Booking actions use
+the centralized `WhatsApp + phone` adapter; general contact actions use `email + phone`. No native
+booking form or persistence is introduced.
 
 Treatment details open as an accessible route-aware dialog or mobile sheet inside the
 catalogue. Category and detail state use query parameters, for example:
@@ -56,8 +60,9 @@ The former `/trattamenti/:slug` route is not active in base BUSINESS.
 
 The dialog preserves the catalogue scroll position and supports bounded previous/next,
 keyboard and swipe navigation without adding a history entry for every treatment. Mobile
-category filters remain a single native horizontal row, while the home gallery rail keeps
-native scrolling and offers a deliberate final gesture toward the full gallery.
+category filters remain a single native horizontal row. The home gallery rail follows the
+frozen START composition and native-scroll presentation; BUSINESS preserves the deliberate
+end-of-rail drag as an additive shortcut to `/galleria`, which remains the full gallery surface.
 
 ## Client adaptation
 
@@ -97,29 +102,43 @@ Read `AGENTS.md` first, then:
 - `docs/APPROVAL.md`
 - `docs/START_BUSINESS_CONTRACT.md`
 
-The optional versioned BUSINESS Project Knowledge source for a future Lovable pass is:
+The versioned Lovable Project Knowledge and prompt files under `compiled/` and `prompts/` are
+historical adapters. They are not current execution instructions and must be regenerated from the
+then-current canonical documentation before any separately authorized future Lovable pass.
 
-```text
-compiled/LOVABLE_BUSINESS_PROJECT_KNOWLEDGE.md
-```
+## Current reconciliation decision
 
-The optional versioned BUSINESS implementation prompt for a future Lovable pass is:
+The 6 September 2026 pass reconciles the existing BUSINESS repository
+`main@b6a82f918370f730681e9e0c0572a7a653d2dfeb` against the frozen START source `family-start-v1.0 -> 74ee03c4d39a974872f94f53d14ec2873815ccf7`.
 
-```text
-prompts/LOVABLE_BUSINESS_PROMPT.md
-```
+The pass is intentionally targeted: autonomous opacity-only divider reveals, the non-separable
+Privacy/Cookie legal pair, final shared link affordance, premium white booking action and independent
+booking/contact CTA reveals. Browser-QA corrections restore exact category-grid geometry, embed the
+three method steps in `RitualFeature`, make the practical-info location actionable and compact
+non-informative vertical spacing across BUSINESS routes. Navigation keeps the terse text-only `Prenota`
+action and the footer booking link remains icon-free. The current `/studio` candidate deliberately
+removes duplicated method explanation: one environment image introduces the route, `Dentro RITO`
+contains only three Studio-specific concepts (`Ambiente`, `Materiali`, `Cura`), and the former
+`Prima della visita` section is reduced to a compact location/accessibility/conversion strip. The
+final browser-QA correction ports the frozen START home-gallery rail, including its image order,
+spacing, native mobile scroll, fade and arrow hint, while keeping the BUSINESS `/galleria` route and
+lightbox unchanged. The final follow-up preserves one BUSINESS-only additive interaction: after the
+true mobile rail end, a deliberate extra drag reveals progress and opens `/galleria` only on armed
+release. BUSINESS PLUS remains excluded until the BUSINESS freeze is verified.
 
-## Current implementation decision
+The end-of-rail BUSINESS shortcut uses the BW-DEC-057 cancellation clamp: after the deliberate
+forward extra-drag engages, reverse movement during that same press may retract progress back to the
+exact gesture origin and may disarm navigation, but it cannot scroll the underlying rail farther
+backward until release/cancel. A new independent gesture restores normal native scrolling.
 
-The user authorized Cursor + Codex as the sole local writer for the complete BUSINESS
-multipage pass on `feat/rito-business-multipage`, based on
-`9b7ff807f945f679216671577963fd713badb507`.
+See `BW-DEC-049` through `BW-DEC-059` and `docs/START_BUSINESS_CONTRACT.md` for the exact gate and exclusions.
 
-Lovable remains passive for repository synchronization or optional preview only.
-Project Knowledge is not required or updated, the Lovable Agent and prompt are not
-authorized, and intentional Lovable credit use is prohibited for this pass. Concurrent
-writers are forbidden. Stage, commit, push, pull request, merge, publication, deployment,
-domains and infrastructure remain separate explicit gates.
+The final v1.3.5 candidate completed automated validation and project-owner browser QA on 7 September
+2026. The exact cumulative reconciliation scope is 39 paths. Full diff review passed before staging.
+The approved freeze identifier is the annotated tag `family-business-v1.0`, to be created only after
+the single reconciliation PR is merged and the resulting `main` commit is verified. The tag metadata
+then becomes the authoritative BUSINESS freeze record; no follow-up commit is required solely to
+repeat the merge SHA.
 
 ## SEO and measurement boundary
 
