@@ -130,13 +130,13 @@ URL esempio:
 
 ### `/studio`
 
-- filosofia;
-- ambiente;
-- metodo;
-- prodotti;
-- igiene;
-- accessibilità;
-- gallery editoriale.
+- ambiente e identità dello spazio;
+- materiali;
+- cura e igiene;
+- accessibilità essenziale;
+- location e conversione.
+
+Il metodo completo non viene ripetuto: resta spiegato nella home.
 
 ### `/galleria`
 
@@ -198,7 +198,7 @@ Studio
 Galleria
 FAQ
 Contatti
-Chiama per prenotare
+Prenota
 ```
 
 `Home` è la prima voce della configurazione condivisa da navbar desktop, drawer mobile e
@@ -213,13 +213,14 @@ route non vengono marcate come Home.
 - il focus ritorna al trigger;
 - click su route chiude il drawer;
 - body scroll lock senza layout shift;
-- CTA telefonica presente ma non sovrapposta al contenuto.
+- CTA booking presente ma non sovrapposta al contenuto; usa WhatsApp + telefono.
 
 ## 6. Prenotazione base BUSINESS
 
 - Nessuna route `/prenota` e nessun form.
-- Header, drawer, hero, CTA editoriali, dialog trattamento, contatti e footer usano
-  ancore reali con `href={site.contact.phoneHref}`.
+- Le azioni `booking` usano il conversion adapter centralizzato con WhatsApp + telefono.
+- Le azioni `contact` usano email + telefono.
+- Il fallback senza JavaScript espone link reali WhatsApp e `tel:` senza introdurre persistenza.
 - `/team` e `/prenota` risolvono naturalmente nella 404 condivisa.
 - Team può essere rivalutato soltanto come modulo futuro opzionale.
 
@@ -238,6 +239,12 @@ interface SiteConfig {
     email: string;
     phone: string;
     phoneHref: `tel:${string}`;
+    emailHref: `mailto:${string}`;
+    whatsappHref: string;
+  };
+  contactActions: {
+    booking: ContactAction;
+    contact: ContactAction;
   };
   hours: OpeningHours[];
   social: SocialLink[];
@@ -250,11 +257,21 @@ interface SiteConfig {
 }
 ```
 
-`phone` e `phoneHref` sono l'unica configurazione di prenotazione attiva nel BUSINESS
-base. Eventuali adapter esterni, WhatsApp, request flow o form appartengono a estensioni
-future separate e non fanno parte di questa implementazione.
+`contactActions` è la fonte centrale del comportamento di conversione BUSINESS: `booking` espone
+WhatsApp + telefono e `contact` espone email + telefono. `phoneHref`, `emailHref` e `whatsappHref`
+restano link esterni reali del concept demo. Request flow, form, disponibilità live e persistenza
+richiedono una decisione separata.
 
 I valori devono essere validati e non duplicati nei componenti.
+
+## 7A. Ritmo verticale corrente
+
+- le intro delle route interne sono compatte e non devono occupare un viewport completo;
+- `/trattamenti` mantiene righe dense ma leggibili, senza rimuovere informazioni utili;
+- `/studio` usa una composizione breve: intro + unica immagine ambiente, tre concetti Studio-specifici e fascia utility/conversione; non ripete il metodo home, non usa manifesto sticky né seconda immagine;
+- `/contatti` dispone le policy pre-visita in griglia su desktop;
+- `/galleria`, `/faq`, Privacy e Cookie riducono padding non informativo mantenendo la stessa gerarchia;
+- la home preserva la hero e compatta le sezioni sotto il fold.
 
 ## 8. Scroll e history
 
@@ -322,3 +339,19 @@ Non aggiungere `aggregateRating` senza recensioni reali e verificabili.
 - La route nuova appare dall'alto senza smooth scroll.
 - La navigazione non provoca flash di contenuto nascosto.
 - Nessun link placeholder porta a un dominio reale non approvato.
+
+## 11. Override corrente home gallery — 7 settembre 2026
+
+`BW-DEC-055` sostituisce BW-DEC-054 soltanto sul gesto finale del rail; la parità visuale START resta
+obbligatoria:
+
+- `GalleryRail` sulla home replica composizione, ordine, dimensioni, spacing, fade e arrow hint del
+  rail frozen START;
+- nessun heading o link `Apri la galleria` viene aggiunto dentro il rail;
+- il normale scroll fino al bordo finale non cambia route;
+- soltanto un nuovo drag orizzontale iniziato al vero bordo finale può armare la navigazione;
+- il rilascio oltre soglia apre `/galleria`; drag verticale, inverso, cancellato o sotto soglia no;
+- `/galleria` continua a essere una route BUSINESS autonoma raggiungibile anche dalla navigazione;
+- filtri, lightbox, direct URL, Back/Forward e refresh di `/galleria` restano invariati.
+
+Il gesto è un shortcut BUSINESS additivo e non modifica il contratto history della route.

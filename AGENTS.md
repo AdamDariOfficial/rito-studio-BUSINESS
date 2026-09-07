@@ -21,8 +21,9 @@
 - Repository: `AdamDariOfficial/rito-studio-BUSINESS`
 - Remix baseline commit: `222c331db44b1775aa2f877634f3a0f3dfdfbe69`
 - Canonical START repository: `AdamDariOfficial/rito-studio-START`
-- Canonical START baseline: `f05d8683548623f55ca9d5cf0f051690b039dd27`
-- START tag: `family-start-v1.0` identifies the final local START freeze; remote publication remains a separate gate
+- Canonical START baseline: `74ee03c4d39a974872f94f53d14ec2873815ccf7`
+- START tag: remote annotated `family-start-v1.0` dereferences exactly to the canonical START baseline
+- Current BUSINESS main baseline before the final-freeze reconciliation: `b6a82f918370f730681e9e0c0572a7a653d2dfeb`
 - BUSINESS PLUS: separate product/repository; not in scope for BUSINESS implementation work
 
 ## Source hierarchy
@@ -43,7 +44,7 @@ hypotheses and missing evidence.
 ## BUSINESS product scope
 
 RITO Studio BUSINESS is the approved multipage evolution of the canonical START
-baseline. Its planned public routes are:
+baseline. Its active public routes are:
 
 ```text
 /
@@ -73,27 +74,35 @@ base adaptation: edit site config + treatment catalogue
 optional enrichment: add detailed content only for selected treatments
 ```
 
-## Current authorized implementation pass
+## Current final-freeze reconciliation
 
-The user replaced the earlier Lovable-specific activation gate for this implementation
-pass with the following approved decision:
+The current controlled pass reconciles the existing BUSINESS repository against the final frozen
+START baseline without recreating the product or flattening BUSINESS-specific behavior.
 
 ```text
-implementation writer: Cursor + Codex
-writer mode: one local writer on the canonical BUSINESS working tree
-implementation branch: feat/rito-business-multipage
-branch base: 9b7ff807f945f679216671577963fd713badb507
-Lovable role: passive repository synchronization / optional preview only
-Lovable Project Knowledge: not required and not updated for this pass
-Lovable Agent and prompt: not authorized
-Lovable credits: not authorized
-concurrent writers: forbidden
+Tretnix Knowledge: main@1cf7033b1634ea06d605ed853932c7c25b695d15
+canonical START: family-start-v1.0 -> 74ee03c4d39a974872f94f53d14ec2873815ccf7
+BUSINESS source: main@b6a82f918370f730681e9e0c0572a7a653d2dfeb
+target branch: feat/rito-business-final-freeze-reconciliation
+change method: Controlled Change Package
+Lovable: passive only
+BUSINESS PLUS: not in scope
 ```
 
-Local source and documentation changes are authorized only on the dedicated branch.
-Stage, commit, push, pull request, merge, publication, deployment, domains and
-infrastructure remain separate explicit gates. The versioned Lovable Project Knowledge
-and prompt remain optional future artifacts; their presence does not authorize execution.
+The pass may update only the approved documentation, parity and compact-rhythm surfaces recorded in
+`BW-DEC-049` through `BW-DEC-059`. It preserves the multipage route architecture, query-driven
+treatment detail, booking = WhatsApp + phone, contact = email + phone, the full `/galleria` route and
+catalogue behavior. The current Studio follow-up removes duplicated method explanation and reduces the
+route to one visual intro, three Studio-specific concepts and a compact utility/conversion strip. The
+home `GalleryRail` must match the frozen START visual composition and native rail behavior at rest,
+while BUSINESS intentionally preserves one additive interaction: a deliberate extra drag begun at the
+true rail end can open `/galleria` only after threshold and release. The application/browser candidate has completed its pre-stage gates. The project owner has authorized
+the final controlled Git closure under BW-DEC-059. Stage, commit, push, pull request, merge and the
+annotated freeze tag remain evidence-producing gates; deployment remains separate and is not implied.
+
+The versioned files in `compiled/` and `prompts/` are historical Lovable adapters and MUST NOT be
+executed as current instructions. Any future Lovable pass must regenerate them from the then-current
+canonical repository documentation under a separately approved gate.
 
 ## Explicit exclusions
 
@@ -150,6 +159,11 @@ BUSINESS adds information architecture and depth. It is not an independent redes
 - Do not add dependencies without a concrete documented need.
 - Do not change unrelated copy, styling or functionality.
 - Do not copy Hospitality visual identity.
+- On the BUSINESS home gallery, once the deliberate end-of-rail gesture toward `/galleria` has
+  engaged, reverse movement during that same press may retract only the synthetic extra-drag back to
+  its zero/origin. It must never scroll the underlying rail farther backward until release/cancel.
+  Crossing back below the arm threshold disarms the route change; a new independent gesture restores
+  normal native rail scrolling.
 
 ## Demo integrity
 

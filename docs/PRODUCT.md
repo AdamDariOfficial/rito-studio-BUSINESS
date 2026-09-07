@@ -164,8 +164,9 @@ Una presenza premium, chiara e pronta a trasformare visite in contatti o prenota
 
 ### Promessa
 
-Un ecosistema multipagina che presenta in modo completo servizi e studio, migliora la
-scoperta dell’offerta e porta alla prenotazione telefonica senza passaggi intermedi.
+Un ecosistema multipagina che presenta in modo completo servizi e studio, migliora la scoperta
+dell’offerta e porta a prenotazione o contatto tramite canali esterni centralizzati, senza
+introdurre un booking nativo.
 
 ### Include
 
@@ -177,7 +178,7 @@ scoperta dell’offerta e porta alla prenotazione telefonica senza passaggi inte
 - gallery completa;
 - FAQ;
 - contatti;
-- CTA telefoniche centralizzate;
+- azioni conversione centralizzate: booking via WhatsApp + telefono, contact via email + telefono;
 - SEO locale avanzato;
 - dati strutturati appropriati;
 - tracking configurabile con consenso;
@@ -187,8 +188,15 @@ scoperta dell’offerta e porta alla prenotazione telefonica senza passaggi inte
 
 ### Prenotazione base
 
-Tutte le CTA di prenotazione aprono il numero centralizzato con un collegamento
-`tel:`. Non esistono route o form di prenotazione nella versione base.
+Le azioni `booking` offrono WhatsApp + telefono; le azioni `contact` offrono email + telefono. Il
+selettore dei canali resta un adapter client-side verso servizi esterni: non esistono route, form,
+disponibilità live o persistenza di prenotazione nella versione base.
+
+### Ritmo e densità
+
+Il ritmo delle pagine BUSINESS privilegia densità editoriale e percorsi brevi: evitare sezioni
+ridondanti, immagini duplicate e padding eccessivo quando non aggiungono comprensione o conversione.
+La riduzione dello scroll non deve comprimere touch target, leggibilità, focus o gerarchia.
 
 ### Non include di default
 
@@ -300,7 +308,7 @@ Le metriche vanno raccolte soltanto con configurazione privacy e consenso approp
 ### BUSINESS
 
 - Ogni servizio può essere scoperto dalla lista e dal dettaglio query-driven.
-- Ogni CTA di prenotazione usa il numero telefonico centralizzato.
+- Ogni CTA di prenotazione usa il contratto centralizzato `booking = WhatsApp + telefono`; i contatti generali usano `contact = email + telefono`.
 - I record trattamento minimi alimentano catalogo, dettaglio e metadata del catalogo.
 - Le sezioni opzionali del dettaglio compaiono soltanto quando hanno contenuto.
 - START e BUSINESS condividono chiaramente identità, componenti e motion.

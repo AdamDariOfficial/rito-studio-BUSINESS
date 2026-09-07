@@ -137,9 +137,9 @@ export const nav = [
 
 export const ctaLabels = {
   navBook: "Prenota",
-  bookPrimary: "Prenota",
-  requestAppointment: "Prenota",
-  contact: "Contatti",
+  bookPrimary: "Prenota un appuntamento",
+  requestAppointment: "Prenota un appuntamento",
+  contact: "Contattaci",
   callToBook: "Chiama per prenotare",
   callStudio: "Chiama lo studio",
   discoverTreatments: "Scopri i trattamenti",

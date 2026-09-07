@@ -226,7 +226,7 @@ export function StickyHeader() {
         <div inert={open} className="hidden lg:block">
           <BookingAction
             kind="booking"
-            ariaLabel="Prenota: WhatsApp o telefono"
+            ariaLabel="Prenota tramite WhatsApp o telefono"
             className="action-primary inline-flex min-h-11 items-center border border-ink bg-ink px-5 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
           >
             {ctaLabels.navBook}
@@ -355,7 +355,7 @@ export function StickyHeader() {
               <div onClick={() => closeDrawer(false)}>
                 <BookingAction
                   kind="booking"
-                  ariaLabel="Prenota: WhatsApp o telefono"
+                  ariaLabel="Prenota tramite WhatsApp o telefono"
                   className="action-primary mt-5 inline-flex min-h-12 w-full items-center justify-center border border-ink bg-ink px-6 text-sm font-medium text-white hover:border-accent-strong hover:bg-accent-strong"
                 >
                   {ctaLabels.navBook}

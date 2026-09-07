@@ -1,8 +1,8 @@
 # RITO Studio — Decision Log
 
 **Famiglia:** Beauty & Wellness
-**Versione:** 1.9
-**Stato:** decisioni approvate e aggiornate al 4 settembre 2026
+**Versione:** 2.0
+**Stato:** decisioni approvate e aggiornate al 6 settembre 2026
 
 ## BW-DEC-001 — Concept portfolio
 
@@ -644,3 +644,447 @@ database, realtime, campi prezzo usati per calcoli PLUS o altri moduli BUSINESS 
 
 **Gate:** applicazione e validazione locali tramite Controlled Change Package; browser QA resta
 obbligatorio prima dello staging manuale. Stage, commit, push, PR, merge e deploy restano gate separati.
+
+
+## BW-DEC-049 — Riconciliazione finale BUSINESS sullo START frozen
+
+**Data:** 6 settembre 2026
+
+**Decisione:** riconciliare il repository BUSINESS esistente `main@b6a82f918370f730681e9e0c0572a7a653d2dfeb` contro la baseline START
+finale e formalmente congelata:
+
+```text
+repository: AdamDariOfficial/rito-studio-START
+tag: family-start-v1.0
+commit: 74ee03c4d39a974872f94f53d14ec2873815ccf7
+```
+
+Il repository BUSINESS non viene ricreato e il lineage storico non viene riscritto. Per i nuovi
+confronti di parità, la fonte START è il tag frozen sopra indicato.
+
+Il pass importa soltanto pattern condivisi compatibili con il contratto BUSINESS corrente:
+
+- divider editoriali con reveal autonomo opacity-only e geometria invariata secondo `TRX-DEC-038`;
+- coppia legale `Privacy` + `Cookie` non separabile secondo `TRX-DEC-039`;
+- affordance persistente dei link nelle superfici condivise footer e informazioni pratiche;
+- azione primaria bianca nel blocco booking che resta bianca e usa il corrispondente sweep/lift
+  premium con reduced-motion;
+- reveal indipendente delle CTA booking e contact nel blocco booking.
+
+Restano intenzionali e invariati:
+
+- architettura multipagina BUSINESS;
+- dettaglio trattamento query-driven dentro `/trattamenti`;
+- assenza di `/team` e `/prenota`;
+- `booking = WhatsApp + telefono`;
+- `contact = email + telefono`;
+- refinement gallery/catalogo definiti da BW-DEC-045/046/048;
+- nessun backend, database, auth, pagamento o booking nativo;
+- nessun cambiamento a RITO Studio BUSINESS PLUS.
+
+I vecchi riferimenti a freeze SHA-only, tag waived, baseline `f05d868...` o prenotazione solo
+telefonica restano storia quando descrivono pass precedenti, ma non possono essere usati come stato
+corrente dopo questa decisione.
+
+**Gate:** applicazione e validazione locali tramite Controlled Change Package sul branch
+`feat/rito-business-final-freeze-reconciliation` da `b6a82f918370f730681e9e0c0572a7a653d2dfeb`. Browser QA comparativa START ↔ BUSINESS è obbligatoria prima dello staging
+manuale. Stage, commit, push, PR, merge, deploy, migrazioni e modifiche di visibilità restano gate
+separati.
+
+## BW-DEC-050 — Correzione browser QA e ritmo BUSINESS compatto
+
+**Data:** 6 settembre 2026
+
+**Decisione:** correggere i finding emersi nel browser QA del candidate di riconciliazione finale
+e ridurre lo scroll non necessario nelle route BUSINESS senza cambiare architettura, contenuti
+essenziali o identità RITO.
+
+Correzioni obbligatorie:
+
+- la griglia categorie della home deve mantenere esattamente la geometria pre-reconciliation; i
+  divider autonomi non possono alterare la parità `odd/even`, padding, border placement o box model;
+- `RitualFeature` incorpora i tre step `Ascolto`, `Precisione`, `Continuità` nello stesso blocco
+  metodo, senza reintrodurre una `MethodStrip` separata;
+- la location `Padova centro · zona Prato della Valle` in `PracticalInfo` è un link persistente a
+  Google Maps, coerente con START;
+- le CTA di conversione usano etichette e icone coerenti: booking = `Prenota un appuntamento` +
+  icona messaggio, contact = `Contattaci` + icona email;
+- il ritmo delle route BUSINESS viene compattato riducendo padding e spaziatura ridondanti,
+  mantenendo touch target, leggibilità, gerarchia e accessibilità;
+- `/studio` evita la seconda immagine verticale su mobile, già ridondante con il contenuto
+  editoriale e con la stessa fotografia usata nel metodo;
+- `/contatti` dispone le informazioni pre-visita in una griglia più compatta su desktop;
+- `/trattamenti` riduce la densità verticale delle righe senza rimuovere descrizioni, prezzo,
+  durata o navigazione query-driven.
+
+**Vincoli:** nessuna route viene aggiunta o rimossa; nessuna dipendenza, backend, auth, database,
+pagamento, booking nativo o capacità BUSINESS PLUS viene introdotta. Hero, gallery/lightbox e
+route/history contract restano invariati salvo la sola riduzione di spacing delle superfici
+contenitore.
+
+**Gate:** il candidate aggiornato deve superare frozen install, lint, build, checksum, exact scope,
+whitespace e un nuovo browser QA completo prima dello staging.
+
+## BW-DEC-051 — CTA di navigazione sobrie e redesign completo `/studio`
+
+**Data:** 6 settembre 2026
+
+**Decisione:** recepire il browser feedback successivo a BW-DEC-050 senza procedere allo staging del
+candidate precedente. Le CTA estese con icona restano appropriate nelle superfici di conversione
+principali, ma non devono essere applicate meccanicamente a navbar e footer.
+
+Contratto corrente:
+
+- navbar desktop e drawer mobile: booking testuale `Prenota`, senza icona, come nel baseline BUSINESS
+  precedente al pass BW-DEC-050;
+- footer: booking testuale senza icona;
+- CTA booking/contact nel contenuto possono mantenere label estesa e icona quando la maggiore
+  enfasi è intenzionale.
+
+La route `/studio` viene ridisegnata integralmente con obiettivo primario di diminuire lo scroll e
+aumentare la quantità di informazione utile per viewport. La nuova pagina contiene soltanto:
+
+1. intro editoriale e un'unica immagine ambiente nello stesso blocco;
+2. quattro principi essenziali (`Filosofia`, `Metodo`, `Prodotti e materiali`, `Igiene e cura`) in
+   griglia compatta;
+3. fascia `Prima della visita` con accessibilità, location Google Maps, booking e collegamento a
+   `/contatti`.
+
+Il vecchio blocco manifesto dark con colonna sticky, la seconda immagine verticale e la sezione
+accessibilità separata vengono rimossi. Su mobile il testo resta prima dell'immagine. Palette,
+Newsreader + Manrope, conversion adapter, routing multipagina, history, gallery, catalogo trattamenti,
+footer attribution e `prefers-reduced-motion` restano invariati.
+
+**Vincoli:** nessuna nuova route, dipendenza, backend, database, auth, pagamento, booking nativo o
+capacità BUSINESS PLUS. Il nuovo candidate deve ripetere frozen install, lint, build, exact-scope,
+checksum, whitespace e browser QA prima dello staging.
+
+## BW-DEC-052 — `Il modo RITO`: descrizione sotto il titolo e step verticali mobile
+
+**Data:** 7 settembre 2026
+
+**Decisione:** recepire il browser feedback sul redesign `/studio` di BW-DEC-051 prima dello
+staging. La sezione `Il modo RITO` mantiene i quattro principi e la superficie dark, ma cambia
+gerarchia e responsive presentation:
+
+- il testo `Quattro principi semplici tengono insieme ambiente, metodo e qualità del servizio.`
+  compare sotto `Cura, senza superfluo.` e non in una colonna laterale;
+- su mobile e tablet i quattro principi usano lo stesso linguaggio di step verticali del
+  `RitualFeature` in home: numero, titolo, descrizione e divider autonomo per riga;
+- da desktop largo (`lg`) i medesimi elementi passano a quattro colonne compatte;
+- non viene duplicato il markup per ottenere il cambio responsive;
+- i divider mobile restano opacity-only e fuori dal layout flow, in coerenza con TRX-DEC-038;
+- copy, ordine dei quattro principi, conversione, route, immagine Studio e fascia `Prima della
+  visita` restano invariati.
+
+**Motivo:** la variante 2 × 2 mobile risultava visivamente troppo raggruppata e meno coerente con
+il pattern già approvato nella home. La descrizione laterale desktop spezzava inoltre la lettura
+della gerarchia editoriale.
+
+**Gate:** il candidate deve ripetere Apply/Validate e browser QA mirato a 360/390/430/768/1024/1440
+prima dello staging. Stage, commit, push, PR, merge, deploy, migrazioni e Lovable restano fuori dal
+gate automatico.
+
+## BW-DEC-053 — `/studio`: ridurre densità informativa, non solo spacing
+
+**Data:** 7 settembre 2026
+
+**Decisione:** il browser QA del candidate BW-DEC-052 conferma che la route `/studio`, pur più corta,
+risulta ancora troppo densa e visivamente affollata. Prima dello staging viene quindi autorizzato un
+ulteriore redesign mirato che riduce il contenuto duplicato invece di comprimere ulteriormente lo
+spacing.
+
+Contratto corrente della route:
+
+1. apertura `Lo studio` + `Uno spazio per te.` con copy breve e una sola immagine ambiente;
+2. superficie `Dentro RITO` con tre soli concetti specifici dello Studio: `Ambiente`, `Materiali`,
+   `Cura`; `Filosofia` e `Metodo` non vengono ripetuti perché già spiegati nella home;
+3. chiusura utility senza heading `Prima della visita`, con location Google Maps, nota essenziale di
+   accessibilità, booking e link a `/contatti`.
+
+Su mobile i tre concetti restano verticali con divider autonomi; su desktop diventano tre colonne
+arieggiate. Il copy viene accorciato e non viene aggiunta una nuova sezione per compensare la
+riduzione. Navbar/footer, booking = WhatsApp + telefono, contact = email + telefono, routing,
+gallery/catalogo, `prefers-reduced-motion`, palette, tipografia e attribuzione Tretnix restano
+invariati.
+
+**Rollback:** il candidate v1.2.1 resta un riferimento recuperabile; un eventuale ritorno deve essere
+preparato come nuovo Controlled Change Package a partire dagli hash esatti del candidate corrente,
+non tramite restore manuale o cleanup distruttivo.
+
+**Gate:** CCP v1.3.0 deve ripetere Apply, frozen install, lint, build, exact scope, checksum,
+whitespace e browser QA prima dello staging. Il validator del package deve inoltre eseguire i comandi
+repository-defined nel `RepositoryRoot` risolto anche quando lo script viene lanciato da una cartella
+esterna. Stage, commit, push, PR, merge, deploy, migrazioni e Lovable restano separati.
+
+## BW-DEC-054 — Home gallery in parità START e gate finale di freeze BUSINESS
+
+**Data:** 7 settembre 2026
+
+**Decisione:** il browser QA del candidate v1.3.0 ha confermato che la home BUSINESS mostrava ancora
+una gallery più complessa dello START, con heading `Galleria`, titolo `Gesti e materia`, link
+`Apri la galleria` e gesto deliberato di fine rail. Il project owner richiede che la gallery della
+home BUSINESS sia uguale alla gallery home dello START frozen.
+
+La baseline visuale e comportamentale autorevole è:
+
+```text
+RITO Studio START
+family-start-v1.0
+74ee03c4d39a974872f94f53d14ec2873815ccf7
+src/components/sections/GalleryRail.tsx
+```
+
+Il port BUSINESS deve quindi:
+
+- usare la stessa struttura del rail START, senza heading o CTA interna;
+- usare lo stesso ordine visuale dei quattro slot: Hair, Skin, Studio detail, Hair professional;
+- mantenere `w-[72%]`, snap nativo, griglia 2-col tablet / 12-col desktop, offset e spacing START;
+- mantenere fade laterale e arrow hint mobile che scompaiono al termine dello scroll;
+- rimuovere dal rail home il gesto extra di fine corsa verso `/galleria`;
+- preservare la route `/galleria`, i suoi filtri/lightbox e tutto il comportamento BUSINESS fuori
+  dalla home.
+
+Questa decisione sostituisce BW-DEC-046 soltanto per il comportamento del rail gallery della home.
+Non annulla le decisioni relative alla route `/galleria` o alla lightbox.
+
+**Freeze:** il project owner ha inoltre autorizzato la chiusura e il freeze di RITO Studio BUSINESS
+una volta superati sul candidate aggiornato Apply/Validate, browser QA completo, full diff review,
+staging esatto, staged validation, commit/push/PR/merge e verifica del target frozen. Il freeze non
+può essere dichiarato prima di tali evidenze.
+
+**Progressione:** RITO Studio BUSINESS PLUS è autorizzato come fase successiva soltanto dopo il
+freeze BUSINESS verificato. Non viene sviluppato o modificato da questo pass.
+
+**Esclusioni:** nessun deploy, backend, database, auth, migration, native booking o capacità PLUS è
+introdotto dal fix gallery.
+
+## BW-DEC-055 — Parità visuale START con gesto finale BUSINESS preservato
+
+**Data:** 7 settembre 2026
+
+**Decisione:** il candidate v1.3.1 ha ripristinato la composizione visuale della gallery home dello
+START frozen e ha superato Apply + Validate automatici. Nel browser review il project owner ha
+rilevato un solo comportamento mancante: il gesto deliberato di fine rail che, nel BUSINESS,
+permetteva di proseguire verso `/galleria`.
+
+BW-DEC-055 corregge BW-DEC-054 soltanto su questo punto. Il rail home deve continuare a essere
+visivamente equivalente allo START a riposo:
+
+- nessun heading `Galleria` o titolo `Gesti e materia`;
+- nessuna CTA testuale `Apri la galleria` dentro il rail;
+- ordine Hair → Skin → Studio detail → Hair professional;
+- stessa larghezza mobile `w-[72%]`, snap, gap, padding, fade, arrow hint, griglia e offset START.
+
+BUSINESS preserva però come differenza funzionale intenzionale il gesto già approvato in BW-DEC-046:
+
+- il gesto può iniziare soltanto quando il rail è realmente al bordo finale;
+- lo scroll normale fino al bordo non naviga;
+- un drag orizzontale aggiuntivo rivela un indicatore di progresso;
+- la route `/galleria` si apre soltanto al rilascio dopo il superamento della soglia;
+- drag verticale, inverso, cancellato o sotto soglia non cambiano route;
+- `prefers-reduced-motion` elimina motion non essenziale senza rimuovere l'azione diretta dell'utente.
+
+**Conseguenza:** la parità richiesta con START è visuale/compositiva e di scroll base, non la
+rimozione di ogni capability BUSINESS. `/galleria`, filtri, lightbox, history e accessibilità restano
+invariati.
+
+**Gate finale:** il candidate aggiornato deve ripetere Apply/Validate e browser QA. Solo dopo browser
+PASS, full diff review, staging esatto, staged validation, commit/push/PR/merge e verifica del target
+si può dichiarare il freeze BUSINESS. BUSINESS PLUS resta la fase successiva autorizzata soltanto
+dopo freeze verificato. Deploy e migrazioni restano fuori scope.
+
+
+## BW-DEC-056 — Lock monotono del drag finale durante la stessa pressione
+
+**Data:** 7 settembre 2026
+
+**Decisione:** il browser QA del candidate v1.3.2 ha confermato che il gesto BUSINESS di fine rail
+verso `/galleria` è stato ripristinato, ma ha rilevato un bug nello stato della gesture: dopo aver
+iniziato il drag extra verso sinistra dal vero bordo finale, mantenendo il touch/pointer premuto era
+possibile invertire la direzione e far rientrare il rail/progresso verso le immagini precedenti.
+
+Il comportamento approvato viene quindi precisato:
+
+- il gesto finale può impegnarsi soltanto con un movimento orizzontale iniziale verso `/galleria`
+  iniziato dal vero bordo finale;
+- una volta impegnato, il gesto resta **monotono** per tutta la stessa sequenza di touch/pointer:
+  il massimo extra-drag raggiunto non può diminuire;
+- durante tale sequenza il reverse move viene intercettato: non deve riattivare lo scroll nativo
+  all'indietro né far rientrare il progress indicator;
+- se il rilascio avviene sotto soglia, il rail torna alla posizione normale senza navigazione;
+- se la soglia è stata raggiunta, il rilascio apre `/galleria` una sola volta anche se il dito/pointer
+  è stato mosso indietro prima del rilascio;
+- `touchcancel` / pointer cancel ripristinano il rail senza navigazione;
+- un nuovo gesto iniziato dopo release/cancel torna a usare il normale scroll nativo, incluso lo
+  swipe all'indietro verso le immagini precedenti;
+- un gesto iniziale verticale o inverso non viene acquisito come gesture di apertura galleria.
+
+**Motivo:** evitare il piccolo salto/ritorno visuale osservato nel browser quando l'utente cambia
+direzione senza sollevare il dito, preservando nello stesso tempo la reversibilità del rail tra
+gesture indipendenti.
+
+**Vincoli:** nessun cambiamento alla composizione START-equivalent del rail, all'ordine immagini,
+alla route `/galleria`, alla lightbox, ai filtri, alle dipendenze o alle altre route BUSINESS.
+
+**Gate:** v1.3.3 deve ripetere Apply, frozen install, lint, build, checksum, exact scope, whitespace e
+browser QA mirato alla sequenza forward → reverse senza release. Solo dopo browser PASS si procede a
+full diff review, staging esatto e staged validation.
+
+
+## BW-DEC-057 — Clamp reversibile del drag finale fino all'origine
+
+**Data:** 7 settembre 2026
+**Stato:** approvata per implementazione e verifica; sostituisce il solo comportamento monotono di
+BW-DEC-056.
+
+### Evidenza
+
+CCP v1.3.3 ha superato Apply e Validate automatici. Nel browser il project owner ha confermato che il
+lock impedisce correttamente al rail di tornare indietro, ma ha chiarito che lo stesso gesto deve
+restare annullabile: invertendo il touch/pointer senza rilasciare, l'utente deve poter tornare al punto
+esatto in cui aveva iniziato l'extra-drag verso `/galleria`, mai oltre. Il log browser allegato mostra
+inoltre ripetuti warning Chrome `Ignored attempt to cancel a touchmove event with cancelable=false`,
+coerenti con `preventDefault()` invocato dopo che lo scroll nativo aveva già preso possesso di alcuni
+eventi.
+
+### Decisione
+
+Per il rail home BUSINESS:
+
+- il gesto speciale può iniziare soltanto dal vero bordo finale e in direzione outward verso
+  `/galleria`;
+- appena l'intento outward è chiaramente orizzontale, la gesture viene acquisita prima possibile;
+- il progress è calcolato dall'extra-drag **corrente**, non dal massimo raggiunto;
+- reverse nella stessa pressione retrae progress/reveal fino a `0`;
+- se il reverse scende sotto la soglia di armamento, lo stato armed viene rimosso;
+- al raggiungimento di `0`, ulteriore reverse resta clampato a `0`: il rail reale non può muoversi
+  verso le immagini precedenti fino al release/cancel;
+- release con stato non armato resta sulla home; release armato apre `/galleria` una sola volta;
+- dopo release/cancel una nuova gesture inversa deve tornare a usare il normale scroll nativo del
+  rail;
+- `preventDefault()` su `touchmove` viene eseguito soltanto quando `event.cancelable === true`.
+
+### Invarianti
+
+Restano invariati composizione visuale START-equivalent, ordine immagini, snap, fade, arrow hint,
+route `/galleria`, filtri/lightbox, conversion contract, routing BUSINESS, dipendenze e scope cumulativo
+della riconciliazione.
+
+### Gate
+
+Il `VALIDATE PASSED` v1.3.3 non certifica BW-DEC-057. Il candidate corretto deve ripetere Apply,
+Validate e browser QA mirato prima della full diff review e dello staging.
+
+## BW-DEC-058 — Rail categorie mobile full-bleed senza gutter esterno
+
+**Data:** 7 settembre 2026
+**Stato:** approvata per implementazione e verifica finale.
+
+### Evidenza
+
+Dopo `APPLY PASSED` + `VALIDATE PASSED` del CCP v1.3.4, il browser QA mobile ha
+mostrato un difetto visivo ai bordi del rail categorie: la linea inferiore, i fade e la superficie
+scrollabile terminano circa 16 px prima dei bordi viewport. La causa è la combinazione tra il
+`container-editorial` mobile da 20 px e il solo compenso locale `-mx-1` / `px-1` da 4 px.
+
+Lo stesso pattern è presente sia nella galleria (`GalleryExplorer`) sia nel catalogo
+`/trattamenti`; congelare BUSINESS correggendo una sola route lascerebbe quindi lo stesso root cause
+aperto nell'altra superficie pubblica.
+
+### Decisione
+
+Su viewport mobile, i rail categorie di `/galleria` e `/trattamenti` devono essere full-bleed come
+superficie di scroll/sticky, mantenendo però i controlli allineati all'inset editoriale di 20 px:
+
+- wrapper sticky esteso fino ai bordi viewport tramite compensazione del `container-editorial`;
+- contenuto del rail con padding inline 20 px, così primo e ultimo controllo restano allineati al
+  resto della pagina;
+- border-bottom e fade laterali arrivano ai veri bordi visivi, senza gutter esterno;
+- da `md` in su resta la geometria precedente del rail (`-mx-1` / `px-1`);
+- nessun overflow orizzontale della pagina;
+- auto-scroll del filtro attivo, sticky behavior, query/history, return-to-results e lightbox restano
+  invariati.
+
+### Scope
+
+Il fix applicativo è limitato a:
+
+```text
+src/components/GalleryExplorer.tsx
+src/routes/trattamenti/index.tsx
+```
+
+`GalleryExplorer.tsx`, finora protetto nella riconciliazione, entra nell'allowlist esclusivamente
+per questa correzione del rail categorie. Nessuna logica lightbox o gallery-grid viene modificata.
+
+### Gate
+
+Il `VALIDATE PASSED` v1.3.4 non certifica BW-DEC-058. Il candidate successivo deve ripetere Apply,
+Validate e browser QA su 360/390/430 px per entrambe le route prima di full diff review, staging e
+freeze BUSINESS.
+
+## BW-DEC-059 — Chiusura formale e freeze RITO Studio BUSINESS
+
+**Data:** 7 settembre 2026
+**Stato:** approvata; autorizza la sequenza Git di chiusura dopo i gate pre-stage verificati.
+
+### Evidenza finale del candidate
+
+Il CCP v1.3.5 è stato applicato sul branch
+`feat/rito-business-final-freeze-reconciliation` derivato da
+`main@b6a82f918370f730681e9e0c0572a7a653d2dfeb` e ha prodotto lo scope cumulativo
+esatto di 39 path (38 tracked modificati + `src/components/RevealDivider.tsx` nuovo).
+
+Il project owner ha successivamente confermato `Browser QA v1.3.5: PASS`, inclusi i rail categorie
+mobile full-bleed di `/galleria` e `/trattamenti`, il gesto home-gallery con cancel clamp, gli smoke
+check route/query/lightbox/navbar/footer, l'assenza di overflow orizzontale e l'assenza di errori
+applicativi osservati nella sessione finale.
+
+La full diff review finale è stata eseguita sull'esatto payload v1.3.5 contro la baseline protetta e
+ha confermato:
+
+- nessun drift di `package.json`, `bun.lock` o `src/routeTree.gen.ts`;
+- nessuna route `/team` o `/prenota`;
+- booking = WhatsApp + telefono e contact = email + telefono;
+- `/trattamenti` query-driven e `/galleria` con filtri/lightbox preservati;
+- nessun backend, database, auth, pagamento, booking nativo o capacità BUSINESS PLUS;
+- parità visuale/compositiva START della gallery home con il solo gesto BUSINESS documentato;
+- divider autonomi geometry-safe e reduced motion preservato;
+- attribuzione Tretnix preservata;
+- documentazione storica mantenuta come storia e stato corrente riconciliato.
+
+### Decisione di chiusura
+
+Il project owner autorizza una **singola chiusura non frammentata** del lavoro corrente:
+
+1. exact staging dei 39 path del candidate;
+2. staged validation tramite il validator CCP in `-StagedMode`;
+3. un singolo commit locale di riconciliazione;
+4. push della branch `feat/rito-business-final-freeze-reconciliation`;
+5. una singola pull request verso `main`;
+6. review del diff remoto e merge;
+7. sincronizzazione locale di `main` e verifica dello SHA risultante;
+8. creazione del tag annotato `family-business-v1.0` sul commit `main` verificato;
+9. push e verifica remota del tag.
+
+Il tag deve usare il messaggio:
+
+```text
+RITO Studio BUSINESS final frozen baseline — approved 2026-09-07
+```
+
+Come per START, il merge commit non può auto-registrare il proprio SHA nei file contenuti nello
+stesso commit. Dopo il merge e la verifica, `family-business-v1.0` + metadata Git costituiscono il
+record autorevole del freeze. Non deve essere creato un commit successivo soltanto per ripetere lo
+SHA del merge.
+
+### Confini
+
+- deploy/produzione: non eseguiti e non implicati dal freeze;
+- migrazioni, database, auth e infrastruttura: fuori scope;
+- BUSINESS PLUS: fase successiva autorizzata soltanto dopo verifica remota del tag
+  `family-business-v1.0`; nessuna modifica PLUS avviene in questa chiusura.
+
+Qualsiasi mismatch di scope, staged state, remote main, PR diff, merge SHA o tag deve fermare la
+sequenza senza bypass.

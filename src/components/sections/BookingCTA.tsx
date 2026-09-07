@@ -4,10 +4,10 @@ import { ctaLabels } from "@/lib/site-config";
 
 export function BookingCTA() {
   return (
-    <section aria-labelledby="booking-cta-heading" className="bg-ink py-16 md:py-20">
+    <section aria-labelledby="booking-cta-heading" className="bg-ink py-12 md:py-16">
       <div className="container-editorial">
         <div className="relative p-1 md:px-8 md:py-4">
-          <div className="grid gap-10 md:grid-cols-12 md:gap-8">
+          <div className="grid gap-8 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-7">
               <p className="eyebrow text-surface">Prenota</p>
               <h2
@@ -27,27 +27,35 @@ export function BookingCTA() {
                 Raccontaci cosa stai cercando. Ti aiutiamo a scegliere il trattamento e il momento
                 più adatto.
               </p>
-              <div
-                className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap"
-                data-reveal
-                style={{ ["--reveal-delay" as string]: "160ms" }}
-              >
-                <BookingAction
-                  kind="booking"
-                  ariaLabel="Prenota: WhatsApp o telefono"
-                  className="action-primary inline-flex min-h-12 items-center justify-center gap-2 border border-white bg-white px-6 text-sm font-medium text-ink hover:border-surface hover:bg-surface focus-visible:outline-white"
+              <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap">
+                <div
+                  className="w-full sm:w-auto"
+                  data-reveal
+                  style={{ ["--reveal-delay" as string]: "160ms" }}
                 >
-                  <MessageCircle aria-hidden size={16} strokeWidth={1.7} />
-                  {ctaLabels.requestAppointment}
-                </BookingAction>
-                <BookingAction
-                  kind="contact"
-                  ariaLabel="Contatti: email o telefono"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 border border-white/35 px-6 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-white"
+                  <BookingAction
+                    kind="booking"
+                    ariaLabel="Prenota: WhatsApp o telefono"
+                    className="action-primary action-primary-light inline-flex min-h-12 w-full items-center justify-center gap-2 border border-white bg-white px-6 text-sm font-medium text-ink focus-visible:outline-white sm:w-auto"
+                  >
+                    <MessageCircle aria-hidden size={16} strokeWidth={1.7} />
+                    {ctaLabels.requestAppointment}
+                  </BookingAction>
+                </div>
+                <div
+                  className="w-full sm:w-auto"
+                  data-reveal
+                  style={{ ["--reveal-delay" as string]: "240ms" }}
                 >
-                  <Mail aria-hidden size={16} strokeWidth={1.7} />
-                  {ctaLabels.contact}
-                </BookingAction>
+                  <BookingAction
+                    kind="contact"
+                    ariaLabel="Contatti: email o telefono"
+                    className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-white/35 px-6 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-white sm:w-auto"
+                  >
+                    <Mail aria-hidden size={16} strokeWidth={1.7} />
+                    {ctaLabels.contact}
+                  </BookingAction>
+                </div>
               </div>
             </div>
           </div>

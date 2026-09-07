@@ -1,3 +1,10 @@
+<!--
+HISTORICAL ADAPTER — DO NOT EXECUTE AS CURRENT INSTRUCTIONS.
+Superseded for current repository governance by AGENTS.md, docs/DECISIONS.md (BW-DEC-049),
+docs/START_BUSINESS_CONTRACT.md and the frozen START source family-start-v1.0 -> 74ee03c4d39a974872f94f53d14ec2873815ccf7.
+Regenerate this artifact from current canonical documentation before any future Lovable pass.
+-->
+
 # Lovable Prompt — RITO Studio BUSINESS
 
 > **HARD PRECONDITION — DO NOT RUN EARLY**

@@ -1,33 +1,51 @@
 # RITO Studio BUSINESS — Status
 
-## Current reconciliation - 4 September 2026
+## Current final-freeze reconciliation — 6 September 2026
 
 ```text
-FINAL_START_FREEZE_SHA=f05d8683548623f55ca9d5cf0f051690b039dd27
-BUSINESS_MAIN_BASELINE=b95a63c6127d2bc1dd396d74b2dd25f87b952226
-BUSINESS_FINAL_START_SYNC_AUTHORIZED
-TARGET_BRANCH=feat/rito-business-final-start-sync
+TRETNIX_KNOWLEDGE_BASELINE=1cf7033b1634ea06d605ed853932c7c25b695d15
+FINAL_START_TAG=family-start-v1.0
+FINAL_START_FREEZE_SHA=74ee03c4d39a974872f94f53d14ec2873815ccf7
+BUSINESS_MAIN_BASELINE=b6a82f918370f730681e9e0c0572a7a653d2dfeb
+TARGET_BRANCH=feat/rito-business-final-freeze-reconciliation
 BUSINESS_SPECIFIC_DECISIONS_PRESERVED
-BUSINESS_PLUS_NOT_IN_SCOPE
-BUSINESS_PUBLIC_PARITY_CANDIDATE_PREPARED
 BOOKING_CHANNELS=WHATSAPP+PHONE
 CONTACT_CHANNELS=EMAIL+PHONE
-BUSINESS_PLUS_PUBLIC_UX_PARITY_IMPORTED
-BROWSER_QA_PENDING
+DIVIDER_REVEAL_CONTRACT=TRX-DEC-038
+LEGAL_PAIR_CONTRACT=TRX-DEC-039
+BUSINESS_PLUS_NOT_IN_SCOPE
 ```
 
-This candidate preserves the final START lineage and the approved BUSINESS multipage architecture. Booking now uses WhatsApp + phone and contact uses email + phone. Public treatment/gallery UX is synchronized with the compatible BUSINESS PLUS presentation patterns without importing PLUS-only capabilities.
+This reconciliation uses the formally frozen START tag for new parity work while preserving the
+existing BUSINESS product and its historical derivation. The application delta is limited to
+shared interaction/parity surfaces; no route, dependency, backend, database, auth or BUSINESS PLUS
+capability is added. Automated validation and browser QA are evidence gates and must be reported
+only after they are actually executed.
 
-
-**Updated:** 4 September 2026
+**Updated:** 6 September 2026
 **Project:** RITO Studio BUSINESS
 **Family:** Tretnix Beauty & Wellness `v1.1`
 **Repository:** `AdamDariOfficial/rito-studio-BUSINESS`
 **Default branch:** `main`
-**Implementation baseline:** `9b7ff807f945f679216671577963fd713badb507`
-**Canonical START baseline:** `f05d8683548623f55ca9d5cf0f051690b039dd27`
+**Historical multipage implementation base:** `9b7ff807f945f679216671577963fd713badb507`
+**Canonical START baseline:** `family-start-v1.0` → `74ee03c4d39a974872f94f53d14ec2873815ccf7`
+**Current BUSINESS source baseline:** `b6a82f918370f730681e9e0c0572a7a653d2dfeb`
 
-## Approved baseline state
+## Current authoritative sources
+
+- Tretnix Knowledge `main@1cf7033b1634ea06d605ed853932c7c25b695d15`;
+- Tretnix Development Standards `v1.11`;
+- Controlled Change Package `v1.1`;
+- Beauty & Wellness family `v1.1`;
+- frozen START `family-start-v1.0` → `74ee03c4d39a974872f94f53d14ec2873815ccf7`;
+- BUSINESS `main@b6a82f918370f730681e9e0c0572a7a653d2dfeb`;
+- project decisions through `BW-DEC-049`.
+
+The sections below preserve historical bootstrap, implementation and prior parity evidence. Older
+START SHAs, waived-tag records and feature-branch names inside those sections are not current parity
+sources.
+
+## Historical approved baseline state
 
 ```text
 START_APPROVED
@@ -50,7 +68,7 @@ LOVABLE_AGENT_PROMPT_CREDITS_NOT_AUTHORIZED
 BUSINESS_PLUS_NOT_AUTHORIZED
 ```
 
-## Verified remix state
+## Historical verified remix state
 
 ```text
 BUSINESS base HEAD: 222c331db44b1775aa2f877634f3a0f3dfdfbe69
@@ -71,7 +89,7 @@ Lovable pinned `@lovable.dev/vite-tanstack-config` to `2.8.5` and updated the
 corresponding lockfile entries. The identity/documentation work preserves that
 remix-managed technical state.
 
-## Sources used
+## Historical sources used for the bootstrap
 
 - Tretnix Repository Index `v1.6`;
 - Tretnix Master Context `v1.5`;
@@ -446,3 +464,254 @@ modifiche. Il sito BUSINESS era tornato funzionante dopo la remediation SSR prec
 ma non è registrata una nuova verifica di produzione successiva al merge `276fd8e...`.
 Non va quindi dichiarato che questo specifico merge sia già distribuito o verificato in
 produzione.
+## Browser QA corrective candidate — 6 settembre 2026
+
+Il primo browser QA del candidate BW-DEC-049 ha rilevato quattro finding visuali/funzionali e una
+richiesta di densità pagina: parità `odd/even` alterata nella griglia categorie, step metodo mancanti,
+location non cliccabile e copy/icona CTA non uniformi. BW-DEC-050 autorizza la correzione e una
+compattazione mirata del ritmo delle route.
+
+Il candidate aggiornato deve essere rivalidato integralmente; i risultati del precedente
+`VALIDATE PASSED` non certificano le nuove modifiche. Browser QA, staging, commit, push, PR, merge e
+deploy restano da rieseguire/chiudere sul nuovo candidate.
+
+## Browser QA follow-up — CTA navigation + Studio redesign — 6 settembre 2026
+
+Il browser QA successivo al candidate BW-DEC-050 ha respinto due aspetti prima dello staging:
+
+- iconografia/copy booking applicati in modo troppo uniforme a navbar e footer;
+- `/studio` ancora troppo lunga rispetto alla quantità di informazione mostrata.
+
+BW-DEC-051 definisce il nuovo candidate: navbar `Prenota` senza icona, footer booking senza icona e
+redesign completo della route Studio in tre blocchi compatti. Il precedente `VALIDATE PASSED` resta
+evidenza del candidate precedente ma non certifica queste nuove modifiche.
+
+Staging, commit, push, PR, merge, deploy, migrazioni e Lovable restano non eseguiti finché il nuovo
+candidate non supera validazione e browser QA.
+
+## Browser QA follow-up — gerarchia `Il modo RITO` — 7 settembre 2026
+
+Il candidate BW-DEC-051 ha superato Apply e Validate automatici tramite CCP v1.2.0, ma il browser QA
+ha rilevato un ulteriore finding visuale prima dello staging:
+
+- la descrizione della sezione `Il modo RITO` deve seguire il titolo invece di occupare una colonna
+  laterale;
+- la griglia 2 × 2 mobile dei quattro principi viene sostituita dal pattern step verticale già
+  approvato nella home.
+
+BW-DEC-052 definisce il candidate successivo. Il precedente `VALIDATE PASSED` certifica v1.2.0 ma
+non certifica questa revisione. Il nuovo candidate deve ripetere lint/build/checksum/scope/whitespace
+e browser QA prima dello staging. Nessun stage, commit, push, PR, merge, deploy, migrazione o
+esecuzione Lovable è stato eseguito da questo follow-up.
+
+
+## Browser QA follow-up — `/studio` density reduction — 7 settembre 2026
+
+CCP v1.2.1 ha superato Apply e la validazione automatica sul branch corrente (frozen install, lint,
+build, checksum, exact 38-path scope e whitespace), ma il browser QA ha respinto la densità visiva
+della route `/studio` prima dello staging.
+
+Finding confermato:
+
+- la pagina è più corta ma comunica troppi concetti ravvicinati, soprattutto nel blocco dark;
+- ripetere `Filosofia` e `Metodo` dopo il metodo home aumenta la densità senza aggiungere valore;
+- la chiusura `Prima della visita` occupa una sezione autonoma per informazioni che possono vivere in
+  una fascia utility più breve.
+
+BW-DEC-053 definisce il candidate v1.3.0: tre concetti Studio-specifici (`Ambiente`, `Materiali`,
+`Cura`) e utility strip finale. Il `VALIDATE PASSED` di v1.2.1 resta evidenza del candidate precedente
+ma non certifica v1.3.0. Browser QA, staging, commit, push, PR, merge e deploy restano da chiudere sul
+nuovo candidate.
+
+## Final home-gallery parity candidate — 7 settembre 2026
+
+Il candidate v1.3.0 ha superato Apply e Validate automatici (frozen install, lint, build, checksum,
+exact 38-path scope e whitespace). Nel browser QA il project owner ha approvato la direzione finale
+complessiva ma ha rilevato un ultimo finding sulla home: `GalleryRail` deve essere uguale al rail
+frozen START invece di usare heading/link/extra-gesture BUSINESS.
+
+BW-DEC-054 definisce il candidate successivo. Il nuovo candidate porta esclusivamente il rail home
+alla struttura START, preservando `/galleria` e la lightbox BUSINESS.
+
+```text
+BUSINESS_SOURCE_MAIN=b6a82f918370f730681e9e0c0572a7a653d2dfeb
+TARGET_BRANCH=feat/rito-business-final-freeze-reconciliation
+START_PARITY_SOURCE=family-start-v1.0@74ee03c4d39a974872f94f53d14ec2873815ccf7
+HOME_GALLERY_PARITY=START_REQUIRED
+BUSINESS_FREEZE=AUTHORIZED_AFTER_FINAL_GATES
+BUSINESS_PLUS=AUTHORIZED_AFTER_VERIFIED_BUSINESS_FREEZE
+DEPLOY=NOT_AUTHORIZED_BY_THIS_PASS
+```
+
+Il freeze BUSINESS resta **non dichiarato** fino a merge e identificazione/verifica del target
+frozen. Nessun risultato automatico precedente certifica il nuovo fix gallery: Apply, Validate e
+browser QA vanno ripetuti.
+
+## Final home-gallery gesture follow-up — 7 settembre 2026
+
+CCP v1.3.1 ha superato Apply e Validate automatici sul branch corrente: frozen install, lint, build,
+repository checksums, exact 38-path scope, payload/protected hashes e whitespace sono risultati PASS,
+con zero staged path.
+
+Nel browser review successivo il project owner ha confermato la direzione della gallery home ma ha
+rilevato un solo comportamento rimosso rispetto al BUSINESS approvato: il drag deliberato oltre il
+vero bordo finale non apre più `/galleria`.
+
+BW-DEC-055 definisce il candidate finale successivo: preservare integralmente la resa START del rail
+a riposo e reintrodurre esclusivamente il gesto finale thresholded come shortcut BUSINESS. Il
+`VALIDATE PASSED` di v1.3.1 resta evidenza del candidate precedente e non certifica questa modifica.
+
+```text
+BUSINESS_SOURCE_MAIN=b6a82f918370f730681e9e0c0572a7a653d2dfeb
+TARGET_BRANCH=feat/rito-business-final-freeze-reconciliation
+START_VISUAL_PARITY=REQUIRED
+BUSINESS_END_DRAG_TO_GALLERY=REQUIRED
+BUSINESS_FREEZE=AUTHORIZED_AFTER_FINAL_GATES
+BUSINESS_PLUS=AUTHORIZED_AFTER_VERIFIED_BUSINESS_FREEZE
+DEPLOY=NOT_AUTHORIZED_BY_THIS_PASS
+```
+
+Apply/Validate e browser QA devono essere ripetuti prima di full diff review e staging. BUSINESS non
+è ancora dichiarato frozen.
+
+
+## Browser QA follow-up — end-drag reverse lock — 7 settembre 2026
+
+CCP v1.3.2 ha superato Apply e Validate automatici sul branch
+`feat/rito-business-final-freeze-reconciliation`: frozen install, lint, production build,
+repository checksums, exact 38-path scope, payload/protected hashes e whitespace sono risultati PASS
+con zero staged path.
+
+Nel browser QA successivo il project owner ha verificato il ritorno del drag finale verso
+`/galleria` e ha segnalato un solo bug: mantenendo la stessa pressione dopo aver iniziato il gesto
+extra era possibile invertire direzione e far tornare indietro rail/progresso.
+
+BW-DEC-056 definisce il candidate v1.3.3: lock monotono del gesto già impegnato fino a release/cancel,
+senza modificare la composizione visuale START-equivalent né la route `/galleria`.
+
+```text
+BUSINESS_SOURCE_MAIN=b6a82f918370f730681e9e0c0572a7a653d2dfeb
+TARGET_BRANCH=feat/rito-business-final-freeze-reconciliation
+V1_3_2_APPLY_VALIDATE=PASSED
+V1_3_2_BROWSER_QA=FOLLOW_UP_REQUIRED
+V1_3_3_END_GESTURE_MONOTONIC_LOCK=REQUIRED
+STAGED_PATHS=0
+BUSINESS_FREEZE=NOT_YET_DECLARED
+BUSINESS_PLUS=AFTER_VERIFIED_BUSINESS_FREEZE
+DEPLOY=NOT_AUTHORIZED
+```
+
+Il `VALIDATE PASSED` v1.3.2 non certifica il nuovo fix. v1.3.3 deve ripetere Apply/Validate e browser
+QA prima di full diff review e staging.
+
+
+## Browser QA follow-up — cancellazione fino all'origine — 7 settembre 2026
+
+CCP v1.3.3 ha superato Apply e Validate automatici sul branch
+`feat/rito-business-final-freeze-reconciliation`: frozen install, lint, production build, repository
+checksums, exact 38-path scope, payload/protected hashes e whitespace sono risultati PASS con zero
+staged path.
+
+Nel browser QA successivo il project owner ha confermato che il rail non torna più indietro durante la
+stessa pressione, ma ha richiesto una semantica di annullamento più naturale: il reverse deve poter
+retrarre il gesto sintetico fino al punto di partenza, senza mai oltrepassarlo e senza muovere il rail
+reale all'indietro. Tornare sotto soglia deve disarmare la navigazione.
+
+BW-DEC-057 definisce il candidate successivo e sostituisce il lock monotono di BW-DEC-056 con un clamp
+reversibile all'origine. Il log browser ha inoltre mostrato spam `touchmove cancelable=false`; il fix
+deve evitare `preventDefault()` sui move non cancellabili e acquisire prima l'intento outward.
+
+```text
+BUSINESS_SOURCE_MAIN=b6a82f918370f730681e9e0c0572a7a653d2dfeb
+TARGET_BRANCH=feat/rito-business-final-freeze-reconciliation
+V1_3_3_APPLY_VALIDATE=PASSED
+V1_3_3_BROWSER_QA=FOLLOW_UP_REQUIRED
+V1_3_4_END_GESTURE_CANCEL_CLAMP=REQUIRED
+STAGED_PATHS=0
+BUSINESS_FREEZE=NOT_YET_DECLARED
+BUSINESS_PLUS=AFTER_VERIFIED_BUSINESS_FREEZE
+DEPLOY=NOT_AUTHORIZED
+```
+
+Il nuovo candidate deve ripetere Apply/Validate e browser QA prima di full diff review e staging.
+
+## Browser QA follow-up — rail categorie mobile ai bordi — 7 settembre 2026
+
+CCP v1.3.4 ha superato Apply e Validate automatici sul branch
+`feat/rito-business-final-freeze-reconciliation`: frozen install, lint, production build, repository
+checksums, exact 38-path scope, payload/protected hashes e whitespace sono risultati PASS con zero
+staged path.
+
+Nel browser QA successivo il project owner ha rilevato un ultimo finding visuale sui filtri
+orizzontali: il rail categorie mostra un gutter esterno ai bordi viewport. L'audit del codice ha
+confermato il root cause nel compenso `-mx-1` / `px-1` applicato dentro `container-editorial` da 20 px
+e ha rilevato lo stesso pattern sia in `/galleria` sia in `/trattamenti`.
+
+BW-DEC-058 definisce il candidate successivo: rendere full-bleed la superficie mobile dei due rail,
+mantenendo i controlli allineati all'inset editoriale e preservando ogni comportamento di filtro,
+query/history e lightbox. `src/components/GalleryExplorer.tsx` entra quindi nell'allowlist cumulativa
+solo per questa correzione; lo scope finale passa da 38 a 39 path.
+
+```text
+BUSINESS_SOURCE_MAIN=b6a82f918370f730681e9e0c0572a7a653d2dfeb
+TARGET_BRANCH=feat/rito-business-final-freeze-reconciliation
+V1_3_4_APPLY_VALIDATE=PASSED
+V1_3_4_BROWSER_QA=FOLLOW_UP_REQUIRED
+V1_3_5_CATEGORY_RAIL_EDGE_FIX=REQUIRED
+CUMULATIVE_SCOPE=39_PATHS
+STAGED_PATHS=0
+BUSINESS_FREEZE=NOT_YET_DECLARED
+BUSINESS_PLUS=AFTER_VERIFIED_BUSINESS_FREEZE
+DEPLOY=NOT_AUTHORIZED
+```
+
+Il nuovo candidate deve ripetere Apply/Validate e browser QA sui due rail prima di full diff review,
+staging e freeze.
+
+## Final freeze candidate accepted — 7 settembre 2026
+
+Il candidate cumulativo v1.3.5 ha completato i gate pre-stage richiesti.
+
+```text
+BUSINESS_SOURCE_MAIN=b6a82f918370f730681e9e0c0572a7a653d2dfeb
+TARGET_BRANCH=feat/rito-business-final-freeze-reconciliation
+START_PARITY_SOURCE=family-start-v1.0@74ee03c4d39a974872f94f53d14ec2873815ccf7
+CCP=Tretnix-RITO-BUSINESS-Final-Freeze-Reconciliation-CCP-v1.3.5
+CUMULATIVE_SCOPE=39_PATHS
+AUTOMATED_VALIDATE=PASSED
+BROWSER_QA_V1_3_5=PASSED_BY_PROJECT_OWNER
+FULL_DIFF_REVIEW=PASSED
+STAGED_PATHS=0_AT_PRE_STAGE_GATE
+BUSINESS_FREEZE=AUTHORIZED_PENDING_GIT_CLOSURE
+PLANNED_FREEZE_TAG=family-business-v1.0
+BUSINESS_PLUS=AFTER_VERIFIED_FREEZE_TAG
+DEPLOY=NOT_PERFORMED
+```
+
+Automated evidence reported by the canonical Windows run:
+
+```text
+bun install --frozen-lockfile -> PASSED
+typecheck                    -> NOT AVAILABLE
+bun run lint                 -> PASSED
+tests                        -> NOT AVAILABLE
+bun run build                -> PASSED
+repository checksums         -> PASSED
+exact 39-path scope          -> PASSED
+payload/protected hashes     -> PASSED
+whitespace                   -> PASSED
+staged paths                 -> 0
+```
+
+The project owner then confirmed the final browser gate as PASS after the BW-DEC-058 category-rail
+fix, including the requested mobile edge behavior and the retained end-of-home-gallery gesture. No
+new browser finding remains open in the accepted candidate.
+
+The full diff review found no blocking scope, architecture, dependency, route, conversion, motion or
+documentation regression. The reconciliation is therefore ready for one exact stage + staged
+validation + commit/push/PR/merge sequence under BW-DEC-059.
+
+BUSINESS is **not yet declared frozen in this file** because the authoritative target SHA does not
+exist until the PR is merged. After merge, local/remote `main` must be verified and the annotated tag
+`family-business-v1.0` must point exactly to that SHA. Successful tag verification completes the
+freeze without requiring a post-freeze documentation commit.
