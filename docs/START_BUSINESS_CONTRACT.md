@@ -83,7 +83,8 @@ BUSINESS must retain or improve:
 - visible focus, semantic landmarks and correct heading structure;
 - drawer Escape handling, focus containment/return and body-scroll restoration;
 - `prefers-reduced-motion`;
-- no fictional reviews, metrics, credentials or commercial claims;
+- no synthetic reviews presented as authentic; demo fixtures follow `TRX-DEC-040`; no fictional
+  metrics, credentials or commercial claims;
 - no weakened authentication, authorization or RLS in any later backend scope.
 
 The detailed source remains `AGENTS.md`, `docs/TESTING.md`, `docs/ROUTES.md`,

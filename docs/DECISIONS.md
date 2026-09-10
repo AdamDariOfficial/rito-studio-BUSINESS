@@ -46,7 +46,9 @@
 
 ## BW-DEC-009 — Nessun contenuto inventato
 
-**Decisione:** vietare recensioni, metriche, certificazioni, risultati e attività reali inventate.
+**Decisione:** vietare recensioni presentate come autentiche, metriche, certificazioni, risultati
+e attività reali inventate. Le fixture recensione sintetiche sono ammesse nella portfolio demo
+soltanto secondo `TRX-DEC-040`, senza falsa attribuzione, falsi URL o structured data commerciali.
 
 ## BW-DEC-010 — Demo senza invio dati
 
@@ -1088,3 +1090,25 @@ SHA del merge.
 
 Qualsiasi mismatch di scope, staged state, remote main, PR diff, merge SHA o tag deve fermare la
 sequenza senza bypass.
+
+## BW-DEC-060 — Review surface demo corrente sulla home BUSINESS
+
+**Data:** 10 settembre 2026
+**Stato:** current-state override approvato da `TRX-DEC-040`; non riscrive la storia delle decisioni precedenti.
+
+Nel portfolio demo BUSINESS corrente `ReviewsSection` è abilitata e visibile di default con fixture
+typed in modalità `demo`, wording neutro, nessuna attribuzione o URL di piattaforma e nessuna metrica
+aggregata sintetica o review/rating structured data.
+
+La sua posizione corrente nella parte finale della composizione home è:
+
+```text
+GalleryRail
+FaqTeaser
+ReviewsSection
+BookingCTA
+PracticalInfo
+```
+
+Il ramo typed `authentic` resta disponibile esclusivamente per recensioni cliente verificate e non
+modifica route, query treatment, gallery, conversion architecture o identità visuale BUSINESS.

@@ -168,8 +168,9 @@ BUSINESS adds information architecture and depth. It is not an independent redes
 ## Demo integrity
 
 - Use fictional data only.
-- Do not invent reviews, ratings, awards, credentials, guarantees, metrics or
-  medical claims.
+- Synthetic reviews are allowed only as explicitly typed demo fixtures under `TRX-DEC-040`, with
+  neutral wording, no real-person or platform attribution, no fake URLs and no commercial review
+  structured data. Do not invent awards, credentials, guarantees, metrics or medical claims.
 - Do not pretend that a demo request or reservation was completed.
 - Keep every public route `noindex, follow` until an explicitly approved real-client
   launch.

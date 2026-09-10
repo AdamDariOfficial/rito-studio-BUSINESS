@@ -10,6 +10,43 @@ export type ContactChannel = {
   external?: boolean;
 };
 
+type ReviewBase = {
+  author: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  text: string;
+  dateLabel?: string;
+};
+
+export type DemoReview = ReviewBase & {
+  reviewUrl?: never;
+};
+
+export type AuthenticReview = ReviewBase & {
+  reviewUrl?: string;
+};
+
+export type DemoReviewsConfig = {
+  enabled: boolean;
+  mode: "demo";
+  platform?: never;
+  profileUrl?: never;
+  averageRating?: never;
+  reviewCount?: never;
+  reviews: readonly DemoReview[];
+};
+
+export type AuthenticReviewsConfig = {
+  enabled: boolean;
+  mode: "authentic";
+  platform?: string;
+  profileUrl?: string;
+  averageRating?: number;
+  reviewCount?: number;
+  reviews: readonly AuthenticReview[];
+};
+
+export type ReviewsConfig = DemoReviewsConfig | AuthenticReviewsConfig;
+
 const phone = "+39 049 000 0000";
 const phoneHref = "tel:+390490000000";
 const email = "info@ritostudio.example";
@@ -99,6 +136,30 @@ export const site = {
     { label: "Sabato", value: "09:00–17:00" },
     { label: "Domenica e lunedì", value: "chiuso" },
   ],
+  reviews: {
+    enabled: true,
+    mode: "demo",
+    reviews: [
+      {
+        author: "E.C.",
+        rating: 5,
+        text: "Un ambiente raccolto e preciso, con il tempo giusto per ascoltare e scegliere il trattamento con calma.",
+        dateLabel: "Contenuto dimostrativo",
+      },
+      {
+        author: "L.M.",
+        rating: 5,
+        text: "Gesti curati, spiegazioni chiare e un'atmosfera essenziale. Ogni passaggio sembra avere il suo ritmo.",
+        dateLabel: "Contenuto dimostrativo",
+      },
+      {
+        author: "S.R.",
+        rating: 4,
+        text: "Una proposta contemporanea e tranquilla, costruita intorno alle esigenze della persona senza fretta.",
+        dateLabel: "Contenuto dimostrativo",
+      },
+    ],
+  } satisfies ReviewsConfig,
   legal: {
     lastUpdated: "4 agosto 2026",
   },
